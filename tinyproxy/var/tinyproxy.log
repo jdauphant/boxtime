@@ -708,3 +708,1705 @@ INFO      May 11 15:13:20 [6028]: Creating child number 10 of 10 ...
 INFO      May 11 15:13:20 [6028]: Finished creating all children.
 INFO      May 11 15:13:20 [6028]: Setting the various signals.
 INFO      May 11 15:13:20 [6028]: Starting main loop. Accepting connections.
+INFO      May 11 15:23:56 [6576]: Initializing tinyproxy ...
+INFO      May 11 15:23:56 [6576]: Reloading config file
+INFO      May 11 15:23:56 [6576]: Setting "Via" header to 'tinyproxy'
+INFO      May 11 15:23:56 [6576]: Adding Port [443] to the list allowed by CONNECT
+INFO      May 11 15:23:56 [6576]: Adding Port [563] to the list allowed by CONNECT
+WARNING   May 11 15:23:56 [6576]: You SHOULD set a UserName in the config file. Using current user instead.
+WARNING   May 11 15:23:56 [6576]: Not running as root, so not changing UID/GID.
+INFO      May 11 15:23:56 [6576]: Creating child number 1 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 2 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 3 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 4 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 5 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 6 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 7 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 8 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 9 of 10 ...
+INFO      May 11 15:23:56 [6576]: Creating child number 10 of 10 ...
+INFO      May 11 15:23:56 [6576]: Finished creating all children.
+INFO      May 11 15:23:56 [6576]: Setting the various signals.
+INFO      May 11 15:23:56 [6576]: Starting main loop. Accepting connections.
+CONNECT   May 11 15:24:00 [6577]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6577]: Request (file descriptor 9): GET http://www.google.com/intl/en/options/ HTTP/1.1
+INFO      May 11 15:24:00 [6577]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6577]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6577]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6578]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6578]: Request (file descriptor 9): GET http://www.google.com/intl/en/about/products/ HTTP/1.1
+INFO      May 11 15:24:00 [6578]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6578]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6578]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6579]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6579]: Request (file descriptor 9): GET http://www.google.com/intl/en/about/products/default.css HTTP/1.1
+INFO      May 11 15:24:00 [6579]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6580]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6579]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6579]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6580]: Request (file descriptor 9): GET http://www.google.com/images/logos/google_logo_41.png HTTP/1.1
+INFO      May 11 15:24:00 [6580]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6581]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6581]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/search-32.png HTTP/1.1
+INFO      May 11 15:24:00 [6581]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6583]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6583]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/mobile-32.png HTTP/1.1
+INFO      May 11 15:24:00 [6583]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6582]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6584]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6582]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/chrome-32.png HTTP/1.1
+CONNECT   May 11 15:24:00 [6584]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/images-32.gif HTTP/1.1
+INFO      May 11 15:24:00 [6584]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6578]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6577]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6579]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6577]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/translate-32.png HTTP/1.1
+CONNECT   May 11 15:24:00 [6586]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6579]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/blogs-32.png HTTP/1.1
+CONNECT   May 11 15:24:00 [6586]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/groups-32.png HTTP/1.1
+CONNECT   May 11 15:24:00 [6585]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:00 [6586]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6580]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6582]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6578]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/drive-32.png HTTP/1.1
+INFO      May 11 15:24:00 [6578]: No proxy for www.google.com
+INFO      May 11 15:24:00 [6577]: No proxy for www.google.com
+INFO      May 11 15:24:00 [6579]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6581]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6583]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6584]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6586]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6585]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/news-32.png HTTP/1.1
+INFO      May 11 15:24:00 [6585]: No proxy for www.google.com
+INFO      May 11 15:24:00 [6580]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6580]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6580]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/scholar-32.png HTTP/1.1
+CONNECT   May 11 15:24:00 [6582]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6580]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6578]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6585]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6579]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6577]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6581]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6581]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6581]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/alerts-32.png HTTP/1.1
+INFO      May 11 15:24:00 [6581]: No proxy for www.google.com
+INFO      May 11 15:24:00 [6583]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6583]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6583]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/code-32.png HTTP/1.1
+INFO      May 11 15:24:00 [6583]: No proxy for www.google.com
+INFO      May 11 15:24:00 [6584]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6584]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6584]: Request (file descriptor 9): GET http://www.google.com/js/gweb/analytics/autotrack.js HTTP/1.1
+INFO      May 11 15:24:00 [6584]: No proxy for www.google.com
+INFO      May 11 15:24:00 [6586]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6586]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6586]: Request (file descriptor 9): GET http://www.google.com/intl/en/about/css/default.css HTTP/1.1
+INFO      May 11 15:24:00 [6586]: No proxy for www.google.com
+CONNECT   May 11 15:24:00 [6580]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6581]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6583]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6584]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:00 [6586]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6585]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6579]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6585]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:00 [6585]: Request (file descriptor 9): GET http://fonts.googleapis.com/css?family=Open+Sans:300,600,700 HTTP/1.1
+INFO      May 11 15:24:00 [6585]: No proxy for fonts.googleapis.com
+INFO      May 11 15:24:00 [6577]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6582]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6578]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6580]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:00 [6585]: Established connection to host "fonts.googleapis.com" using file descriptor 10.
+INFO      May 11 15:24:00 [6581]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6583]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6584]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6586]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:00 [6585]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:01 [6579]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:01 [6579]: Request (file descriptor 9): GET http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff HTTP/1.1
+INFO      May 11 15:24:01 [6579]: No proxy for themes.googleusercontent.com
+CONNECT   May 11 15:24:01 [6577]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:01 [6579]: Established connection to host "themes.googleusercontent.com" using file descriptor 10.
+CONNECT   May 11 15:24:01 [6577]: Request (file descriptor 9): GET http://www.google-analytics.com/__utm.gif?utmwv=5.4.1&utms=1&utmn=482545321&utmhn=www.google.com&utmcs=UTF-8&utmsr=1600x1200&utmvp=767x773&utmsc=24-bit&utmul=en-us&utmje=1&utmfl=11.0%20r1&utmdt=Google%20-%20Products&utmhid=1792306267&utmr=-&utmp=%2Fintl%2Fen%2Fabout%2Fproducts%2F&utmht=1368278641079&utmac=UA-17845800-8&utmcc=__utma%3D173272373.1959699254.1368278641.1368278641.1368278641.1%3B%2B__utmz%3D173272373.1368278641.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmu=qKC~ HTTP/1.1
+INFO      May 11 15:24:01 [6577]: No proxy for www.google-analytics.com
+INFO      May 11 15:24:01 [6579]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:01 [6577]: Established connection to host "www.google-analytics.com" using file descriptor 10.
+INFO      May 11 15:24:01 [6577]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:01 [6582]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:01 [6582]: Request (file descriptor 9): GET http://www.google.com/favicon.ico HTTP/1.1
+INFO      May 11 15:24:01 [6582]: No proxy for www.google.com
+CONNECT   May 11 15:24:01 [6582]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:01 [6582]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:07 [6578]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:07 [6578]: Request (file descriptor 9): CONNECT www.facebook.com:443 HTTP/1.1
+INFO      May 11 15:24:07 [6578]: No proxy for www.facebook.com
+CONNECT   May 11 15:24:07 [6578]: Established connection to host "www.facebook.com" using file descriptor 10.
+INFO      May 11 15:24:07 [6578]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:07 [6580]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:07 [6580]: Request (file descriptor 9): POST http://ocsp.verisign.com/ HTTP/1.1
+INFO      May 11 15:24:07 [6580]: No proxy for ocsp.verisign.com
+CONNECT   May 11 15:24:07 [6580]: Established connection to host "ocsp.verisign.com" using file descriptor 10.
+INFO      May 11 15:24:07 [6580]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:08 [6581]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:08 [6583]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:08 [6581]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+CONNECT   May 11 15:24:08 [6584]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:08 [6586]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:08 [6581]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:24:08 [6583]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:24:08 [6583]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:24:08 [6581]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:08 [6581]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:08 [6583]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:08 [6583]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:08 [6585]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:08 [6585]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+CONNECT   May 11 15:24:08 [6579]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:08 [6579]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:24:08 [6579]: No proxy for fbstatic-a.akamaihd.net
+INFO      May 11 15:24:08 [6585]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:24:08 [6579]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:08 [6579]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:08 [6585]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:08 [6585]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:08 [6584]: Request (file descriptor 9): CONNECT fbcdn-dragon-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:24:08 [6584]: No proxy for fbcdn-dragon-a.akamaihd.net
+CONNECT   May 11 15:24:08 [6586]: Request (file descriptor 9): CONNECT fbexternal-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:24:08 [6586]: No proxy for fbexternal-a.akamaihd.net
+CONNECT   May 11 15:24:08 [6586]: Established connection to host "fbexternal-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:08 [6586]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:08 [6584]: Established connection to host "fbcdn-dragon-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:08 [6584]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:09 [6577]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:09 [6582]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:09 [6577]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+CONNECT   May 11 15:24:09 [6580]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:09 [6582]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+CONNECT   May 11 15:24:09 [6580]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:24:09 [6580]: No proxy for fbstatic-a.akamaihd.net
+INFO      May 11 15:24:09 [6582]: No proxy for fbstatic-a.akamaihd.net
+INFO      May 11 15:24:09 [6577]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:24:09 [6580]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:09 [6580]: Not sending client headers to remote machine
+CONNECT   May 11 15:24:09 [6577]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+CONNECT   May 11 15:24:09 [6582]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:09 [6582]: Not sending client headers to remote machine
+INFO      May 11 15:24:09 [6577]: Not sending client headers to remote machine
+NOTICE    May 11 15:24:11 [6576]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:24:11 [6595]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:11 [6595]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:24:11 [6595]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:24:11 [6595]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:24:11 [6595]: Not sending client headers to remote machine
+INFO      May 11 15:24:21 [6597]: Initializing tinyproxy ...
+INFO      May 11 15:24:21 [6597]: Reloading config file
+INFO      May 11 15:24:21 [6597]: Setting "Via" header to 'tinyproxy'
+INFO      May 11 15:24:21 [6597]: Adding Port [443] to the list allowed by CONNECT
+INFO      May 11 15:24:21 [6597]: Adding Port [563] to the list allowed by CONNECT
+WARNING   May 11 15:24:21 [6597]: You SHOULD set a UserName in the config file. Using current user instead.
+WARNING   May 11 15:24:21 [6597]: Not running as root, so not changing UID/GID.
+INFO      May 11 15:24:21 [6597]: Creating child number 1 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 2 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 3 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 4 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 5 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 6 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 7 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 8 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 9 of 10 ...
+INFO      May 11 15:24:21 [6597]: Creating child number 10 of 10 ...
+INFO      May 11 15:24:21 [6597]: Finished creating all children.
+INFO      May 11 15:24:21 [6597]: Setting the various signals.
+INFO      May 11 15:24:21 [6597]: Starting main loop. Accepting connections.
+CONNECT   May 11 15:24:23 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+ERROR     May 11 15:24:23 [6598]: read_request_line: Client (file descriptor: 9) closed socket before read.
+ERROR     May 11 15:24:23 [6598]: Error reading readble client_fd 9
+WARNING   May 11 15:24:23 [6598]: Could not retrieve request entity
+CONNECT   May 11 15:24:23 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:23 [6599]: Request (file descriptor 9): CONNECT www.facebook.com:443 HTTP/1.1
+NOTICE    May 11 15:24:23 [6599]: Proxying refused on filtered domain "www.facebook.com"
+INFO      May 11 15:24:23 [6599]: no entity
+CONNECT   May 11 15:24:25 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6600]: Request (file descriptor 9): GET http://www.google.com/intl/en/about/products/ HTTP/1.1
+INFO      May 11 15:24:25 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6601]: Request (file descriptor 9): GET http://www.google.com/intl/en/about/products/default.css HTTP/1.1
+INFO      May 11 15:24:25 [6601]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6602]: Request (file descriptor 9): GET http://www.google.com/images/logos/google_logo_41.png HTTP/1.1
+INFO      May 11 15:24:25 [6602]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6603]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/search-32.png HTTP/1.1
+INFO      May 11 15:24:25 [6603]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6606]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/images-32.gif HTTP/1.1
+CONNECT   May 11 15:24:25 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6604]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/chrome-32.png HTTP/1.1
+CONNECT   May 11 15:24:25 [6605]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/mobile-32.png HTTP/1.1
+CONNECT   May 11 15:24:25 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:25 [6605]: No proxy for www.google.com
+INFO      May 11 15:24:25 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6598]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/drive-32.png HTTP/1.1
+CONNECT   May 11 15:24:25 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:25 [6604]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6607]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/news-32.png HTTP/1.1
+INFO      May 11 15:24:25 [6598]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:25 [6607]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6599]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/translate-32.png HTTP/1.1
+CONNECT   May 11 15:24:25 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6599]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6600]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/groups-32.png HTTP/1.1
+INFO      May 11 15:24:25 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:25 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6601]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/blogs-32.png HTTP/1.1
+INFO      May 11 15:24:25 [6601]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6602]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/scholar-32.png HTTP/1.1
+INFO      May 11 15:24:25 [6602]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6603]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/alerts-32.png HTTP/1.1
+INFO      May 11 15:24:25 [6603]: No proxy for www.google.com
+INFO      May 11 15:24:25 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6606]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/code-32.png HTTP/1.1
+INFO      May 11 15:24:25 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6605]: Request (file descriptor 9): GET http://www.google.com/js/gweb/analytics/autotrack.js HTTP/1.1
+INFO      May 11 15:24:25 [6605]: No proxy for www.google.com
+CONNECT   May 11 15:24:25 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:25 [6606]: No proxy for www.google.com
+INFO      May 11 15:24:25 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:25 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/about/css/default.css HTTP/1.1
+CONNECT   May 11 15:24:25 [6598]: Request (file descriptor 9): GET http://fonts.googleapis.com/css?family=Open+Sans:300,600,700 HTTP/1.1
+INFO      May 11 15:24:25 [6604]: No proxy for www.google.com
+INFO      May 11 15:24:25 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6598]: No proxy for fonts.googleapis.com
+INFO      May 11 15:24:25 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6598]: Established connection to host "fonts.googleapis.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:25 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:25 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:25 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:25 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6599]: Request (file descriptor 9): GET http://www.google-analytics.com/ga.js HTTP/1.1
+INFO      May 11 15:24:25 [6599]: No proxy for www.google-analytics.com
+CONNECT   May 11 15:24:25 [6599]: Established connection to host "www.google-analytics.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:25 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:25 [6607]: Request (file descriptor 9): GET http://www.google-analytics.com/__utm.gif?utmwv=5.4.1&utms=2&utmn=1509190941&utmhn=www.google.com&utmcs=UTF-8&utmsr=1600x1200&utmvp=767x773&utmsc=24-bit&utmul=en-us&utmje=1&utmfl=11.0%20r1&utmdt=Google%20-%20Products&utmhid=1453650795&utmr=-&utmp=%2Fintl%2Fen%2Fabout%2Fproducts%2F&utmht=1368278665536&utmac=UA-17845800-8&utmcc=__utma%3D173272373.1959699254.1368278641.1368278641.1368278641.1%3B%2B__utmz%3D173272373.1368278641.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmu=qKC~ HTTP/1.1
+INFO      May 11 15:24:25 [6607]: No proxy for www.google-analytics.com
+CONNECT   May 11 15:24:25 [6607]: Established connection to host "www.google-analytics.com" using file descriptor 10.
+INFO      May 11 15:24:25 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/ HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/js/google.js HTTP/1.1
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en HTTP/1.1
+INFO      May 11 15:24:27 [6602]: No proxy for fonts.googleapis.com
+CONNECT   May 11 15:24:27 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/css/index.css HTTP/1.1
+INFO      May 11 15:24:27 [6603]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6602]: Established connection to host "fonts.googleapis.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6605]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/promos/howsearchworks.jpg HTTP/1.1
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:27 [6605]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/promos/knowledgeps.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6598]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6606]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/promos/voicesearch-gsa.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/card-next.png HTTP/1.1
+INFO      May 11 15:24:27 [6604]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/19970904search.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6599]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6607]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/card-prev.png HTTP/1.1
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:27 [6607]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/globe-b128.png HTTP/1.1
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20000912languages.png HTTP/1.1
+CONNECT   May 11 15:24:27 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/logos/googleburn.jpg HTTP/1.1
+CONNECT   May 11 15:24:27 [6603]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20000626search.png HTTP/1.1
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6603]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/toolbar-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6599]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20010327languages.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6604]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6606]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/images-128.gif HTTP/1.1
+CONNECT   May 11 15:24:27 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20011211search.png HTTP/1.1
+INFO      May 11 15:24:27 [6598]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6607]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/line_graph-b128.png HTTP/1.1
+INFO      May 11 15:24:27 [6607]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6605]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/news-128.gif HTTP/1.1
+INFO      May 11 15:24:27 [6605]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20040217search.png HTTP/1.1
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20021212froogle.png HTTP/1.1
+INFO      May 11 15:24:27 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/googlemail-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/scholar-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6603]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/desktop-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6598]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/sms-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6599]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20041110search.png HTTP/1.1
+INFO      May 11 15:24:27 [6604]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:27 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6605]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/books-128.gif HTTP/1.1
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:27 [6605]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6607]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/video-128.gif HTTP/1.1
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20050207images.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6606]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20050519igoogle.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6606]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6607]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/translate-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/blogs-128.gif HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/finance-128.gif HTTP/1.1
+INFO      May 11 15:24:27 [6603]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20060510trends.png HTTP/1.1
+INFO      May 11 15:24:27 [6598]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20061023custom.png HTTP/1.1
+INFO      May 11 15:24:27 [6599]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6604]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/patents-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6604]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6605]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/search-128.gif HTTP/1.1
+INFO      May 11 15:24:27 [6605]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/logos/us_doodle4google08.gif HTTP/1.1
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/filing_cabinet_search-g128.png HTTP/1.1
+INFO      May 11 15:24:27 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6607]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/knol-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6607]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20080725trillion.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6606]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20080825suggest.png HTTP/1.1
+INFO      May 11 15:24:27 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/chrome-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6603]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/css/maia.css HTTP/1.1
+INFO      May 11 15:24:27 [6598]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Request (file descriptor 9): GET http://www.youtube.com/embed/-cZ4mdrlWYM?rel=0&showinfo=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:24:27 [6599]: No proxy for www.youtube.com
+INFO      May 11 15:24:27 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6604]: Request (file descriptor 9): GET http://www.youtube.com/embed/TYHCeUfoAnw?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:24:27 [6604]: No proxy for www.youtube.com
+INFO      May 11 15:24:27 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6605]: Request (file descriptor 9): GET http://www.youtube.com/embed/F0QXB5pw2qE?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:24:27 [6605]: No proxy for www.youtube.com
+INFO      May 11 15:24:27 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://www.youtube.com/embed/mmQl6VGvX-c?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:24:27 [6602]: No proxy for www.youtube.com
+INFO      May 11 15:24:27 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6607]: Request (file descriptor 9): GET http://www.youtube.com/embed/uyeJXKfAcpc?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:24:27 [6607]: No proxy for www.youtube.com
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6599]: Established connection to host "www.youtube.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6604]: Established connection to host "www.youtube.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6605]: Established connection to host "www.youtube.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6602]: Established connection to host "www.youtube.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6607]: Established connection to host "www.youtube.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/logos/10th_birthday.gif HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20080924project10.png HTTP/1.1
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6606]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/profiles-b128.png HTTP/1.1
+CONNECT   May 11 15:24:27 [6603]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/search-b128.png HTTP/1.1
+INFO      May 11 15:24:27 [6603]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:27 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/logos/us_doodle4google09.gif HTTP/1.1
+CONNECT   May 11 15:24:27 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6598]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100826realtime.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/images/icons/apps/goggles-128.png HTTP/1.1
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6606]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100207parisianlove.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6603]: Request (file descriptor 9): GET http://www.google.com/logos/newton10-tree.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100401topeka.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6599]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6603]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6605]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100505searchresults.png HTTP/1.1
+INFO      May 11 15:24:27 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:27 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6607]: Request (file descriptor 9): GET http://www.google.com/logos/d4gwinner10-us-hp.gif HTTP/1.1
+INFO      May 11 15:24:27 [6607]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100602personalize.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6604]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6605]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://www.google.com/logos/pacman10-hp.png HTTP/1.1
+INFO      May 11 15:24:27 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100608caffeine.png HTTP/1.1
+INFO      May 11 15:24:27 [6598]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/logos/2010/particle-hp.png HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Request (file descriptor 9): GET http://www.google.com/logos/2010/buckyball10-hp.gif HTTP/1.1
+CONNECT   May 11 15:24:27 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6601]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6606]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100908instant.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6599]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100920transparency.png HTTP/1.1
+INFO      May 11 15:24:27 [6599]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6607]: Request (file descriptor 9): GET http://www.google.com/logos/happy-birthday-hp.gif HTTP/1.1
+INFO      May 11 15:24:27 [6607]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101027placesearch.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6604]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6600]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101109preview.jpg HTTP/1.1
+INFO      May 11 15:24:27 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:27 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6602]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101203nba.png HTTP/1.1
+INFO      May 11 15:24:27 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:27 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:24:27 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:27 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:27 [6605]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/chrome_web_store-128.png HTTP/1.1
+INFO      May 11 15:24:28 [6605]: No proxy for www.google.com
+CONNECT   May 11 15:24:27 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:27 [6598]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101203placesearch.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6598]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6603]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101210instantmobile.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6603]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6606]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110217social.png HTTP/1.1
+INFO      May 11 15:24:28 [6606]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6599]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110224recipes.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6599]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6601]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110302gprofiles.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6601]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6607]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110308instantmobile.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6607]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6602]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110330plusone.png HTTP/1.1
+INFO      May 11 15:24:28 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6605]: Request (file descriptor 9): GET http://www.google.com/logos/2011/chaplin11-hp.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:28 [6605]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6600]: Request (file descriptor 9): GET http://www.google.com/logos/2011/lespaul11-hp.png HTTP/1.1
+INFO      May 11 15:24:28 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110509imagesort.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6604]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6598]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110614instantpages.png HTTP/1.1
+INFO      May 11 15:24:28 [6598]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6603]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110614voicesearch.png HTTP/1.1
+INFO      May 11 15:24:28 [6603]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6606]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110614searchbyimage.png HTTP/1.1
+INFO      May 11 15:24:28 [6606]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6599]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110913flights.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6599]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6601]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120110relatedpeople.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6601]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6607]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6607]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120110profilesinsearch.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6607]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6605]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6605]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120110personalresults.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6605]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6602]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6602]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120808knowledge.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6602]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6600]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-prev.png HTTP/1.1
+INFO      May 11 15:24:28 [6600]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6603]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6603]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-next.png HTTP/1.1
+INFO      May 11 15:24:28 [6603]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6604]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6604]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-card-pointer.png HTTP/1.1
+INFO      May 11 15:24:28 [6604]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6607]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6606]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6605]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6606]: Request (file descriptor 9): GET http://www.google.com/logos/2010/lennon10-hp.gif HTTP/1.1
+INFO      May 11 15:24:28 [6606]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6598]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6598]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101209zeitgeist.jpg HTTP/1.1
+INFO      May 11 15:24:28 [6598]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6602]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6599]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6599]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6599]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/knowledge/knowledge-van-gogh.png HTTP/1.1
+INFO      May 11 15:24:28 [6599]: No proxy for www.google.com
+CONNECT   May 11 15:24:28 [6603]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6604]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6606]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6598]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:28 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6600]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6600]: Request (file descriptor 9): GET http://www.google.com/js/maia.js HTTP/1.1
+INFO      May 11 15:24:28 [6600]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6605]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6601]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:24:28 [6599]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6607]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:28 [6603]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6601]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/js/timeline.view.js HTTP/1.1
+INFO      May 11 15:24:28 [6601]: No proxy for www.google.com
+INFO      May 11 15:24:28 [6602]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:28 [6606]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:28 [6604]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:28 [6598]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:24:28 [6600]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:24:28 [6601]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:24:28 [6600]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:24:28 [6601]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:50 [6671]: Initializing tinyproxy ...
+INFO      May 11 15:25:50 [6671]: Reloading config file
+INFO      May 11 15:25:50 [6671]: Setting "Via" header to 'tinyproxy'
+INFO      May 11 15:25:50 [6671]: Adding Port [443] to the list allowed by CONNECT
+INFO      May 11 15:25:50 [6671]: Adding Port [563] to the list allowed by CONNECT
+WARNING   May 11 15:25:50 [6671]: You SHOULD set a UserName in the config file. Using current user instead.
+WARNING   May 11 15:25:50 [6671]: Not running as root, so not changing UID/GID.
+INFO      May 11 15:25:50 [6671]: Creating child number 1 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 2 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 3 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 4 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 5 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 6 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 7 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 8 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 9 of 10 ...
+INFO      May 11 15:25:50 [6671]: Creating child number 10 of 10 ...
+INFO      May 11 15:25:50 [6671]: Finished creating all children.
+INFO      May 11 15:25:50 [6671]: Setting the various signals.
+INFO      May 11 15:25:50 [6671]: Starting main loop. Accepting connections.
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/ HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.google.com/js/google.js HTTP/1.1
+INFO      May 11 15:25:52 [6673]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en HTTP/1.1
+INFO      May 11 15:25:52 [6674]: No proxy for fonts.googleapis.com
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/css/index.css HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "fonts.googleapis.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/js/timeline.view.js HTTP/1.1
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/js/maia.js HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google-analytics.com/ga.js HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google-analytics.com
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/promos/howsearchworks.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/images/logos/google_logo_41.png HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/promos/voicesearch-gsa.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google-analytics.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/19970904search.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/card-next.png HTTP/1.1
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/card-prev.png HTTP/1.1
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/logos/googleburn.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6673]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/globe-b128.png HTTP/1.1
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/promos/knowledgeps.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20000626search.png HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20000912languages.png HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/toolbar-128.png HTTP/1.1
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20010327languages.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/images-128.gif HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20011211search.png HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20021212froogle.png HTTP/1.1
+INFO      May 11 15:25:52 [6673]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20040217search.png HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/line_graph-b128.png HTTP/1.1
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/news-128.gif HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/googlemail-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/scholar-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/sms-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/desktop-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20041110search.png HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/books-128.gif HTTP/1.1
+INFO      May 11 15:25:52 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/video-128.gif HTTP/1.1
+INFO      May 11 15:25:52 [6673]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20050207images.jpg HTTP/1.1
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20050519igoogle.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/translate-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/blogs-128.gif HTTP/1.1
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/finance-128.gif HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.youtube.com/embed/-cZ4mdrlWYM?rel=0&showinfo=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.youtube.com
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.youtube.com/embed/TYHCeUfoAnw?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.youtube.com
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.youtube.com/embed/F0QXB5pw2qE?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.youtube.com
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.youtube.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.youtube.com/embed/mmQl6VGvX-c?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.youtube.com
+INFO      May 11 15:25:52 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.youtube.com/embed/uyeJXKfAcpc?rel=0&fs=1&wmode=transparent&cc_load_policy=1&hl=en&cc_lang_pref=en HTTP/1.1
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6673]: No proxy for www.youtube.com
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.youtube.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20060510trends.png HTTP/1.1
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20061023custom.png HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.youtube.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.youtube.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/search-128.gif HTTP/1.1
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/patents-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/logos/us_doodle4google08.gif HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.youtube.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/filing_cabinet_search-g128.png HTTP/1.1
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/knol-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20080725trillion.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20080825suggest.png HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/chrome-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/logos/10th_birthday.gif HTTP/1.1
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20080924project10.png HTTP/1.1
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/profiles-b128.png HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/images/icons/feature/search-b128.png HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/logos/us_doodle4google09.gif HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/images/icons/apps/goggles-128.png HTTP/1.1
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/logos/newton10-tree.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100826realtime.jpg HTTP/1.1
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100401topeka.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100207parisianlove.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100505searchresults.png HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100602personalize.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/logos/2010/buckyball10-hp.gif HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/logos/pacman10-hp.png HTTP/1.1
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/logos/2010/particle-hp.png HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100908instant.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100608caffeine.png HTTP/1.1
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/logos/happy-birthday-hp.gif HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20100920transparency.png HTTP/1.1
+INFO      May 11 15:25:52 [6673]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/logos/d4gwinner10-us-hp.gif HTTP/1.1
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101027placesearch.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101109preview.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101203nba.png HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101203placesearch.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/images/icons/product/chrome_web_store-128.png HTTP/1.1
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101210instantmobile.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110217social.png HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110224recipes.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110302gprofiles.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6673]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110308instantmobile.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110330plusone.png HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.google.com/logos/2011/chaplin11-hp.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110509imagesort.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/logos/2011/lespaul11-hp.png HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110614instantpages.png HTTP/1.1
+INFO      May 11 15:25:52 [6674]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:52 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6676]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110614voicesearch.png HTTP/1.1
+INFO      May 11 15:25:52 [6676]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6680]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110614searchbyimage.png HTTP/1.1
+INFO      May 11 15:25:52 [6680]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6673]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20110913flights.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6673]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6678]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120110relatedpeople.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6678]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6679]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120110profilesinsearch.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6679]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:52 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6672]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120808knowledge.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6672]: No proxy for www.google.com
+INFO      May 11 15:25:52 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:52 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6677]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-prev.png HTTP/1.1
+INFO      May 11 15:25:52 [6677]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6681]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-next.png HTTP/1.1
+INFO      May 11 15:25:52 [6681]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:52 [6675]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20120110personalresults.jpg HTTP/1.1
+INFO      May 11 15:25:52 [6675]: No proxy for www.google.com
+CONNECT   May 11 15:25:52 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6679]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:52 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:53 [6677]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:53 [6681]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:53 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-card-pointer.png HTTP/1.1
+INFO      May 11 15:25:53 [6674]: No proxy for www.google.com
+INFO      May 11 15:25:53 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6680]: Request (file descriptor 9): GET http://www.google.com/logos/2010/lennon10-hp.gif HTTP/1.1
+INFO      May 11 15:25:53 [6680]: No proxy for www.google.com
+INFO      May 11 15:25:53 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6673]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/20101209zeitgeist.jpg HTTP/1.1
+INFO      May 11 15:25:53 [6673]: No proxy for www.google.com
+INFO      May 11 15:25:53 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6678]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/knowledge/knowledge-van-gogh.png HTTP/1.1
+CONNECT   May 11 15:25:53 [6680]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6678]: No proxy for www.google.com
+CONNECT   May 11 15:25:53 [6673]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6678]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6673]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6676]: Request (file descriptor 9): GET http://www.google.com/css/maia.css HTTP/1.1
+INFO      May 11 15:25:53 [6676]: No proxy for www.google.com
+CONNECT   May 11 15:25:53 [6676]: Established connection to host "www.google.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6676]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6679]: Request (file descriptor 9): GET http://www.google-analytics.com/__utm.gif?utmwv=5.4.1&utms=3&utmn=848260958&utmhn=www.google.com&utmcs=UTF-8&utmsr=1600x1200&utmvp=767x760&utmsc=24-bit&utmul=en-us&utmje=1&utmfl=11.0%20r1&utmdt=Inside%20Search%20%E2%80%93%20Google&utmhid=1885151273&utmr=http%3A%2F%2Fwww.google.com%2Fintl%2Fen%2Fabout%2Fproducts%2F&utmp=%2Fintl%2Fen%2Finsidesearch%2F&utmht=1368278753191&utmac=UA-22442000-1&utmcc=__utma%3D173272373.1986619351.1368278667.1368278667.1368278667.1%3B%2B__utmz%3D173272373.1368278667.1.1.utmcsr%3Dgoogle.com%7Cutmccn%3D(referral)%7Cutmcmd%3Dreferral%7Cutmcct%3D%2Fintl%2Fen%2Fabout%2Fproducts%2F%3B&utmu=qKC~ HTTP/1.1
+INFO      May 11 15:25:53 [6679]: No proxy for www.google-analytics.com
+CONNECT   May 11 15:25:53 [6679]: Established connection to host "www.google-analytics.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6679]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6677]: Request (file descriptor 9): GET http://s.ytimg.com/yts/cssbin/www-embed-vfl6y1kFr.css HTTP/1.1
+INFO      May 11 15:25:53 [6677]: No proxy for s.ytimg.com
+CONNECT   May 11 15:25:53 [6677]: Established connection to host "s.ytimg.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6677]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6681]: Request (file descriptor 9): GET http://s.ytimg.com/yts/jsbin/www-embed-vflUXPQB-.js HTTP/1.1
+INFO      May 11 15:25:53 [6681]: No proxy for s.ytimg.com
+CONNECT   May 11 15:25:53 [6681]: Established connection to host "s.ytimg.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6681]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6672]: Request (file descriptor 9): GET http://www.google.com/images/gweb/lightbox/loading.gif HTTP/1.1
+INFO      May 11 15:25:53 [6672]: No proxy for www.google.com
+CONNECT   May 11 15:25:53 [6675]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-yearscale.png HTTP/1.1
+INFO      May 11 15:25:53 [6675]: No proxy for www.google.com
+CONNECT   May 11 15:25:53 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6674]: Request (file descriptor 9): GET http://www.google.com/intl/en/insidesearch/images/timeline/timeline-indicator.png HTTP/1.1
+INFO      May 11 15:25:53 [6674]: No proxy for www.google.com
+CONNECT   May 11 15:25:53 [6680]: Request (file descriptor 9): GET http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff HTTP/1.1
+INFO      May 11 15:25:53 [6680]: No proxy for themes.googleusercontent.com
+CONNECT   May 11 15:25:53 [6672]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:53 [6675]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:53 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+ERROR     May 11 15:25:53 [6673]: read_request_line: Client (file descriptor: 9) closed socket before read.
+ERROR     May 11 15:25:53 [6673]: Error reading readble client_fd 9
+WARNING   May 11 15:25:53 [6673]: Could not retrieve request entity
+CONNECT   May 11 15:25:53 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6674]: Established connection to host "www.google.com" using file descriptor 10.
+CONNECT   May 11 15:25:53 [6680]: Established connection to host "themes.googleusercontent.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6672]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6675]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6674]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:25:53 [6680]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6678]: Request (file descriptor 9): GET http://www.google-analytics.com/__utm.gif?utmwv=5.4.1&utms=4&utmn=2049884951&utmhn=www.google.com&utme=8(Maia%3A%20Device%20Pixel%20Ratio)9(1)&utmcs=UTF-8&utmsr=1600x1200&utmvp=767x760&utmsc=24-bit&utmul=en-us&utmje=1&utmfl=11.0%20r1&utmdt=Inside%20Search%20%E2%80%93%20Google&utmhid=1885151273&utmr=http%3A%2F%2Fwww.google.com%2Fintl%2Fen%2Fabout%2Fproducts%2F&utmp=%2Fintl%2Fen%2Finsidesearch%2F&utmht=1368278753628&utmac=UA-12481063-5&utmcc=__utma%3D173272373.1986619351.1368278667.1368278667.1368278667.1%3B%2B__utmz%3D173272373.1368278667.1.1.utmcsr%3Dgoogle.com%7Cutmccn%3D(referral)%7Cutmcmd%3Dreferral%7Cutmcct%3D%2Fintl%2Fen%2Fabout%2Fproducts%2F%3B&utmu=qaCg~ HTTP/1.1
+CONNECT   May 11 15:25:53 [6676]: Connect (file descriptor 9): localhost [127.0.0.1]
+INFO      May 11 15:25:53 [6678]: No proxy for www.google-analytics.com
+CONNECT   May 11 15:25:53 [6676]: Request (file descriptor 9): CONNECT apis.google.com:443 HTTP/1.1
+INFO      May 11 15:25:53 [6676]: No proxy for apis.google.com
+CONNECT   May 11 15:25:53 [6678]: Established connection to host "www.google-analytics.com" using file descriptor 10.
+CONNECT   May 11 15:25:53 [6676]: Established connection to host "apis.google.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6676]: Not sending client headers to remote machine
+CONNECT   May 11 15:25:53 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+ERROR     May 11 15:25:53 [6679]: read_request_line: Client (file descriptor: 9) closed socket before read.
+ERROR     May 11 15:25:53 [6679]: Error reading readble client_fd 9
+WARNING   May 11 15:25:53 [6679]: Could not retrieve request entity
+INFO      May 11 15:25:53 [6678]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:25:53 [6677]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:53 [6677]: Request (file descriptor 9): CONNECT www.facebook.com:443 HTTP/1.1
+INFO      May 11 15:25:53 [6677]: No proxy for www.facebook.com
+CONNECT   May 11 15:25:53 [6677]: Established connection to host "www.facebook.com" using file descriptor 10.
+INFO      May 11 15:25:53 [6677]: Not sending client headers to remote machine
+CONNECT   May 11 15:25:54 [6681]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6673]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6672]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6675]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6674]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6681]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6681]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6673]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6673]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6680]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6680]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6680]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6679]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6679]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6679]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6678]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:54 [6678]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6678]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6681]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:25:54 [6681]: Not sending client headers to remote machine
+CONNECT   May 11 15:25:54 [6678]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+CONNECT   May 11 15:25:54 [6673]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:25:54 [6673]: Not sending client headers to remote machine
+CONNECT   May 11 15:25:54 [6680]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:25:54 [6680]: Not sending client headers to remote machine
+INFO      May 11 15:25:54 [6678]: Not sending client headers to remote machine
+CONNECT   May 11 15:25:54 [6679]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:25:54 [6679]: Not sending client headers to remote machine
+CONNECT   May 11 15:25:54 [6672]: Request (file descriptor 9): CONNECT fbcdn-dragon-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6672]: No proxy for fbcdn-dragon-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6675]: Request (file descriptor 9): CONNECT fbcdn-dragon-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6675]: No proxy for fbcdn-dragon-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6674]: Request (file descriptor 9): CONNECT fbexternal-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:25:54 [6674]: No proxy for fbexternal-a.akamaihd.net
+CONNECT   May 11 15:25:54 [6672]: Established connection to host "fbcdn-dragon-a.akamaihd.net" using file descriptor 10.
+CONNECT   May 11 15:25:54 [6675]: Established connection to host "fbcdn-dragon-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:25:54 [6675]: Not sending client headers to remote machine
+INFO      May 11 15:25:54 [6672]: Not sending client headers to remote machine
+CONNECT   May 11 15:25:54 [6674]: Established connection to host "fbexternal-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:25:54 [6674]: Not sending client headers to remote machine
+NOTICE    May 11 15:25:55 [6671]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:25:55 [6710]: Connect (file descriptor 9): localhost [127.0.0.1]
+ERROR     May 11 15:25:55 [6710]: read_request_line: Client (file descriptor: 9) closed socket before read.
+ERROR     May 11 15:25:55 [6710]: Error reading readble client_fd 9
+WARNING   May 11 15:25:55 [6710]: Could not retrieve request entity
+CONNECT   May 11 15:25:55 [6710]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:25:55 [6710]: Request (file descriptor 9): CONNECT ssl.gstatic.com:443 HTTP/1.1
+INFO      May 11 15:25:55 [6710]: No proxy for ssl.gstatic.com
+CONNECT   May 11 15:25:55 [6710]: Established connection to host "ssl.gstatic.com" using file descriptor 10.
+INFO      May 11 15:25:55 [6710]: Not sending client headers to remote machine
+NOTICE    May 11 15:26:00 [6671]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:26:00 [6713]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:26:00 [6713]: Request (file descriptor 9): CONNECT fbcdn-dragon-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:26:00 [6713]: No proxy for fbcdn-dragon-a.akamaihd.net
+CONNECT   May 11 15:26:00 [6713]: Established connection to host "fbcdn-dragon-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:26:00 [6713]: Not sending client headers to remote machine
+INFO      May 11 15:26:15 [6723]: Initializing tinyproxy ...
+INFO      May 11 15:26:15 [6723]: Reloading config file
+INFO      May 11 15:26:15 [6723]: Setting "Via" header to 'tinyproxy'
+INFO      May 11 15:26:15 [6723]: Adding Port [443] to the list allowed by CONNECT
+INFO      May 11 15:26:15 [6723]: Adding Port [563] to the list allowed by CONNECT
+WARNING   May 11 15:26:15 [6723]: You SHOULD set a UserName in the config file. Using current user instead.
+WARNING   May 11 15:26:15 [6723]: Not running as root, so not changing UID/GID.
+INFO      May 11 15:26:15 [6723]: Creating child number 1 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 2 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 3 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 4 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 5 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 6 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 7 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 8 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 9 of 10 ...
+INFO      May 11 15:26:15 [6723]: Creating child number 10 of 10 ...
+INFO      May 11 15:26:15 [6723]: Finished creating all children.
+INFO      May 11 15:26:15 [6723]: Setting the various signals.
+INFO      May 11 15:26:15 [6723]: Starting main loop. Accepting connections.
+INFO      May 11 15:31:03 [6940]: Initializing tinyproxy ...
+INFO      May 11 15:31:03 [6940]: Reloading config file
+INFO      May 11 15:31:03 [6940]: Setting "Via" header to 'tinyproxy'
+INFO      May 11 15:31:03 [6940]: Adding Port [443] to the list allowed by CONNECT
+INFO      May 11 15:31:03 [6940]: Adding Port [563] to the list allowed by CONNECT
+WARNING   May 11 15:31:03 [6940]: You SHOULD set a UserName in the config file. Using current user instead.
+WARNING   May 11 15:31:03 [6940]: Not running as root, so not changing UID/GID.
+INFO      May 11 15:31:03 [6940]: Creating child number 1 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 2 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 3 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 4 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 5 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 6 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 7 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 8 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 9 of 10 ...
+INFO      May 11 15:31:03 [6940]: Creating child number 10 of 10 ...
+INFO      May 11 15:31:03 [6940]: Finished creating all children.
+INFO      May 11 15:31:03 [6940]: Setting the various signals.
+INFO      May 11 15:31:03 [6940]: Starting main loop. Accepting connections.
+CONNECT   May 11 15:31:05 [6941]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:31:05 [6942]: Connect (file descriptor 9): localhost [127.0.0.1]
+ERROR     May 11 15:31:05 [6941]: read_request_line: Client (file descriptor: 9) closed socket before read.
+CONNECT   May 11 15:31:05 [6942]: Request (file descriptor 9): CONNECT www.facebook.com:443 HTTP/1.1
+NOTICE    May 11 15:31:05 [6942]: Proxying refused on filtered domain "www.facebook.com"
+INFO      May 11 15:31:05 [6942]: no entity
+ERROR     May 11 15:31:05 [6941]: Error reading readble client_fd 9
+WARNING   May 11 15:31:05 [6941]: Could not retrieve request entity
+CONNECT   May 11 15:31:06 [6943]: Connect (file descriptor 9): localhost [127.0.0.1]
+ERROR     May 11 15:31:06 [6943]: read_request_line: Client (file descriptor: 9) closed socket before read.
+ERROR     May 11 15:31:06 [6943]: Error reading readble client_fd 9
+WARNING   May 11 15:31:06 [6943]: Could not retrieve request entity
+CONNECT   May 11 15:31:06 [6944]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:31:06 [6944]: Request (file descriptor 9): CONNECT www.facebook.com:443 HTTP/1.1
+NOTICE    May 11 15:31:06 [6944]: Proxying refused on filtered domain "www.facebook.com"
+INFO      May 11 15:31:06 [6944]: no entity
+CONNECT   May 11 15:31:08 [6945]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:31:09 [6945]: Request (file descriptor 9): GET http://www.facebook.com/ HTTP/1.1
+NOTICE    May 11 15:31:09 [6945]: Proxying refused on filtered domain "www.facebook.com"
+INFO      May 11 15:31:09 [6945]: no entity
+CONNECT   May 11 15:31:13 [6946]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:31:13 [6946]: Request (file descriptor 9): GET http://www.facebook.com/ HTTP/1.1
+NOTICE    May 11 15:31:13 [6946]: Proxying refused on filtered domain "www.facebook.com"
+INFO      May 11 15:31:13 [6946]: no entity
+CONNECT   May 11 15:31:14 [6947]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:31:14 [6947]: Request (file descriptor 9): GET http://www.facebook.com/ HTTP/1.1
+NOTICE    May 11 15:31:14 [6947]: Proxying refused on filtered domain "www.facebook.com"
+INFO      May 11 15:31:14 [6947]: no entity
+INFO      May 11 15:32:27 [7000]: Initializing tinyproxy ...
+INFO      May 11 15:32:27 [7000]: Reloading config file
+INFO      May 11 15:32:27 [7000]: Setting "Via" header to 'tinyproxy'
+INFO      May 11 15:32:27 [7000]: Adding Port [443] to the list allowed by CONNECT
+INFO      May 11 15:32:27 [7000]: Adding Port [563] to the list allowed by CONNECT
+WARNING   May 11 15:32:27 [7000]: You SHOULD set a UserName in the config file. Using current user instead.
+WARNING   May 11 15:32:27 [7000]: Not running as root, so not changing UID/GID.
+INFO      May 11 15:32:27 [7000]: Creating child number 1 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 2 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 3 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 4 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 5 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 6 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 7 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 8 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 9 of 10 ...
+INFO      May 11 15:32:27 [7000]: Creating child number 10 of 10 ...
+INFO      May 11 15:32:27 [7000]: Finished creating all children.
+INFO      May 11 15:32:27 [7000]: Setting the various signals.
+INFO      May 11 15:32:27 [7000]: Starting main loop. Accepting connections.
+INFO      May 11 15:32:39 [7019]: Initializing tinyproxy ...
+INFO      May 11 15:32:39 [7019]: Reloading config file
+INFO      May 11 15:32:39 [7019]: Setting "Via" header to 'tinyproxy'
+INFO      May 11 15:32:39 [7019]: Adding Port [443] to the list allowed by CONNECT
+INFO      May 11 15:32:39 [7019]: Adding Port [563] to the list allowed by CONNECT
+WARNING   May 11 15:32:39 [7019]: You SHOULD set a UserName in the config file. Using current user instead.
+WARNING   May 11 15:32:39 [7019]: Not running as root, so not changing UID/GID.
+INFO      May 11 15:32:39 [7019]: Creating child number 1 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 2 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 3 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 4 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 5 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 6 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 7 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 8 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 9 of 10 ...
+INFO      May 11 15:32:39 [7019]: Creating child number 10 of 10 ...
+INFO      May 11 15:32:39 [7019]: Finished creating all children.
+INFO      May 11 15:32:39 [7019]: Setting the various signals.
+INFO      May 11 15:32:39 [7019]: Starting main loop. Accepting connections.
+CONNECT   May 11 15:32:41 [7020]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7020]: Request (file descriptor 9): GET http://www.facebook.com/ HTTP/1.1
+INFO      May 11 15:32:41 [7020]: No proxy for www.facebook.com
+CONNECT   May 11 15:32:41 [7020]: Established connection to host "www.facebook.com" using file descriptor 10.
+INFO      May 11 15:32:41 [7020]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:32:41 [7021]: Connect (file descriptor 9): localhost [127.0.0.1]
+ERROR     May 11 15:32:41 [7021]: read_request_line: Client (file descriptor: 9) closed socket before read.
+ERROR     May 11 15:32:41 [7021]: Error reading readble client_fd 9
+WARNING   May 11 15:32:41 [7021]: Could not retrieve request entity
+CONNECT   May 11 15:32:41 [7022]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7022]: Request (file descriptor 9): CONNECT www.facebook.com:443 HTTP/1.1
+INFO      May 11 15:32:41 [7022]: No proxy for www.facebook.com
+CONNECT   May 11 15:32:41 [7022]: Established connection to host "www.facebook.com" using file descriptor 10.
+INFO      May 11 15:32:41 [7022]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7023]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7024]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7025]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7026]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7027]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7028]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7023]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+CONNECT   May 11 15:32:41 [7025]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:41 [7023]: No proxy for fbstatic-a.akamaihd.net
+INFO      May 11 15:32:41 [7025]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:41 [7024]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:41 [7024]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:41 [7029]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7020]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7025]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+CONNECT   May 11 15:32:41 [7020]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:41 [7025]: Not sending client headers to remote machine
+INFO      May 11 15:32:41 [7020]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:41 [7029]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:41 [7029]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:41 [7024]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7024]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7023]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7023]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7020]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7020]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7029]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7029]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7026]: Request (file descriptor 9): CONNECT fbcdn-dragon-a.akamaihd.net:443 HTTP/1.1
+CONNECT   May 11 15:32:41 [7027]: Request (file descriptor 9): CONNECT fbcdn-dragon-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:41 [7026]: No proxy for fbcdn-dragon-a.akamaihd.net
+CONNECT   May 11 15:32:41 [7028]: Request (file descriptor 9): CONNECT fbexternal-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:41 [7027]: No proxy for fbcdn-dragon-a.akamaihd.net
+INFO      May 11 15:32:41 [7028]: No proxy for fbexternal-a.akamaihd.net
+CONNECT   May 11 15:32:41 [7021]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:41 [7021]: Request (file descriptor 9): CONNECT fbcdn-dragon-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:41 [7021]: No proxy for fbcdn-dragon-a.akamaihd.net
+CONNECT   May 11 15:32:41 [7028]: Established connection to host "fbexternal-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7028]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7026]: Established connection to host "fbcdn-dragon-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7026]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7021]: Established connection to host "fbcdn-dragon-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7021]: Not sending client headers to remote machine
+CONNECT   May 11 15:32:41 [7027]: Established connection to host "fbcdn-dragon-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:41 [7027]: Not sending client headers to remote machine
+NOTICE    May 11 15:32:44 [7019]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:32:44 [7033]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:44 [7033]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:44 [7033]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:44 [7033]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:44 [7033]: Not sending client headers to remote machine
+INFO      May 11 15:32:44 [7033]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:32:44 [7033]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:44 [7033]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:44 [7033]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:44 [7033]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:44 [7033]: Not sending client headers to remote machine
+INFO      May 11 15:32:44 [7033]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:32:44 [7033]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:44 [7033]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:44 [7033]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:44 [7033]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:44 [7033]: Not sending client headers to remote machine
+INFO      May 11 15:32:44 [7033]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:32:44 [7033]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:44 [7033]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:44 [7033]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:44 [7033]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:44 [7033]: Not sending client headers to remote machine
+INFO      May 11 15:32:44 [7033]: Closed connection between local client (fd:9) and remote client (fd:10)
+CONNECT   May 11 15:32:44 [7033]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:44 [7033]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:44 [7033]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:44 [7033]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:44 [7033]: Not sending client headers to remote machine
+NOTICE    May 11 15:32:49 [7019]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:32:49 [7036]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:49 [7036]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:49 [7036]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:49 [7036]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:49 [7036]: Not sending client headers to remote machine
+NOTICE    May 11 15:32:54 [7019]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:32:54 [7038]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:54 [7038]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:54 [7038]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:54 [7038]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:54 [7038]: Not sending client headers to remote machine
+NOTICE    May 11 15:32:59 [7019]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:32:59 [7041]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:32:59 [7041]: Request (file descriptor 9): CONNECT fbstatic-a.akamaihd.net:443 HTTP/1.1
+INFO      May 11 15:32:59 [7041]: No proxy for fbstatic-a.akamaihd.net
+CONNECT   May 11 15:32:59 [7041]: Established connection to host "fbstatic-a.akamaihd.net" using file descriptor 10.
+INFO      May 11 15:32:59 [7041]: Not sending client headers to remote machine
+NOTICE    May 11 15:33:04 [7019]: Waiting servers (0) is less than MinSpareServers (5). Creating new child.
+CONNECT   May 11 15:33:04 [7044]: Connect (file descriptor 9): localhost [127.0.0.1]
+CONNECT   May 11 15:33:04 [7044]: Request (file descriptor 9): GET http://tes/ HTTP/1.1
+INFO      May 11 15:33:04 [7044]: No proxy for tes
+CONNECT   May 11 15:33:04 [7044]: Established connection to host "tes" using file descriptor 10.
+ERROR     May 11 15:33:04 [7044]: Error reading readble client_fd 9
+WARNING   May 11 15:33:04 [7044]: Could not retrieve request entity
+NOTICE    May 11 15:33:09 [7019]: Waiting servers (1) is less than MinSpareServers (5). Creating new child.
+NOTICE    May 11 15:33:14 [7019]: Waiting servers (2) is less than MinSpareServers (5). Creating new child.
+NOTICE    May 11 15:33:19 [7019]: Waiting servers (3) is less than MinSpareServers (5). Creating new child.
+NOTICE    May 11 15:33:24 [7019]: Waiting servers (4) is less than MinSpareServers (5). Creating new child.
+INFO      May 11 15:33:56 [7021]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:33:58 [7023]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:33:58 [7029]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:33:58 [7025]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:36 [7026]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:38 [7020]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:38 [7027]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:38 [7028]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:38 [7024]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:39 [7033]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:44 [7036]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:49 [7038]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:34:54 [7041]: Closed connection between local client (fd:9) and remote client (fd:10)
+INFO      May 11 15:38:53 [7022]: Closed connection between local client (fd:9) and remote client (fd:10)
