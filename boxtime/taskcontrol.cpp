@@ -41,6 +41,8 @@ void TaskControl::endingTask()
     timer->stop();
     time=0;
     newTime(time);
+    tproxy->stopProxy();
+    tproxy->startProxy(TinyProxy::WITHOUT_BLOCKING);
 }
 
 

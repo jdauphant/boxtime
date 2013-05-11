@@ -14,7 +14,7 @@ MainWidget::MainWidget(QWidget *parent) :
     ui->pushButton->setVisible(false);
     QObject::connect(ui->lineEdit, SIGNAL(returnPressed()),this,SLOT(newTask()));
     QObject::connect(ui->pushButton, SIGNAL(clicked()),this,SLOT(doneClicked()));
-    this->setWindowOpacity(0.5);
+    this->setWindowOpacity(0.7);
 }
 
 void MainWidget::newTask()

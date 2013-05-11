@@ -22,3 +22,7 @@ HEADERS  += mainwidget.h \
     tinyproxy.h
 
 FORMS    += mainwidget.ui
+
+RESOURCES += \
+    tinyproxy.qrc
+

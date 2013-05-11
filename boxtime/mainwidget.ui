@@ -79,13 +79,19 @@
       </size>
      </property>
      <property name="text">
-      <string>DONE</string>
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="tinyproxy.qrc">
+       <normaloff>:/check-yes-ok-icone-7166-32.png</normaloff>:/check-yes-ok-icone-7166-32.png</iconset>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="tinyproxy.qrc"/>
+ </resources>
  <connections/>
 </ui>

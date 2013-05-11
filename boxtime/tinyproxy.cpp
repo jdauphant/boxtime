@@ -1,8 +1,11 @@
 #include "tinyproxy.h"
 
+#include <QDebug>
+#include <QDir>
+
 TinyProxy::TinyProxy()
 {
-    proc = new QProcess();
+    proc = new QProcess(this);
 }
 
 TinyProxy * TinyProxy::getInstance()
@@ -17,19 +20,23 @@ TinyProxy * TinyProxy::getInstance()
 
 void TinyProxy::startProxy(bool blocking)
 {
-    QString program = "tinyproxy";
+    QString programName = "/opt/local/sbin/tinyproxy"; //macos
     QStringList arguments;
 
     if(blocking)
-        arguments << " -d " << " -c " << " tinyproxy/conf/tinyproxy_withblocking.conf";
+        arguments << "-d" << "-c" << "/opt/local/tinyproxy/tinyproxy_withblocking.conf";
     else
-        arguments << " -c " << " tinyproxy/conf/tinyproxy_noblocking.conf";
-        //sh.start("sh", QStringList() << "-c" << "ifconfig | grep inet");
+        arguments << "-d" << "-c" << "/opt/local/tinyproxy/tinyproxy_noblocking.conf";
 
-    proc->start(program , arguments);
+    //qDebug() << "Tinyproxy Working Directory : " << proc->workingDirectory();
+    proc->start(programName , arguments);
+    proc->waitForBytesWritten();
+    QString output(proc->readAllStandardOutput());
+    qDebug() << output;
 }
 
 void TinyProxy::stopProxy()
 {
-    proc->kill();
+    proc->terminate();
+    proc->waitForFinished();
 }
