@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwidget.cpp
+        mainwidget.cpp \
+    taskcontrol.cpp
 
-HEADERS  += mainwidget.h
+HEADERS  += mainwidget.h \
+    taskcontrol.h
 
 FORMS    += mainwidget.ui

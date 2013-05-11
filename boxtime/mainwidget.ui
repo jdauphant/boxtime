@@ -10,6 +10,9 @@
     <height>34</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>SizeAllCursor</cursorShape>
+  </property>
   <property name="windowTitle">
    <string>MainWidget</string>
   </property>
@@ -42,7 +45,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>0.0</string>
+      <string>00:00:00</string>
      </property>
     </widget>
    </item>
@@ -57,8 +60,14 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>80</width>
+       <height>34</height>
+      </size>
+     </property>
      <property name="text">
-      <string>OK</string>
+      <string>DONE</string>
      </property>
     </widget>
    </item>

@@ -14,6 +14,16 @@ class MainWidget : public QWidget
 public:
     explicit MainWidget(QWidget *parent = 0);
     ~MainWidget();
+
+
+signals:
+    void newTask(QString taskName);
+    void done();
+
+private slots:
+    void newTask();
+    void doneClicked();
+    void newTime(double time);
     
 private:
     Ui::MainWidget *ui;
