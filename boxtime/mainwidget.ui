@@ -10,6 +10,12 @@
     <height>34</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Waree</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="cursor">
    <cursorShape>SizeAllCursor</cursorShape>
   </property>
@@ -33,6 +39,12 @@
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+      </font>
      </property>
     </widget>
    </item>

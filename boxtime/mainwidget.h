@@ -29,6 +29,13 @@ private slots:
 private:
     Ui::MainWidget *ui;
     QTime qtime;
+
+protected:
+     void mouseMoveEvent(QMouseEvent *event);
+     void mousePressEvent(QMouseEvent *event);
+
+private:
+     QPoint dragPosition;
 };
 
 #endif // MAINWIDGET_H

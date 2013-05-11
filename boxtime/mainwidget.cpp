@@ -2,6 +2,7 @@
 #include "ui_mainwidget.h"
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QtGui>
 
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent),
@@ -13,6 +14,7 @@ MainWidget::MainWidget(QWidget *parent) :
     ui->pushButton->setVisible(false);
     QObject::connect(ui->lineEdit, SIGNAL(returnPressed()),this,SLOT(newTask()));
     QObject::connect(ui->pushButton, SIGNAL(clicked()),this,SLOT(doneClicked()));
+    this->setWindowOpacity(0.5);
 }
 
 void MainWidget::newTask()
@@ -20,6 +22,7 @@ void MainWidget::newTask()
     if(ui->lineEdit->text().size()>0)
     {
         ui->lineEdit->setEnabled(false);
+        ui->lineEdit->setStyleSheet("QLineEdit{background: white; color:blue; font-weight:bold; font-size:15px;}");
         newTask(ui->lineEdit->text());
         ui->pushButton->setVisible(true);
     }
@@ -27,6 +30,7 @@ void MainWidget::newTask()
 
 void MainWidget::doneClicked()
 {
+    ui->lineEdit->setStyleSheet("QLineEdit{background: white; color:black; font-weight:normal; font-size:15px;}");
     ui->pushButton->setVisible(false);
     ui->lineEdit->setText("");
     done();
@@ -37,10 +41,27 @@ void MainWidget::doneClicked()
 void MainWidget::newTime(double time)
 {
     qtime = QTime(0,0,time,0);
+    //qtime.addSecs();
     ui->label->setText(qtime.toString("hh:mm:ss"));
 }
 
 MainWidget::~MainWidget()
 {
     delete ui;
+}
+
+/* drag windows */
+void MainWidget::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        dragPosition = event->globalPos() - frameGeometry().topLeft();
+        event->accept();
+    }
+}
+void MainWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    if (event->buttons() & Qt::LeftButton) {
+        move(event->globalPos() - dragPosition);
+        event->accept();
+    }
 }
