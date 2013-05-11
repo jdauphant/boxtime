@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QTimer>
+#include "tinyproxy.h"
 
 class TaskControl : public QObject
 {
@@ -18,6 +19,7 @@ private:
 
     QTimer * timer;
     double time;
+    TinyProxy* tproxy;
 
 public slots:
     void startTask(QString taskName);
