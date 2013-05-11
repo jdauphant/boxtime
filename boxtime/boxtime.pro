@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwidget.cpp \
-    taskcontrol.cpp
+    taskcontrol.cpp \
+    tinyproxy.cpp
 
 HEADERS  += mainwidget.h \
-    taskcontrol.h
+    taskcontrol.h \
+    tinyproxy.h
 
 FORMS    += mainwidget.ui
