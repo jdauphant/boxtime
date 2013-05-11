@@ -2,6 +2,7 @@
 #define MAINWIDGET_H
 
 #include <QWidget>
+#include <QTime>
 
 namespace Ui {
 class MainWidget;
@@ -27,6 +28,7 @@ private slots:
     
 private:
     Ui::MainWidget *ui;
+    QTime qtime;
 };
 
 #endif // MAINWIDGET_H

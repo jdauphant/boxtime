@@ -2,7 +2,6 @@
 #include "ui_mainwidget.h"
 #include <QApplication>
 #include <QDesktopWidget>
-#include <QTime>
 
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent),
@@ -20,6 +19,7 @@ void MainWidget::newTask()
 {
     if(ui->lineEdit->text().size()>0)
     {
+        ui->lineEdit->setEnabled(false);
         newTask(ui->lineEdit->text());
         ui->pushButton->setVisible(true);
     }
@@ -31,13 +31,13 @@ void MainWidget::doneClicked()
     ui->lineEdit->setText("");
     done();
     ui->label->setText("00:00:00");
+    ui->lineEdit->setEnabled(true);
 }
 
 void MainWidget::newTime(double time)
 {
-    QTime * qtime = new QTime();
-    qtime->addSecs(time);
-    ui->label->setText(qtime->toString("HH:MM:SS"));
+    qtime = QTime(0,0,time,0);
+    ui->label->setText(qtime.toString("hh:mm:ss"));
 }
 
 MainWidget::~MainWidget()
