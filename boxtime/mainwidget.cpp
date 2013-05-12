@@ -40,8 +40,8 @@ void MainWidget::doneClicked()
 
 void MainWidget::newTime(double time)
 {
-    qtime = QTime(0,0,time,0);
-    //qtime.addSecs();
+    qtime = QTime();
+    qtime = qtime.addSecs(time);
     ui->label->setText(qtime.toString("hh:mm:ss"));
 }
 

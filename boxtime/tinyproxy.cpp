@@ -30,7 +30,7 @@ TinyProxy * TinyProxy::getInstance()
 
 void TinyProxy::startProxy(bool blocking)
 {
-    QString programName = "./tinyproxy"; //macos
+    QString programName = "./tinyproxy";
     QStringList arguments;
 
     if(blocking)
