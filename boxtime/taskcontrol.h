@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QDateTime>
 #include "tinyproxy.h"
+#include "taskstorage.h"
 
 class TaskControl : public QObject
 {
@@ -20,6 +22,9 @@ private:
     QTimer * timer;
     double time;
     TinyProxy* tproxy;
+    TaskStorage* taskStorage;
+    QString currentTaskName;
+    QDateTime startDateTime;
 
 public slots:
     void startTask(QString taskName);

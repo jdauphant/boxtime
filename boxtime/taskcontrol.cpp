@@ -1,3 +1,4 @@
+#include <QDateTime>
 #include "taskcontrol.h"
 #include "tinyproxy.h"
 
@@ -8,6 +9,8 @@ TaskControl::TaskControl()
 
     tproxy = TinyProxy::getInstance();
     tproxy->startProxy(TinyProxy::WITHOUT_BLOCKING);
+
+    taskStorage = TaskStorage::getInstance();
 }
 
 
@@ -29,6 +32,8 @@ void TaskControl::startTask(QString taskName)
     tproxy->stopProxy();
     tproxy->startProxy(TinyProxy::WITH_BLOCKING);
 
+    startDateTime = QDateTime::currentDateTime();
+    currentTaskName = taskName;
 }
 void TaskControl::timeoutTimer()
 {
@@ -39,10 +44,12 @@ void TaskControl::timeoutTimer()
 void TaskControl::endingTask()
 {
     timer->stop();
+    double timeElapsed = time;
     time=0;
     newTime(time);
     tproxy->stopProxy();
     tproxy->startProxy(TinyProxy::WITHOUT_BLOCKING);
+    taskStorage->addLog(currentTaskName, startDateTime, timeElapsed);
 }
 
 
