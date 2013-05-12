@@ -25,4 +25,3 @@ FORMS    += mainwidget.ui
 
 RESOURCES += \
     tinyproxy.qrc
-
