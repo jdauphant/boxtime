@@ -14,15 +14,15 @@ MainWidget::MainWidget(QWidget *parent) :
     ui->pushButton->setVisible(false);
     QObject::connect(ui->lineEdit, SIGNAL(returnPressed()),this,SLOT(newTask()));
     QObject::connect(ui->pushButton, SIGNAL(clicked()),this,SLOT(doneClicked()));
-    this->setWindowOpacity(0.7);
+    this->setWindowOpacity(0.85);
 }
 
 void MainWidget::newTask()
 {
     if(ui->lineEdit->text().size()>0)
     {
-        ui->lineEdit->setEnabled(false);
-        ui->lineEdit->setStyleSheet("QLineEdit{background: white; color:blue; font-weight:bold; font-size:15px;}");
+        ui->lineEdit->setEnabled(false); // 3577B1;
+        ui->lineEdit->setStyleSheet("QLineEdit{background: white; color:#1B4971; font-weight:bold; font-size:15px;}");
         newTask(ui->lineEdit->text());
         ui->pushButton->setVisible(true);
     }
