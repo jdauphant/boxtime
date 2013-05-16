@@ -10,8 +10,8 @@ class TinyProxy: public QObject
 public:
     static TinyProxy * getInstance();
     ~TinyProxy();
-    const static bool WITH_BLOCKING = TRUE;
-    const static bool WITHOUT_BLOCKING = FALSE;
+    const static bool WITH_BLOCKING = true;
+    const static bool WITHOUT_BLOCKING = false;
 
 private:
     TinyProxy();
