@@ -1,9 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>tinyproxy_noblocking.conf</file>
-        <file>tinyproxy_withblocking.conf</file>
-        <file>filter</file>
-        <file>default.html</file>
-        <file>check-yes-ok-icone-7166-32.png</file>
+        <file>ressources/check-yes-ok-icon.png</file>
     </qresource>
 </RCC>

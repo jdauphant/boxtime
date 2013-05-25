@@ -1,20 +1,20 @@
-#include "mainwidget.h"
-#include "taskcontrol.h"
+#include "taskWidget.h"
+#include "taskController.h"
 #include <QApplication>
 #include <QProcess>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWidget w;
+    QApplication qApplication(argc, argv);
+    TaskWidget taskWidget;
 
-    TaskControl * taskControl = TaskControl::getInstance();
-    w.show();
+    TaskController * taskController = TaskController::getInstance();
+    taskWidget.show();
 
-    QObject::connect(&w,SIGNAL(newTask(QString)),taskControl,SLOT(startTask(QString)));
-    QObject::connect(&w,SIGNAL(done()),taskControl,SLOT(endingTask()));
-    QObject::connect(taskControl,SIGNAL(newTime(double)),&w,SLOT(newTime(double)));
-    QObject::connect(&a,SIGNAL(aboutToQuit()),TinyProxy::getInstance(),SLOT(stopProxy()));
-    return a.exec();
+    QObject::connect(&taskWidget,SIGNAL(newTask(QString)),taskController,SLOT(startTask(QString)));
+    QObject::connect(&taskWidget,SIGNAL(done()),taskController,SLOT(endingTask()));
+    QObject::connect(taskController,SIGNAL(newTime(double)),&taskWidget,SLOT(newTime(double)));
+    QObject::connect(&qApplication,SIGNAL(aboutToQuit()),ProxyController::getInstance(),SLOT(stopProxy()));
+    return qApplication.exec();
 }
 
