@@ -5,17 +5,17 @@
 
 ProxyController::ProxyController()
 {
-    proc = new QProcess(this);
+    proxyProcessus = new QProcess(this);
 
-    QProcess p;
-    p.start("killall tinyproxy");
-    p.waitForFinished();
+    QProcess killallProcessus;
+    killallProcessus.start("killall tinyproxy");
+    killallProcessus.waitForFinished();
 }
 
 ProxyController::~ProxyController()
 {
     stopProxy();
-    delete proc;
+    delete proxyProcessus;
 }
 
 ProxyController * ProxyController::getInstance()
@@ -39,15 +39,15 @@ void ProxyController::startProxy(bool blocking)
         arguments << "-d" << "-c" << "./tinyproxy_noblocking.conf";
 
     //qDebug() << "Tinyproxy Working Directory : " << proc->workingDirectory();
-    proc->setWorkingDirectory(QCoreApplication::applicationDirPath());
-    proc->start(programName , arguments);
-    proc->waitForBytesWritten();
-    QString output(proc->readAllStandardOutput());
+    proxyProcessus->setWorkingDirectory(QCoreApplication::applicationDirPath());
+    proxyProcessus->start(programName , arguments);
+    proxyProcessus->waitForBytesWritten();
+    QString output(proxyProcessus->readAllStandardOutput());
     qDebug() << output;
 }
 
 void ProxyController::stopProxy()
 {
-    proc->terminate();
-    proc->waitForFinished();
+    proxyProcessus->terminate();
+    proxyProcessus->waitForFinished();
 }

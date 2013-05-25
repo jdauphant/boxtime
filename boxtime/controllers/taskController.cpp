@@ -7,10 +7,8 @@ TaskController::TaskController()
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(timeoutTimer()));
 
-    tproxy = ProxyController::getInstance();
-    tproxy->startProxy(ProxyController::WITHOUT_BLOCKING);
-
-    taskStorage = TaskStorage::getInstance();
+    proxyController = ProxyController::getInstance();
+    proxyController->startProxy(ProxyController::WITHOUT_BLOCKING);
 }
 
 
@@ -29,8 +27,8 @@ void TaskController::startTask(QString taskName)
     time = 0;
     timer->start(1000);
 
-    tproxy->stopProxy();
-    tproxy->startProxy(ProxyController::WITH_BLOCKING);
+    proxyController->stopProxy();
+    proxyController->startProxy(ProxyController::WITH_BLOCKING);
 
     startDateTime = QDateTime::currentDateTime();
     currentTaskName = taskName;
@@ -47,9 +45,9 @@ void TaskController::endingTask()
     double timeElapsed = time;
     time=0;
     newTime(time);
-    tproxy->stopProxy();
-    tproxy->startProxy(ProxyController::WITHOUT_BLOCKING);
-    taskStorage->addLog(currentTaskName, startDateTime, timeElapsed);
+    proxyController->stopProxy();
+    proxyController->startProxy(ProxyController::WITHOUT_BLOCKING);
+    Task(currentTaskName,startDateTime, timeElapsed).addToLogFile();
 }
 
 

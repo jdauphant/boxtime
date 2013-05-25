@@ -13,16 +13,16 @@ TEMPLATE = app
 INCLUDEPATH = controllers views models
 
 SOURCES += main.cpp\
-    models/taskstorage.cpp \
     controllers/proxyController.cpp \
     controllers/taskController.cpp \
-    views/taskWidget.cpp
+    views/taskWidget.cpp \
+    models/task.cpp
 
 HEADERS  += \
-    models/taskstorage.h \
     controllers/proxyController.h \
     controllers/taskController.h \
-    views/taskWidget.h
+    views/taskWidget.h \
+    models/task.h
 
 FORMS    += \
     views/taskWidget.ui

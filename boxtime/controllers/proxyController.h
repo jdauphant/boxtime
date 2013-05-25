@@ -18,7 +18,7 @@ private:
     ProxyController(const ProxyController & c): QObject(c.parent()) {}
     ProxyController & operator=(const ProxyController &) {return *this;}
 
-    QProcess *proc;
+    QProcess *proxyProcessus;
 
 public slots:
     void startProxy(bool blocking);

@@ -5,7 +5,7 @@
 #include <QTimer>
 #include <QDateTime>
 #include "proxyController.h"
-#include "taskstorage.h"
+#include "task.h"
 
 class TaskController : public QObject
 {
@@ -21,8 +21,7 @@ private:
 
     QTimer * timer;
     double time;
-    ProxyController* tproxy;
-    TaskStorage* taskStorage;
+    ProxyController* proxyController;
     QString currentTaskName;
     QDateTime startDateTime;
 
