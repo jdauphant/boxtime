@@ -1,4 +1,4 @@
-#include "proxyController.h"
+#include "proxycontroller.h"
 
 #include <QDebug>
 #include <QCoreApplication>

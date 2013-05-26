@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QDateTime>
-#include "proxyController.h"
+#include "proxycontroller.h"
 #include "task.h"
 
 class TaskController : public QObject

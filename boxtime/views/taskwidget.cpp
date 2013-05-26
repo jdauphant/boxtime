@@ -1,4 +1,4 @@
-#include "taskWidget.h"
+#include "taskwidget.h"
 #include "ui_taskWidget.h"
 #include <QApplication>
 #include <QDesktopWidget>

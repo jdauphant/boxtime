@@ -1,6 +1,6 @@
 #include <QDateTime>
-#include "taskController.h"
-#include "proxyController.h"
+#include "taskcontroller.h"
+#include "proxycontroller.h"
 
 TaskController::TaskController()
 {
