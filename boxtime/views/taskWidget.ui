@@ -53,10 +53,12 @@
       <font>
        <family>Verdana</family>
        <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="maxLength">
-      <number>55</number>
+      <number>50</number>
      </property>
     </widget>
    </item>
@@ -75,7 +77,7 @@
       </font>
      </property>
      <property name="text">
-      <string>00:00:00</string>
+      <string>00s  </string>
      </property>
     </widget>
    </item>
@@ -92,7 +94,7 @@
      </property>
      <property name="minimumSize">
       <size>
-       <width>80</width>
+       <width>34</width>
        <height>34</height>
       </size>
      </property>

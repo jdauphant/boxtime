@@ -21,27 +21,36 @@ void TaskWidget::newTask()
 {
     if(ui->taskLineEdit->text().size()>0)
     {
-        ui->taskLineEdit->setEnabled(false); // 3577B1;
+        ui->taskLineEdit->setEnabled(false); // boxtime color : 3577B1;
         ui->taskLineEdit->setStyleSheet("QLineEdit{background: white; color:#1B4971; font-weight:bold; font-size:15px;}");
         newTask(ui->taskLineEdit->text());
+        ui->taskLineEdit->setMaxLength(55);
+        ui->taskLineEdit->setText("<"+ui->taskLineEdit->text()+"/>");
         ui->validationButton->setVisible(true);
     }
 }
 
 void TaskWidget::doneClicked()
 {
-    ui->taskLineEdit->setStyleSheet("QLineEdit{background: white; color:black; font-weight:normal; font-size:15px;}");
+    ui->taskLineEdit->setMaxLength(50);
+    ui->taskLineEdit->setStyleSheet("QLineEdit{background: white; color:black; font-weight:bold; font-size:15px;}");
     ui->validationButton->setVisible(false);
     ui->taskLineEdit->setText("");
     done();
-    ui->timeLabel->setText("00:00:00");
+    ui->timeLabel->setText("00s  ");
     ui->taskLineEdit->setEnabled(true);
 }
 
 void TaskWidget::newTime(double time)
 {
     QTime qtime = QTime(0,0,0,0).addSecs(time);
-    QString timeText = qtime.toString(Qt::TextDate);
+    QString timeText;
+    if(time<60)
+        timeText = qtime.toString("ss's'");
+    else if(time<60*60)
+        timeText = qtime.toString("mm'm':ss's'");
+    else
+        timeText = qtime.toString("HH'h':mm'm'");
     ui->timeLabel->setText(timeText);
 }
 
