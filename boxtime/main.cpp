@@ -1,5 +1,5 @@
-#include "taskWidget.h"
-#include "taskController.h"
+#include "taskwidget.h"
+#include "taskcontroller.h"
 #include <QApplication>
 #include <QProcess>
 

@@ -12,13 +12,15 @@ public:
     ~ProxyController();
     const static bool WITH_BLOCKING = true;
     const static bool WITHOUT_BLOCKING = false;
+    const static QString DEFAULT_PROXY_PROCESS;
+    const static QString DEFAULT_PROXY_KILLPROCESS;
 
 private:
     ProxyController();
     ProxyController(const ProxyController & c): QObject(c.parent()) {}
     ProxyController & operator=(const ProxyController &) {return *this;}
 
-    QProcess *proxyProcessus;
+    QProcess *proxyProcess;
 
 public slots:
     void startProxy(bool blocking);

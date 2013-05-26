@@ -33,6 +33,7 @@ void TaskController::startTask(QString taskName)
     startDateTime = QDateTime::currentDateTime();
     currentTaskName = taskName;
 }
+
 void TaskController::timeoutTimer()
 {
     time++;

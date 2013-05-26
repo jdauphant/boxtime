@@ -2,20 +2,39 @@
 
 #include <QDebug>
 #include <QCoreApplication>
+#include <settingscontroller.h>
+
+
+#ifdef Q_OS_MAC
+const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("./tinyproxy");
+const QString ProxyController::DEFAULT_PROXY_KILLPROCESS = QString("killall tinyproxy");
+#endif
+
+#ifdef Q_OS_LINUX
+const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("tinyproxy");
+const QString ProxyController::DEFAULT_PROXY_KILLPROCESS = QString("pkill tinyproxy");
+#endif
+
+/*
+#ifdef Q_OS_WIN32
+const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("");
+const QString ProxyController::DEFAULT_PROXY_KILLPROCESS = QString("");
+#endif
+*/
 
 ProxyController::ProxyController()
 {
-    proxyProcessus = new QProcess(this);
+    proxyProcess = new QProcess(this);
 
-    QProcess killallProcessus;
-    killallProcessus.start("killall tinyproxy");
-    killallProcessus.waitForFinished();
+    QProcess killallProcess;
+    killallProcess.start(SettingsController::getValue<QString>("proxy/killprocess",DEFAULT_PROXY_KILLPROCESS));
+    killallProcess.waitForFinished();
 }
 
 ProxyController::~ProxyController()
 {
     stopProxy();
-    delete proxyProcessus;
+    delete proxyProcess;
 }
 
 ProxyController * ProxyController::getInstance()
@@ -30,7 +49,7 @@ ProxyController * ProxyController::getInstance()
 
 void ProxyController::startProxy(bool blocking)
 {
-    QString programName = "./tinyproxy";
+    QString programName = SettingsController::getValue<QString>("proxy/process",DEFAULT_PROXY_PROCESS);
     QStringList arguments;
 
     if(blocking)
@@ -39,15 +58,15 @@ void ProxyController::startProxy(bool blocking)
         arguments << "-d" << "-c" << "./tinyproxy_noblocking.conf";
 
     //qDebug() << "Tinyproxy Working Directory : " << proc->workingDirectory();
-    proxyProcessus->setWorkingDirectory(QCoreApplication::applicationDirPath());
-    proxyProcessus->start(programName , arguments);
-    proxyProcessus->waitForBytesWritten();
-    QString output(proxyProcessus->readAllStandardOutput());
+    proxyProcess->setWorkingDirectory(QCoreApplication::applicationDirPath());
+    proxyProcess->start(programName , arguments);
+    proxyProcess->waitForBytesWritten();
+    QString output(proxyProcess->readAllStandardOutput());
     qDebug() << output;
 }
 
 void ProxyController::stopProxy()
 {
-    proxyProcessus->terminate();
-    proxyProcessus->waitForFinished();
+    proxyProcess->terminate();
+    proxyProcess->waitForFinished();
 }
