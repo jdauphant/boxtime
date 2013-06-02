@@ -3,12 +3,13 @@
 
 #include <QWidget>
 #include <QTime>
+#include "genericwidget.h"
 
 namespace Ui {
 class TaskWidget;
 }
 
-class TaskWidget : public QWidget
+class TaskWidget : public GenericWidget
 {
     Q_OBJECT
     

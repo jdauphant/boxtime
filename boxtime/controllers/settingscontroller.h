@@ -13,7 +13,7 @@ public:
     static const QString APPLICATION_NAME;
 
     template<typename T>
-    inline static T getValue(const QString & key, const QVariant & defaultValue);
+    static T getValue(const QString & key, const QVariant & defaultValue);
 
 private:
     SettingsController();

@@ -17,17 +17,23 @@ SOURCES += main.cpp\
     controllers/settingscontroller.cpp \
     controllers/proxycontroller.cpp \
     controllers/taskcontroller.cpp \
-    views/taskwidget.cpp
+    views/taskwidget.cpp \
+    views/genericwidget.cpp
 
 HEADERS  += \
     models/task.h \
     controllers/settingscontroller.h \
     controllers/proxycontroller.h \
     controllers/taskcontroller.h \
-    views/taskwidget.h
+    views/taskwidget.h \
+    views/genericwidget.h
 
 FORMS    += \
     views/taskwidget.ui
 
 RESOURCES += \
-    images.qrc
+    ressources.qrc
+
+unix:!macx {
+    LIBS += -lX11
+}

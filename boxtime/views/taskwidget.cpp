@@ -1,40 +1,54 @@
 #include "taskwidget.h"
-#include "ui_taskWidget.h"
+#include "ui_taskwidget.h"
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QtGui>
 
+
 TaskWidget::TaskWidget(QWidget *parent) :
-    QWidget(parent),
+    GenericWidget(parent),
     ui(new Ui::TaskWidget)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint );
     move((QApplication::desktop()->width() / 2) - (width() / 2), 0);
     ui->validationButton->setVisible(false);
+    ui->rightHorizontalSpacer->changeSize(0,0);
+    this->setWindowOpacity(0.65);
+    ui->taskLineEdit->setStyleSheet("QLineEdit { border-radius: 8px }");
+    setVisibleAllDesktops();
+    roundCorners(8);
+    /* QPalette p(palette());
+    p.setColor(QPalette::Background, QColor("#3577B1"));
+    setPalette(p); */
+
     QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(newTask()));
-    QObject::connect(ui->validationButton, SIGNAL(clicked()),this,SLOT(doneClicked()));
-    this->setWindowOpacity(0.80);
+    QObject::connect(ui->validationButton, SIGNAL(clicked()),this,SLOT(doneClicked())); 
 }
+
 
 void TaskWidget::newTask()
 {
     if(ui->taskLineEdit->text().size()>0)
     {
-        ui->taskLineEdit->setEnabled(false); // boxtime color : 3577B1;
-        ui->taskLineEdit->setStyleSheet("QLineEdit{background: white; color:#1B4971; font-weight:bold; font-size:15px;}");
+        ui->taskLineEdit->setEnabled(false);
+        // boxtime color : 3577B1;
+        ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; font-weight:bold; font-size:15px;border-radius: 8px }");
         newTask(ui->taskLineEdit->text());
         ui->taskLineEdit->setMaxLength(55);
         ui->taskLineEdit->setText("<"+ui->taskLineEdit->text()+"/>");
         ui->validationButton->setVisible(true);
+        ui->rightHorizontalSpacer->changeSize(6,0);
+        ui->timeLabel->setText("00s");
     }
 }
 
 void TaskWidget::doneClicked()
 {
     ui->taskLineEdit->setMaxLength(50);
-    ui->taskLineEdit->setStyleSheet("QLineEdit{background: white; color:black; font-weight:bold; font-size:15px;}");
+    ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; font-weight:bold; font-size:15px; border-radius: 8px }");
     ui->validationButton->setVisible(false);
+    ui->rightHorizontalSpacer->changeSize(0,0);
     ui->taskLineEdit->setText("");
     done();
     ui->timeLabel->setText("00s  ");

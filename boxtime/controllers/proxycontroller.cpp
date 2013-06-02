@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QCoreApplication>
 #include <settingscontroller.h>
-
+//#include <HTTP.h>
 
 #ifdef Q_OS_MAC
 const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("./tinyproxy");
@@ -49,6 +49,9 @@ ProxyController * ProxyController::getInstance()
 
 void ProxyController::startProxy(bool blocking)
 {
+    /*HTTPAPI * api = new HTTPAPI();
+    api->InitHTTPProxy("127.0.0.1","8080");*/
+
     QString programName = SettingsController::getValue<QString>("proxy/process",DEFAULT_PROXY_PROCESS);
     QStringList arguments;
 
