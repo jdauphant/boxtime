@@ -14,8 +14,8 @@ TaskWidget::TaskWidget(QWidget *parent) :
     move((QApplication::desktop()->width() / 2) - (width() / 2), 0);
     ui->validationButton->setVisible(false);
     ui->rightHorizontalSpacer->changeSize(0,0);
-    this->setWindowOpacity(0.65);
-    ui->taskLineEdit->setStyleSheet("QLineEdit { border-radius: 8px }");
+    this->setWindowOpacity(0.80);
+    ui->taskLineEdit->setStyleSheet("QLineEdit { border-radius: 10px }");
     setVisibleAllDesktops();
     roundCorners(8);
     /* QPalette p(palette());

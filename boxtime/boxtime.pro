@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = boxtime
 TEMPLATE = app
-INCLUDEPATH = controllers views models
+INCLUDEPATH = controllers views models #$$_PRO_FILE_PWD_/libs/fhscanhttplibrary
 
 SOURCES += main.cpp\
     models/task.cpp \
@@ -37,3 +37,4 @@ RESOURCES += \
 unix:!macx {
     LIBS += -lX11
 }
+#LIBS += -L"$$_PRO_FILE_PWD_/libs/fhscanhttplibrary" -lfhscanhttplibrary
