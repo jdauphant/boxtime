@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>735</width>
-    <height>34</height>
+    <height>37</height>
    </rect>
   </property>
   <property name="font">
    <font>
     <family>Waree</family>
-    <pointsize>10</pointsize>
+    <pointsize>9</pointsize>
     <stylestrategy>PreferAntialias</stylestrategy>
    </font>
   </property>
@@ -57,10 +57,12 @@
      <property name="font">
       <font>
        <family>Waree</family>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <strikeout>false</strikeout>
        <stylestrategy>PreferAntialias</stylestrategy>
+       <kerning>true</kerning>
       </font>
      </property>
      <property name="inputMask">

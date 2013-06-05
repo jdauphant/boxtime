@@ -17,13 +17,17 @@ TaskWidget::TaskWidget(QWidget *parent) :
     this->setWindowOpacity(0.80);
     ui->taskLineEdit->setStyleSheet("QLineEdit { border-radius: 10px }");
     setVisibleAllDesktops();
-    roundCorners(8);
+    roundCorners(5);
     /* QPalette p(palette());
     p.setColor(QPalette::Background, QColor("#3577B1"));
     setPalette(p); */
 
     QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(newTask()));
     QObject::connect(ui->validationButton, SIGNAL(clicked()),this,SLOT(doneClicked())); 
+    this->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
+        this, SLOT(showContextMenu(const QPoint&)));
+
 }
 
 
@@ -46,7 +50,7 @@ void TaskWidget::newTask()
 void TaskWidget::doneClicked()
 {
     ui->taskLineEdit->setMaxLength(50);
-    ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; font-weight:bold; font-size:15px; border-radius: 8px }");
+    ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; font-weight:normal; font-size:15px; border-radius: 8px }");
     ui->validationButton->setVisible(false);
     ui->rightHorizontalSpacer->changeSize(0,0);
     ui->taskLineEdit->setText("");
@@ -87,4 +91,23 @@ void TaskWidget::mouseMoveEvent(QMouseEvent *event)
         move(event->globalPos() - dragPosition);
         event->accept();
     }
+}
+
+void TaskWidget::showContextMenu(const QPoint& pos){
+     QPoint globalPos = this->mapToGlobal(pos);
+     QMenu *contextMenu=new QMenu;
+     contextMenu->addAction(QIcon(":/ressources/logo_mini.png"), "Boxtime");//->setEnabled(false);
+     contextMenu->addSeparator();
+     QAction * exit = contextMenu->addAction("Exit");
+     connect(exit, SIGNAL(triggered()),
+             this, SLOT(close()));
+     QAction* selectedItem = contextMenu->exec(globalPos);
+     if (selectedItem)
+     {
+
+     }
+     else
+     {
+
+     }
 }

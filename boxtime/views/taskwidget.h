@@ -26,6 +26,7 @@ private slots:
     void newTask();
     void doneClicked();
     void newTime(double time);
+    void showContextMenu(const QPoint& pos);
     
 private:
     Ui::TaskWidget *ui;
