@@ -57,7 +57,7 @@
      <property name="font">
       <font>
        <family>Waree</family>
-       <pointsize>12</pointsize>
+       <pointsize>15</pointsize>
        <weight>50</weight>
        <bold>false</bold>
        <strikeout>false</strikeout>
