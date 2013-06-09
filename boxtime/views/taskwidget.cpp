@@ -17,6 +17,16 @@ TaskWidget::TaskWidget(QWidget *parent) :
     roundCorners(6);
     ui->taskLineEdit->setAttribute(Qt::WA_MacShowFocusRect, 0);
 
+#ifdef Q_OS_MAC
+    QFont taskLineEditFont(ui->taskLineEdit->font());
+    taskLineEditFont.setPointSize(18);
+    ui->taskLineEdit->setFont(taskLineEditFont);
+
+    QFont timeLabelFont(ui->timeLabel->font());
+    timeLabelFont.setPointSize(18);
+    ui->timeLabel->setFont(timeLabelFont);
+#endif
+
     /*  // Change background color :
     QPalette p(palette());
     p.setColor(QPalette::Background, QColor("#3577B1"));
