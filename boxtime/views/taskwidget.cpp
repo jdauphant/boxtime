@@ -13,11 +13,9 @@ TaskWidget::TaskWidget(QWidget *parent) :
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint );
     move((QApplication::desktop()->width() / 2) - (width() / 2), 0);
     ui->validationButton->setVisible(false);
-    ui->rightHorizontalSpacer->changeSize(0,0);
-    this->setWindowOpacity(0.80);
-    ui->taskLineEdit->setStyleSheet("QLineEdit { border-radius: 10px }");
     setVisibleAllDesktops();
     roundCorners(6);
+    ui->taskLineEdit->setAttribute(Qt::WA_MacShowFocusRect, 0);
 
     /*  // Change background color :
     QPalette p(palette());
@@ -38,13 +36,13 @@ void TaskWidget::newTask()
     if(ui->taskLineEdit->text().size()>0)
     {
         ui->taskLineEdit->setEnabled(false);
+        ui->taskLineEdit->setCursor(Qt::OpenHandCursor);
         // boxtime color : 3577B1;
-        ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; font-weight:bold; font-size:15px;border-radius: 8px }");
+        ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; border-radius: 8px }");
         newTask(ui->taskLineEdit->text());
         ui->taskLineEdit->setMaxLength(55);
         ui->taskLineEdit->setText("<"+ui->taskLineEdit->text()+"/>");
         ui->validationButton->setVisible(true);
-        ui->rightHorizontalSpacer->changeSize(6,0);
         ui->timeLabel->setText("00s");
     }
 }
@@ -52,12 +50,12 @@ void TaskWidget::newTask()
 void TaskWidget::doneClicked()
 {
     ui->taskLineEdit->setMaxLength(50);
-    ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; font-weight:normal; font-size:15px; border-radius: 8px }");
+    ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; border-radius: 8px }");
     ui->validationButton->setVisible(false);
-    ui->rightHorizontalSpacer->changeSize(0,0);
     ui->taskLineEdit->setText("");
     done();
     ui->timeLabel->setText("00s  ");
+    ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
 }
 
@@ -83,6 +81,7 @@ TaskWidget::~TaskWidget()
 void TaskWidget::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
+        QApplication::setOverrideCursor(Qt::ClosedHandCursor);
         dragPosition = event->globalPos() - frameGeometry().topLeft();
         event->accept();
     }
@@ -91,6 +90,14 @@ void TaskWidget::mouseMoveEvent(QMouseEvent *event)
 {
     if (event->buttons() & Qt::LeftButton) {
         move(event->globalPos() - dragPosition);
+        event->accept();
+    }
+}
+
+void TaskWidget::mouseReleaseEvent(QMouseEvent * event)
+{
+    if (event->button() == Qt::LeftButton) {
+        QApplication::restoreOverrideCursor();
         event->accept();
     }
 }

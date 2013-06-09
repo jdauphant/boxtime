@@ -2,23 +2,41 @@
 <ui version="4.0">
  <class>TaskWidget</class>
  <widget class="QWidget" name="TaskWidget">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>735</width>
-    <height>37</height>
+    <width>732</width>
+    <height>24</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="font">
    <font>
     <family>Waree</family>
-    <pointsize>9</pointsize>
+    <pointsize>16</pointsize>
     <stylestrategy>PreferAntialias</stylestrategy>
    </font>
   </property>
   <property name="cursor">
-   <cursorShape>SizeAllCursor</cursorShape>
+   <cursorShape>OpenHandCursor</cursorShape>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::CustomContextMenu</enum>
   </property>
   <property name="windowTitle">
    <string>BoxTime</string>
@@ -27,37 +45,40 @@
    <iconset resource="../ressources.qrc">
     <normaloff>:/ressources/logo_mini.png</normaloff>:/ressources/logo_mini.png</iconset>
   </property>
+  <property name="windowOpacity">
+   <double>0.800000000000000</double>
+  </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
-   <property name="leftMargin">
-    <number>0</number>
+   <property name="spacing">
+    <number>-1</number>
    </property>
-   <property name="topMargin">
-    <number>0</number>
+   <property name="sizeConstraint">
+    <enum>QLayout::SetDefaultConstraint</enum>
    </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
+   <property name="margin">
     <number>0</number>
    </property>
    <item>
     <widget class="QLineEdit" name="taskLineEdit">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
      <property name="font">
       <font>
-       <family>Waree</family>
-       <pointsize>15</pointsize>
+       <family>Nexa Bold</family>
+       <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
        <strikeout>false</strikeout>
@@ -65,11 +86,14 @@
        <kerning>true</kerning>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit { border-radius: 10px; padding-top: 1px;  padding-bottom: 1px;}</string>
+     </property>
      <property name="inputMask">
       <string/>
      </property>
      <property name="maxLength">
-      <number>32767</number>
+      <number>55</number>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Normal</enum>
@@ -88,21 +112,49 @@
    <item>
     <widget class="QLabel" name="timeLabel">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+      <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="font">
       <font>
-       <family>Waree</family>
+       <family>Times New Roman</family>
+       <pointsize>15</pointsize>
        <weight>75</weight>
        <bold>true</bold>
        <stylestrategy>PreferAntialias</stylestrategy>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
      <property name="text">
       <string>00s  </string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
@@ -119,14 +171,39 @@
      </property>
      <property name="minimumSize">
       <size>
-       <width>34</width>
-       <height>34</height>
+       <width>0</width>
+       <height>0</height>
       </size>
      </property>
      <property name="font">
       <font>
-       <stylestrategy>PreferAntialias</stylestrategy>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+     background-color: #3577B1;
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     font: bold 14px;
+     padding: 2px;
+ }
+QPushButton:hover {
+     background-color:  #2f6b9f;
+     border-style: inset;
+ }
+QPushButton:pressed {
+     background-color:  #2a5f8d;
+     border-style: inset;
+ }</string>
      </property>
      <property name="text">
       <string/>
@@ -135,23 +212,25 @@
       <iconset resource="../ressources.qrc">
        <normaloff>:/ressources/check-yes-ok-icon.png</normaloff>:/ressources/check-yes-ok-icon.png</iconset>
      </property>
-    </widget>
-   </item>
-   <item>
-    <spacer name="rightHorizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Minimum</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
+     <property name="iconSize">
       <size>
-       <width>0</width>
-       <height>0</height>
+       <width>16</width>
+       <height>16</height>
       </size>
      </property>
-    </spacer>
+     <property name="autoExclusive">
+      <bool>false</bool>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
