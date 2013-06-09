@@ -3,6 +3,7 @@
 #include <QtCore>
 #include <QtNetwork>
 #include <settingscontroller.h>
+#include "systemproxy.h"
 
 const QStringList ProxyController::DEFAULT_BLOCK_LIST = QStringList() << "facebook.com" << "9gag.com" << "4chan.org"
           << "twitter.com" << "pinterest.com" << "tweetdeck.com"
@@ -76,33 +77,14 @@ void ProxyController::stopProxy()
     proxyProcess->waitForFinished();
 }
 
-void ProxyController::setGsettingsParams(QString schema, QString key, QString value)
-{
-    QProcess gsettingsMode;
-    gsettingsMode.start("gsettings",
-         QStringList() << "set" << schema << key << value);
-    gsettingsMode.waitForFinished();
-}
-
 void ProxyController::setDefaultSystemProxy()
 {
-#ifdef Q_OS_LINUX
-    setGsettingsParams("org.gnome.system.proxy.http", "host", "'127.0.0.1'");
-    setGsettingsParams("org.gnome.system.proxy.http", "port", "8888");
+    SystemProxy::setDefaultSystemProxy("127.0.0.1",8888);
+    SystemProxy::enableSystemProxy();
 
-    setGsettingsParams("org.gnome.system.proxy.https", "host", "'127.0.0.1'");
-    setGsettingsParams("org.gnome.system.proxy.https", "port", "8888");
-
-    setGsettingsParams("org.gnome.system.proxy.socks", "host", "'127.0.0.1'");
-    setGsettingsParams("org.gnome.system.proxy.socks", "port", "8888");
-
-    setGsettingsParams("org.gnome.system.proxy", "mode", "'manual'");
-#endif
 }
 
 void ProxyController::restoreDefaultSystemProxy()
 {
-#ifdef Q_OS_LINUX
-    setGsettingsParams("org.gnome.system.proxy", "mode", "'none'");
-#endif
+    SystemProxy::disableSystemProxy();
 }

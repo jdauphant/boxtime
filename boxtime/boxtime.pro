@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = boxtime
 TEMPLATE = app
-INCLUDEPATH = controllers views models
+INCLUDEPATH = controllers views models utils
 
 SOURCES += main.cpp\
     models/task.cpp \
@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     controllers/proxycontroller.cpp \
     controllers/taskcontroller.cpp \
     views/taskwidget.cpp \
-    views/genericwidget.cpp
+    views/genericwidget.cpp \
+    utils/systemproxy.cpp
 
 HEADERS  += \
     models/task.h \
@@ -26,7 +27,8 @@ HEADERS  += \
     controllers/proxycontroller.h \
     controllers/taskcontroller.h \
     views/taskwidget.h \
-    views/genericwidget.h
+    views/genericwidget.h \
+    utils/systemproxy.h
 
 FORMS    += \
     views/taskwidget.ui
