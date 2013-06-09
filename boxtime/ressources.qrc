@@ -4,5 +4,6 @@
         <file>ressources/Nexa Light.otf</file>
         <file>ressources/Nexa Bold.otf</file>
         <file>ressources/logo_mini.png</file>
+        <file>ressources/apply.png</file>
     </qresource>
 </RCC>
