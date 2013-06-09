@@ -105,12 +105,15 @@ void TaskWidget::mouseReleaseEvent(QMouseEvent * event)
 void TaskWidget::showContextMenu(const QPoint& pos){
      QPoint globalPos = this->mapToGlobal(pos);
      QMenu *contextMenu=new QMenu;
-     contextMenu->addAction(QIcon("://ressources/logo_mini.png"), "Boxtime");//->setEnabled(false);
+     QAction * boxtimeLabel = contextMenu->addAction(QIcon("://ressources/logo_mini.png"), "Boxtime v1.0");
+     boxtimeLabel->setIconVisibleInMenu(true);
+
      contextMenu->addSeparator();
      QAction * exit = contextMenu->addAction("Exit");
      connect(exit, SIGNAL(triggered()),
              this, SLOT(close()));
      QAction* selectedItem = contextMenu->exec(globalPos);
+     /*
      if (selectedItem)
      {
 
@@ -118,5 +121,5 @@ void TaskWidget::showContextMenu(const QPoint& pos){
      else
      {
 
-     }
+     }*/
 }
