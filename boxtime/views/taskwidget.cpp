@@ -17,8 +17,10 @@ TaskWidget::TaskWidget(QWidget *parent) :
     this->setWindowOpacity(0.80);
     ui->taskLineEdit->setStyleSheet("QLineEdit { border-radius: 10px }");
     setVisibleAllDesktops();
-    roundCorners(5);
-    /* QPalette p(palette());
+    roundCorners(6);
+
+    /*  // Change background color :
+    QPalette p(palette());
     p.setColor(QPalette::Background, QColor("#3577B1"));
     setPalette(p); */
 
