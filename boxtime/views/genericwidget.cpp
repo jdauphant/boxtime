@@ -9,6 +9,7 @@
 GenericWidget::GenericWidget(QWidget *parent) :
     QWidget(parent)
 {
+
 }
 
 void GenericWidget::roundCorners(int r)
