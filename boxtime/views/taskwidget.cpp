@@ -40,7 +40,7 @@ void TaskWidget::newTask()
         // boxtime color : 3577B1;
         ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; border-radius: 8px }");
         newTask(ui->taskLineEdit->text());
-        ui->taskLineEdit->setMaxLength(55);
+        ui->taskLineEdit->setMaxLength(65);
         ui->taskLineEdit->setText("<"+ui->taskLineEdit->text()+"/>");
         ui->validationButton->setVisible(true);
         ui->timeLabel->setText("00s");
@@ -49,7 +49,7 @@ void TaskWidget::newTask()
 
 void TaskWidget::doneClicked()
 {
-    ui->taskLineEdit->setMaxLength(50);
+    ui->taskLineEdit->setMaxLength(60);
     ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; border-radius: 8px }");
     ui->validationButton->setVisible(false);
     ui->taskLineEdit->setText("");

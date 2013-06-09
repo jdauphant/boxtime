@@ -87,7 +87,7 @@
      <property name="font">
       <font>
        <family>Nexa Bold</family>
-       <pointsize>17</pointsize>
+       <pointsize>15</pointsize>
        <weight>50</weight>
        <bold>false</bold>
        <strikeout>false</strikeout>
@@ -102,7 +102,7 @@
       <string/>
      </property>
      <property name="maxLength">
-      <number>55</number>
+      <number>60</number>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Normal</enum>
