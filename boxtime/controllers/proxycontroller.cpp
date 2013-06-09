@@ -3,7 +3,14 @@
 #include <QtCore>
 #include <QtNetwork>
 #include <settingscontroller.h>
-//#include <HTTP.h>
+
+const QStringList ProxyController::DEFAULT_BLOCK_LIST = QStringList() << "facebook.com" << "9gag.com" << "4chan.org"
+          << "twitter.com" << "pinterest.com" << "tweetdeck.com"
+          << "*.facebook.com" << "*.9gag.com" << "*.4chan.org" << "*.twitter.com" << "*.pinterest.com" << "*.tweetdeck.com"
+          << "collegehumor.com" << "*.collegehumor.com" << "reddit.com" << "*.reddit.com"
+          << "plus.google.com" << "mail.google.com" << "news.google.com"
+          << "outlook.com" << "*.outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
+          << "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << "*.mail.yahoo.com";
 
 #ifdef Q_OS_MAC
 const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("./tinyproxy");
@@ -99,5 +106,3 @@ void ProxyController::restoreDefaultSystemProxy()
     setGsettingsParams("org.gnome.system.proxy", "mode", "'none'");
 #endif
 }
-
-

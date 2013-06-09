@@ -12,6 +12,7 @@ public:
     ~ProxyController();
     const static QString DEFAULT_PROXY_PROCESS;
     const static QString DEFAULT_PROXY_KILLPROCESS;
+    const static QStringList DEFAULT_BLOCK_LIST;
 
 private:
     ProxyController();
