@@ -32,12 +32,6 @@ const QString ProxyController::DEFAULT_PROXY_KILLPROCESS = QString("");
 ProxyController::ProxyController()
 {
     proxyProcess = new QProcess(this);
-
-#ifdef Q_OS_UNIX
-    QProcess killallProcess;
-    killallProcess.start(SettingsController::getValue<QString>("proxy/killprocess", DEFAULT_PROXY_KILLPROCESS));
-    killallProcess.waitForFinished();
-#endif
 }
 
 ProxyController::~ProxyController()
@@ -72,16 +66,17 @@ void ProxyController::startProxy()
 
 void ProxyController::stopProxy()
 {
-    restoreDefaultSystemProxy();
-    proxyProcess->terminate();
-    proxyProcess->waitForFinished();
+    if(QProcess::Running == proxyProcess->state())
+    {
+        restoreDefaultSystemProxy();
+        proxyProcess->terminate();
+        proxyProcess->waitForFinished();
+    }
 }
 
 void ProxyController::setDefaultSystemProxy()
 {
     SystemProxy::setDefaultSystemProxy("127.0.0.1",8888);
-    SystemProxy::enableSystemProxy();
-
 }
 
 void ProxyController::restoreDefaultSystemProxy()

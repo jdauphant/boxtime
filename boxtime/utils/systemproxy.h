@@ -16,6 +16,7 @@ private:
     SystemProxy & operator=(const SystemProxy &) {return *this;}
 
     static void setGsettingsParams(QString schema, QString key, QString value);
+    static void setMacOSXNetworksetupParams(const QStringList params);
 };
 
 #endif // SYSTEMPROXY_H
