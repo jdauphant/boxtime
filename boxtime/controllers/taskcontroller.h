@@ -26,8 +26,8 @@ private:
     QDateTime startDateTime;
 
 public slots:
-    void startTask(QString taskName);
-    void endingTask();
+    void start(QString taskName);
+    void ending();
 
 signals:
     void newTime(double time);

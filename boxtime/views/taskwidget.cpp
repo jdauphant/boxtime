@@ -3,7 +3,9 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QtGui>
+#include "settingscontroller.h"
 
+using namespace settings;
 
 TaskWidget::TaskWidget(QWidget *parent) :
     GenericWidget(parent),
@@ -117,6 +119,23 @@ void TaskWidget::showContextMenu(const QPoint& pos){
      QMenu *contextMenu=new QMenu;
      QAction * boxtimeLabel = contextMenu->addAction(QIcon("://ressources/logo_mini.png"), "Boxtime v1.0");
      boxtimeLabel->setIconVisibleInMenu(true);
+
+#ifndef Q_OS_WIN32
+     contextMenu->addSeparator();
+
+     QAction * proxyEnableAction = contextMenu->addAction("Blocking (disable)");
+     proxyEnableAction->setCheckable(true);
+     if(false==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
+     {
+        connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SIGNAL(proxySettingChange(bool)));
+     }
+     else
+     {
+        proxyEnableAction->setText("Blocking (enable)");
+        proxyEnableAction->setChecked(true);
+        connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SIGNAL(proxySettingChange(bool)));
+     }
+#endif
 
      contextMenu->addSeparator();
      QAction * exit = contextMenu->addAction("Exit");

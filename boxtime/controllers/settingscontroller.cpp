@@ -2,15 +2,13 @@
 
 #include <QtCore>
 
-const QString SettingsController::ORGANIZATION_NAME = QString("boxtime");
-const QString SettingsController::ORGANIZATION_DOMAIN = QString("boxti.me");
-const QString SettingsController::APPLICATION_NAME = QString("<boxti.me/>");
+using namespace settings;
 
 SettingsController::SettingsController()
 {
-    QCoreApplication::setOrganizationName(this->ORGANIZATION_NAME);
-    QCoreApplication::setOrganizationDomain(this->ORGANIZATION_DOMAIN);
-    QCoreApplication::setApplicationName(this->APPLICATION_NAME);
+    QCoreApplication::setOrganizationName(ORGANIZATION_NAME);
+    QCoreApplication::setOrganizationDomain(ORGANIZATION_DOMAIN);
+    QCoreApplication::setApplicationName(APPLICATION_NAME);
     settings = new QSettings();
 }
 
@@ -32,7 +30,14 @@ SettingsController * SettingsController::getInstance()
 template<typename T>
 T SettingsController::getValue(const QString & key, const QVariant & defaultValue)
 {
-    return getInstance()->settings->value(key, defaultValue).value<T>();
+    return this->settings->value(key, defaultValue).value<T>();
 }
 
+void SettingsController::setValue(const QString & key, const QVariant & value)
+{
+    this->settings->setValue(key, value);
+}
+
+
 template QString SettingsController::getValue<QString>(const QString & key, const QVariant & defaultValue);
+template bool SettingsController::getValue<bool>(const QString & key, const QVariant & defaultValue);

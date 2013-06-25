@@ -21,6 +21,7 @@ public:
 signals:
     void newTask(QString taskName);
     void done();
+    void proxySettingChange(bool enable);
 
 private slots:
     void newTask();

@@ -21,10 +21,11 @@ int main(int argc, char *argv[])
 
     TaskController * taskController = TaskController::getInstance();
 
-    QObject::connect(&taskWidget,SIGNAL(newTask(QString)),taskController,SLOT(startTask(QString)));
-    QObject::connect(&taskWidget,SIGNAL(done()),taskController,SLOT(endingTask()));
+    QObject::connect(&taskWidget,SIGNAL(newTask(QString)),taskController,SLOT(start(QString)));
+    QObject::connect(&taskWidget,SIGNAL(done()),taskController,SLOT(ending()));
     QObject::connect(taskController,SIGNAL(newTime(double)),&taskWidget,SLOT(newTime(double)));
-    QObject::connect(&qApplication,SIGNAL(aboutToQuit()),ProxyController::getInstance(),SLOT(stopProxy()));
+    QObject::connect(&qApplication,SIGNAL(aboutToQuit()),ProxyController::getInstance(),SLOT(stop()));
+    QObject::connect(&taskWidget,SIGNAL(proxySettingChange(bool)),ProxyController::getInstance(),SLOT(enable(bool)));
 
     taskWidget.show();
 

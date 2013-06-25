@@ -21,12 +21,12 @@ TaskController * TaskController::getInstance()
     return taskControl;
 }
 
-void TaskController::startTask(QString taskName)
+void TaskController::start(QString taskName)
 {
     time = 0;
     timer->start(1000);
 
-    proxyController->startProxy();
+    proxyController->start();
 
     startDateTime = QDateTime::currentDateTime();
     currentTaskName = taskName;
@@ -38,13 +38,13 @@ void TaskController::timeoutTimer()
     newTime(time);
 }
 
-void TaskController::endingTask()
+void TaskController::ending()
 {
     timer->stop();
     double timeElapsed = time;
     time=0;
     newTime(time);
-    proxyController->stopProxy();
+    proxyController->stop();
     Task(currentTaskName,startDateTime, timeElapsed).addToLogFile();
 }
 

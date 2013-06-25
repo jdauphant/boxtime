@@ -5,29 +5,7 @@
 #include <settingscontroller.h>
 #include "systemproxy.h"
 
-const QStringList ProxyController::DEFAULT_BLOCK_LIST = QStringList() << "facebook.com" << "9gag.com" << "4chan.org"
-          << "twitter.com" << "pinterest.com" << "tweetdeck.com"
-          << "*.facebook.com" << "*.9gag.com" << "*.4chan.org" << "*.twitter.com" << "*.pinterest.com" << "*.tweetdeck.com"
-          << "collegehumor.com" << "*.collegehumor.com" << "reddit.com" << "*.reddit.com"
-          << "plus.google.com" << "mail.google.com" << "news.google.com"
-          << "outlook.com" << "*.outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
-          << "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << "*.mail.yahoo.com";
-
-#ifdef Q_OS_MAC
-const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("./tinyproxy");
-const QString ProxyController::DEFAULT_PROXY_KILLPROCESS = QString("killall tinyproxy");
-#endif
-
-#ifdef Q_OS_LINUX
-const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("tinyproxy");
-const QString ProxyController::DEFAULT_PROXY_KILLPROCESS = QString("pkill tinyproxy");
-#endif
-
-#ifdef Q_OS_WIN32
-const QString ProxyController::DEFAULT_PROXY_PROCESS = QString("");
-const QString ProxyController::DEFAULT_PROXY_KILLPROCESS = QString("");
-#endif
-
+using namespace settings;
 
 ProxyController::ProxyController()
 {
@@ -36,7 +14,7 @@ ProxyController::ProxyController()
 
 ProxyController::~ProxyController()
 {
-    stopProxy();
+    stop();
     delete proxyProcess;
 }
 
@@ -50,10 +28,15 @@ ProxyController * ProxyController::getInstance()
     return proxyController;
 }
 
-void ProxyController::startProxy()
+void ProxyController::start()
 {
-    setDefaultSystemProxy();
-    QString programName = SettingsController::getValue<QString>("proxy/process", DEFAULT_PROXY_PROCESS);
+    if(false==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
+    {
+        qDebug() << "Proxy is disable";
+        return;
+    }
+
+    QString programName = SettingsController::getInstance()->getValue<QString>("proxy/process", DEFAULT_PROXY_PROCESS);
 
     proxyProcess->setWorkingDirectory(QCoreApplication::applicationDirPath());
     qDebug() << "Tinyproxy Working Directory : " << proxyProcess->workingDirectory();
@@ -62,9 +45,19 @@ void ProxyController::startProxy()
     proxyProcess->waitForBytesWritten();
     QString output(proxyProcess->readAllStandardOutput());
     qDebug() << output;
+
+    if(QProcess::Running == proxyProcess->state())
+    {
+        setDefaultSystemProxy();
+    }
+    else
+    {
+        qDebug() << "Fail to start proxy, we disable the fonctionality";
+        SettingsController::getInstance()->setValue("proxy/enable", false);
+    }
 }
 
-void ProxyController::stopProxy()
+void ProxyController::stop()
 {
     if(QProcess::Running == proxyProcess->state())
     {
@@ -82,4 +75,17 @@ void ProxyController::setDefaultSystemProxy()
 void ProxyController::restoreDefaultSystemProxy()
 {
     SystemProxy::disableSystemProxy();
+}
+
+void ProxyController::enable(bool enable)
+{
+    if(false==enable)
+    {
+        stop();
+        SettingsController::getInstance()->setValue("proxy/enable", false);
+    }
+    else
+    {
+        SettingsController::getInstance()->setValue("proxy/enable", true);
+    }
 }

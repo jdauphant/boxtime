@@ -1,6 +1,6 @@
 #include "genericwidget.h"
 
-#ifdef Q_WS_X11 //only define on 4.X Q_OS_UNIX
+#ifdef Q_WS_X11 //only define on 4.X also use Q_OS_UNIX with ifndef Q_OS_MAC
 #include <QX11Info>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>

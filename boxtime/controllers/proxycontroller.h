@@ -10,9 +10,6 @@ class ProxyController: public QObject
 public:
     static ProxyController * getInstance();
     ~ProxyController();
-    const static QString DEFAULT_PROXY_PROCESS;
-    const static QString DEFAULT_PROXY_KILLPROCESS;
-    const static QStringList DEFAULT_BLOCK_LIST;
 
 private:
     ProxyController();
@@ -25,10 +22,11 @@ private:
     void setGsettingsParams(QString schema, QString key, QString value);
 
 public slots:
-    void startProxy();
-    void stopProxy();
+    void start();
+    void stop();
     void setDefaultSystemProxy();
     void restoreDefaultSystemProxy();
+    void enable(bool enable);
 };
 
 #endif // PROXYCONTROLLER_H
