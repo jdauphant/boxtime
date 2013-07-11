@@ -5,6 +5,7 @@
 #include <QtGui>
 #include "taskcontroller.h"
 #include "settingscontroller.h"
+#include "proxycontroller.h"
 
 using namespace settings;
 
@@ -48,7 +49,7 @@ void TaskWidget::initConnectToTaskController()
 {
     TaskController * taskController = TaskController::getInstance();
     connect(this,SIGNAL(newTask(QString)),taskController,SLOT(start(QString)));
-    connect(this,SIGNAL(done()),taskController,SLOT(ending()));
+    connect(this,SIGNAL(done()),taskController,SLOT(end()));
     connect(taskController,SIGNAL(newTime(double)),this,SLOT(newTime(double)));
     connect(this,SIGNAL(proxySettingChange(bool)),ProxyController::getInstance(),SLOT(enable(bool)));
 }
@@ -137,12 +138,6 @@ void TaskWidget::showContextMenu(const QPoint& pos){
      proxyEnableAction->setCheckable(true);
      if(false==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
      {
-        connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SIGNAL(proxySettingChange(bool)));
-     }
-     else
-     {
-        proxyEnableAction->setText("Blocking (enable)");
-        proxyEnableAction->setChecked(true);
         connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SIGNAL(proxySettingChange(bool)));
      }
 #endif
