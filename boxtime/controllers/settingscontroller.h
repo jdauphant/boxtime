@@ -19,6 +19,7 @@ public:
 
     static SettingsController * getInstance();
     static QString getDataPath();
+    static QString getDocumentsPath();
 
     template<typename T>
     T getValue(const QString & key, const QVariant & defaultValue);

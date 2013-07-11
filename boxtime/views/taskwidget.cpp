@@ -6,6 +6,7 @@
 #include "taskcontroller.h"
 #include "settingscontroller.h"
 #include "proxycontroller.h"
+#include "storagecontroller.h"
 
 using namespace settings;
 
@@ -43,6 +44,7 @@ TaskWidget::TaskWidget(QWidget *parent) :
         this, SLOT(showContextMenu(const QPoint&)));
 
     initConnectToTaskController();
+    StorageController::getInstance();
 }
 
 void TaskWidget::initConnectToTaskController()
@@ -133,14 +135,18 @@ void TaskWidget::showContextMenu(const QPoint& pos){
 
 #ifndef Q_OS_WIN32
      contextMenu->addSeparator();
-
-     QAction * proxyEnableAction = contextMenu->addAction("Blocking (disable)");
-     proxyEnableAction->setCheckable(true);
      if(false==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
      {
+        QAction * proxyEnableAction = contextMenu->addAction("Blocking (disable)");
+        proxyEnableAction->setCheckable(true);
         connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SIGNAL(proxySettingChange(bool)));
      }
 #endif
+     if(true==StorageController::getInstance()->historyExists())
+     {
+         QAction * exportAndOpenCSVAction = contextMenu->addAction("Export to spreadsheet");
+         connect(exportAndOpenCSVAction, SIGNAL(triggered()), StorageController::getInstance(), SLOT(exportAndOpenCSV()));
+     }
 
      contextMenu->addSeparator();
      QAction * exit = contextMenu->addAction("Exit");

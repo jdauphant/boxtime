@@ -38,6 +38,11 @@ QString SettingsController::getDataPath()
     return dataFolder;
 }
 
+QString SettingsController::getDocumentsPath()
+{
+    return QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+}
+
 template<typename T>
 T SettingsController::getValue(const QString & key, const QVariant & defaultValue)
 {

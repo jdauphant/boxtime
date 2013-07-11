@@ -1,5 +1,6 @@
 #include "storagecontroller.h"
 #include "taskcontroller.h"
+#include <QDesktopServices>
 
 StorageController::StorageController()
 {
@@ -34,4 +35,22 @@ void StorageController::taskEnded(Task* task)
       stream << task->toCSVLine() << endl;
       file.close();
     }
+}
+
+QString StorageController::getCSVFile()
+{
+    QString destinationFile = SettingsController::getInstance()->getValue<QString>("storage/file",DEFAULT_EXPORT_CSV_FILE).replace("%s",QDateTime::currentDateTime().toString("dd.MM.yyyy'-'HH'h'mm'm'ss"));
+    QFile::copy(SettingsController::getInstance()->getValue<QString>("storage/file",DEFAULT_STORAGE_FILE), destinationFile);
+    qDebug() <<  "Export to : " << destinationFile;
+    return destinationFile;
+}
+
+bool StorageController::historyExists()
+{
+    return QFile::exists(SettingsController::getInstance()->getValue<QString>("storage/file",DEFAULT_STORAGE_FILE));
+}
+
+void StorageController::exportAndOpenCSV()
+{
+    QDesktopServices::openUrl(QUrl("file://"+getCSVFile(),QUrl::TolerantMode));
 }
