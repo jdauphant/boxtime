@@ -7,8 +7,6 @@
 #include "systemproxy.h"
 #include "taskcontroller.h"
 
-using namespace settings;
-
 ProxyController::ProxyController()
 {
     proxyProcess = new QProcess(this);

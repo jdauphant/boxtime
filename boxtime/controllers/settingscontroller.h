@@ -9,7 +9,7 @@ namespace settings
 {
 const QString ORGANIZATION_NAME = QString("boxtime");
 const QString ORGANIZATION_DOMAIN = QString("boxti.me");
-const QString APPLICATION_NAME = QString("boxti.me");
+const QString APPLICATION_NAME = QString("boxtime");
 }
 
 class SettingsController
@@ -18,6 +18,7 @@ public:
     ~SettingsController();
 
     static SettingsController * getInstance();
+    static QString getDataPath();
 
     template<typename T>
     T getValue(const QString & key, const QVariant & defaultValue);
@@ -32,4 +33,5 @@ private:
     QSettings * settings;
 };
 
+using namespace settings;
 #endif // SETTINGSCONTROLLER_H

@@ -1,8 +1,7 @@
 #include "settingscontroller.h"
 
 #include <QtCore>
-
-using namespace settings;
+#include <QDesktopServices>
 
 SettingsController::SettingsController()
 {
@@ -25,6 +24,18 @@ SettingsController * SettingsController::getInstance()
         settingsController = new SettingsController();
     }
     return settingsController;
+}
+
+QString SettingsController::getDataPath()
+{
+    getInstance();
+    QString dataFolder = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
+    if(false==QDir(dataFolder).exists())
+    {
+        bool mkpathResult = QDir().mkpath(dataFolder);
+        qDebug() << "Try to create " << dataFolder << " result=" << mkpathResult;
+    }
+    return dataFolder;
 }
 
 template<typename T>

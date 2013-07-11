@@ -1,12 +1,13 @@
 #include "storagecontroller.h"
 #include "taskcontroller.h"
 
-
 StorageController::StorageController()
 {
     TaskController * taskController = TaskController::getInstance();
     connect(taskController,SIGNAL(started(Task *)),this,SLOT(taskStarted(Task*)));
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(taskEnded(Task*)));
+
+    qDebug() << "Storage File : " << SettingsController::getInstance()->getValue<QString>("storage/file",DEFAULT_STORAGE_FILE);
 }
 
 StorageController * StorageController::getInstance()
@@ -26,7 +27,7 @@ void StorageController::taskStarted(Task* task)
 
 void StorageController::taskEnded(Task* task)
 {
-    QFile file("./taskLog.csv");
+    QFile file(SettingsController::getInstance()->getValue<QString>("storage/file",DEFAULT_STORAGE_FILE));
     if (file.open(QFile::WriteOnly | QIODevice::Append))
     {
       QTextStream stream(&file);
