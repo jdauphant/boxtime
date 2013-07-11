@@ -3,10 +3,6 @@
 #include <QDesktopWidget>
 #include <QFontDatabase>
 
-#include "settingscontroller.h"
-#include "taskcontroller.h"
-#include "proxycontroller.h"
-#include "storagecontroller.h"
 #include "taskwidget.h"
 
 int main(int argc, char *argv[])
@@ -21,14 +17,8 @@ int main(int argc, char *argv[])
         qDebug() << "Impossible to install font Nexa Bold.otf";
     }
 
-    SettingsController::getInstance();
-    TaskController::getInstance();
-    ProxyController::getInstance();
-    StorageController::getInstance();
-
     TaskWidget taskWidget;
     taskWidget.show();
-
 
     return qApplication.exec();
 }
