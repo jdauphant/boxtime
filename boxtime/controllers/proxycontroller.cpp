@@ -2,14 +2,20 @@
 
 #include <QtCore>
 #include <QtNetwork>
+#include <QApplication>
 #include <settingscontroller.h>
 #include "systemproxy.h"
+#include "taskcontroller.h"
 
 using namespace settings;
 
 ProxyController::ProxyController()
 {
     proxyProcess = new QProcess(this);
+
+    TaskController * taskController = TaskController::getInstance();
+    connect(taskController,SIGNAL(started(Task *)),this,SLOT(start()));
+    connect(taskController,SIGNAL(ended(Task *)),this,SLOT(stop()));
 }
 
 ProxyController::~ProxyController()

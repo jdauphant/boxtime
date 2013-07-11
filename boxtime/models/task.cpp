@@ -8,13 +8,7 @@ Task::Task(QString name, QDateTime startDateTime, double timeElapsed)
 }
 
 
-void Task::addToLogFile()
+QString Task::toCSVLine(QChar separator)
 {
-    QFile file("./taskLog.csv");
-    if (file.open(QFile::WriteOnly | QIODevice::Append))
-    {
-      QTextStream stream(&file);
-      stream << name << ";" << startDateTime.toString(Qt::ISODate) << ";"<< timeElapsed << "\n";
-      file.close();
-    }
+    return name+separator+startDateTime.toString(Qt::ISODate)+timeElapsed+"\n";
 }

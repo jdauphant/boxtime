@@ -31,6 +31,7 @@ private slots:
     
 private:
     Ui::TaskWidget *ui;
+    void initConnectToTaskController();
 
 protected:
      void mouseMoveEvent(QMouseEvent *event);

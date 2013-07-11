@@ -1,15 +1,13 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include <QObject>
-#include <QDateTime>
+#include <QtCore>
 
-class Task : public QObject
+class Task
 {
-    Q_OBJECT
 public:
     Task(QString name, QDateTime startDateTime, double timeElapsed);
-    void addToLogFile();
+    QString toCSVLine(QChar separator = ';');
 
     QString name;
     QDateTime startDateTime;

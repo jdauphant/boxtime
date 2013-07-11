@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QtGui>
+#include "taskcontroller.h"
 #include "settingscontroller.h"
 
 using namespace settings;
@@ -35,13 +36,22 @@ TaskWidget::TaskWidget(QWidget *parent) :
     setPalette(p); */
 
     QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(newTask()));
-    QObject::connect(ui->validationButton, SIGNAL(clicked()),this,SLOT(doneClicked())); 
+    QObject::connect(ui->validationButton, SIGNAL(clicked()),this,SLOT(doneClicked()));
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
         this, SLOT(showContextMenu(const QPoint&)));
 
+    initConnectToTaskController();
 }
 
+void TaskWidget::initConnectToTaskController()
+{
+    TaskController * taskController = TaskController::getInstance();
+    connect(this,SIGNAL(newTask(QString)),taskController,SLOT(start(QString)));
+    connect(this,SIGNAL(done()),taskController,SLOT(ending()));
+    connect(taskController,SIGNAL(newTime(double)),this,SLOT(newTime(double)));
+    connect(this,SIGNAL(proxySettingChange(bool)),ProxyController::getInstance(),SLOT(enable(bool)));
+}
 
 void TaskWidget::newTask()
 {
@@ -141,14 +151,5 @@ void TaskWidget::showContextMenu(const QPoint& pos){
      QAction * exit = contextMenu->addAction("Exit");
      connect(exit, SIGNAL(triggered()),
              this, SLOT(close()));
-     QAction* selectedItem = contextMenu->exec(globalPos);
-     /*
-     if (selectedItem)
-     {
-
-     }
-     else
-     {
-
-     }*/
+     contextMenu->exec(globalPos);
 }

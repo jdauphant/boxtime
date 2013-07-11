@@ -1,10 +1,7 @@
 #ifndef TASKCONTROLLER_HPP
 #define TASKCONTROLLER_HPP
 
-#include <QObject>
-#include <QTimer>
-#include <QDateTime>
-#include "proxycontroller.h"
+#include <QtCore>
 #include "task.h"
 
 class TaskController : public QObject
@@ -20,20 +17,20 @@ private:
     TaskController & operator=(const TaskController &) {return *this;}
 
     QTimer * timer;
-    double time;
-    ProxyController* proxyController;
-    QString currentTaskName;
-    QDateTime startDateTime;
+    Task * currentTask;
 
 public slots:
     void start(QString taskName);
-    void ending();
+    void end();
 
 signals:
     void newTime(double time);
+    void started(Task * task);
+    void ended(Task * task);
+
 
 private slots:
-    void timeoutTimer();
+    void timerTimeout();
 };
 
 #endif // TASKCONTROLLER_HPP
