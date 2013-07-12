@@ -9,7 +9,11 @@ namespace settings
 {
 const QString ORGANIZATION_NAME = QString("boxtime");
 const QString ORGANIZATION_DOMAIN = QString("boxti.me");
+#ifndef QT_NO_DEBUG
+const QString APPLICATION_NAME = QString("boxtime_debug");
+#else
 const QString APPLICATION_NAME = QString("boxtime");
+#endif
 }
 
 class SettingsController
