@@ -37,7 +37,8 @@ TaskWidget::TaskWidget(QWidget *parent) :
 #endif
 
     QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(textValided()));
-    QObject::connect(ui->validationButton, SIGNAL(clicked()),this,SLOT(doneClicked()));
+    connect(this,SIGNAL(proxySettingChange(bool)),ProxyController::getInstance(),SLOT(enable(bool)));
+
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
         this, SLOT(showContextMenu(const QPoint&)));
@@ -50,10 +51,10 @@ void TaskWidget::initConnectToTaskController()
 {
     TaskController * taskController = TaskController::getInstance();
     connect(this,SIGNAL(newTask(QString)),taskController,SLOT(start(QString)));
-    connect(this,SIGNAL(done()),taskController,SLOT(end()));
     connect(taskController,SIGNAL(newTime(double)),this,SLOT(newTime(double)));
-    connect(this,SIGNAL(proxySettingChange(bool)),ProxyController::getInstance(),SLOT(enable(bool)));
-    connect(taskController,SIGNAL(started(Task*)),this,SLOT(newTaskStarted(Task*)));
+    connect(taskController,SIGNAL(started(Task*)),this,SLOT(taskStarted(Task*)));
+    connect(ui->validationButton, SIGNAL(clicked()),taskController,SLOT(end()));
+    connect(taskController,SIGNAL(ended(Task*)),this,SLOT(taskEnded()));
 }
 
 void TaskWidget::textValided()
@@ -65,7 +66,7 @@ void TaskWidget::textValided()
     }
 }
 
-void TaskWidget::newTaskStarted(Task * task)
+void TaskWidget::taskStarted(Task * task)
 {
     ui->taskLineEdit->setEnabled(false);
     ui->taskLineEdit->setText("<"+task->name+"/>");
@@ -77,13 +78,12 @@ void TaskWidget::newTaskStarted(Task * task)
     ui->timeLabel->setText("");
 }
 
-void TaskWidget::doneClicked()
+void TaskWidget::taskEnded()
 {
     ui->taskLineEdit->setMaxLength(60);
     ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; border-radius: 8px }");
     ui->validationButton->setVisible(false);
     ui->taskLineEdit->setText("");
-    done();
     ui->timeLabel->setText("00s  ");
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);

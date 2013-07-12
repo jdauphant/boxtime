@@ -21,13 +21,12 @@ public:
 
 signals:
     void newTask(QString taskName);
-    void done();
     void proxySettingChange(bool enable);
 
 private slots:
     void textValided();
-    void newTaskStarted(Task * task);
-    void doneClicked();
+    void taskStarted(Task * task);
+    void taskEnded();
     void newTime(double time);
     void showContextMenu(const QPoint& pos);
     
