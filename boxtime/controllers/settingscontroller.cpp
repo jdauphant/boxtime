@@ -2,6 +2,7 @@
 
 #include <QtCore>
 #include <QDesktopServices>
+#include "task.h"
 
 SettingsController::SettingsController()
 {
@@ -54,6 +55,12 @@ void SettingsController::setValue(const QString & key, const QVariant & value)
     this->settings->setValue(key, value);
 }
 
+void SettingsController::removeValue(const QString & key)
+{
+    this->settings->remove(key);
+}
+
 
 template QString SettingsController::getValue<QString>(const QString & key, const QVariant & defaultValue);
 template bool SettingsController::getValue<bool>(const QString & key, const QVariant & defaultValue);
+template int SettingsController::getValue<int>(const QString & key, const QVariant & defaultValue);

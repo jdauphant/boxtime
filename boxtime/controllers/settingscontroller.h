@@ -26,6 +26,7 @@ public:
 
 public slots:
     void setValue(const QString & key, const QVariant & value);
+    void removeValue(const QString & key);
 
 private:
     SettingsController();

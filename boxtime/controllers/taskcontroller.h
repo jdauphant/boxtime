@@ -4,12 +4,15 @@
 #include <QtCore>
 #include "task.h"
 
+
+
 class TaskController : public QObject
 {
     Q_OBJECT
 public:
     static TaskController * getInstance();
     ~TaskController(){ }
+    void checkRecovery();
 
 private:
     TaskController();

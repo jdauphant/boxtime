@@ -16,7 +16,11 @@ TaskWidget::TaskWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint );
-    move((QApplication::desktop()->width() / 2) - (width() / 2), 0);
+
+    int x = SettingsController::getInstance()->getValue<int>("taskwidget/x", (QApplication::desktop()->width() / 2) - (width() / 2));
+    int y = SettingsController::getInstance()->getValue<int>("taskwidget/y", 0);
+    move(x,y);
+
     ui->validationButton->setVisible(false);
     setVisibleAllDesktops();
     roundCorners(6);
@@ -32,12 +36,7 @@ TaskWidget::TaskWidget(QWidget *parent) :
     ui->timeLabel->setFont(timeLabelFont);
 #endif
 
-    /*  // Change background color :
-    QPalette p(palette());
-    p.setColor(QPalette::Background, QColor("#3577B1"));
-    setPalette(p); */
-
-    QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(newTask()));
+    QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(textValided()));
     QObject::connect(ui->validationButton, SIGNAL(clicked()),this,SLOT(doneClicked()));
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
@@ -54,22 +53,28 @@ void TaskWidget::initConnectToTaskController()
     connect(this,SIGNAL(done()),taskController,SLOT(end()));
     connect(taskController,SIGNAL(newTime(double)),this,SLOT(newTime(double)));
     connect(this,SIGNAL(proxySettingChange(bool)),ProxyController::getInstance(),SLOT(enable(bool)));
+    connect(taskController,SIGNAL(started(Task*)),this,SLOT(newTaskStarted(Task*)));
 }
 
-void TaskWidget::newTask()
+void TaskWidget::textValided()
 {
     if(ui->taskLineEdit->text().size()>0)
     {
         ui->taskLineEdit->setEnabled(false);
-        ui->taskLineEdit->setCursor(Qt::OpenHandCursor);
-        // boxtime color : 3577B1;
-        ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; border-radius: 8px }");
         newTask(ui->taskLineEdit->text());
-        ui->taskLineEdit->setMaxLength(65);
-        ui->taskLineEdit->setText("<"+ui->taskLineEdit->text()+"/>");
-        ui->validationButton->setVisible(true);
-        ui->timeLabel->setText("00s");
     }
+}
+
+void TaskWidget::newTaskStarted(Task * task)
+{
+    ui->taskLineEdit->setEnabled(false);
+    ui->taskLineEdit->setText("<"+task->name+"/>");
+    ui->taskLineEdit->setCursor(Qt::OpenHandCursor);
+    // boxtime color : 3577B1;
+    ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; border-radius: 8px }");
+    ui->taskLineEdit->setMaxLength(65);
+    ui->validationButton->setVisible(true);
+    ui->timeLabel->setText("");
 }
 
 void TaskWidget::doneClicked()
@@ -83,6 +88,8 @@ void TaskWidget::doneClicked()
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
 }
+
+
 
 void TaskWidget::newTime(double time)
 {
@@ -114,7 +121,10 @@ void TaskWidget::mousePressEvent(QMouseEvent *event)
 void TaskWidget::mouseMoveEvent(QMouseEvent *event)
 {
     if (event->buttons() & Qt::LeftButton) {
-        move(event->globalPos() - dragPosition);
+        QPoint destination = event->globalPos() - dragPosition;
+        move(destination);
+        SettingsController::getInstance()->setValue("taskwidget/x", destination.x());
+        SettingsController::getInstance()->setValue("taskwidget/y", destination.y());
         event->accept();
     }
 }

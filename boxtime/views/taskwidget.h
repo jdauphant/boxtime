@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTime>
 #include "genericwidget.h"
+#include "task.h"
 
 namespace Ui {
 class TaskWidget;
@@ -24,7 +25,8 @@ signals:
     void proxySettingChange(bool enable);
 
 private slots:
-    void newTask();
+    void textValided();
+    void newTaskStarted(Task * task);
     void doneClicked();
     void newTime(double time);
     void showContextMenu(const QPoint& pos);

@@ -4,6 +4,7 @@
 #include <QFontDatabase>
 
 #include "taskwidget.h"
+#include "taskcontroller.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
 
     TaskWidget taskWidget;
     taskWidget.show();
-
+    TaskController::getInstance()->checkRecovery();
     return qApplication.exec();
 }
 
