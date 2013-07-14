@@ -12,7 +12,7 @@ public:
 
 private:
     SystemProxy();
-    SystemProxy(const SystemProxy & c) {}
+    SystemProxy(const SystemProxy &) {}
     SystemProxy & operator=(const SystemProxy &) {return *this;}
 
     static void setGsettingsParams(QString schema, QString key, QString value);
