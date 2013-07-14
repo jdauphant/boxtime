@@ -37,7 +37,6 @@ TaskWidget::TaskWidget(QWidget *parent) :
 #endif
 
     QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(textValided()));
-    connect(this,SIGNAL(proxySettingChange(bool)),ProxyController::getInstance(),SLOT(enable(bool)));
 
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
@@ -140,16 +139,16 @@ void TaskWidget::mouseReleaseEvent(QMouseEvent * event)
 void TaskWidget::showContextMenu(const QPoint& pos){
      QPoint globalPos = this->mapToGlobal(pos);
      QMenu *contextMenu=new QMenu;
-     QAction * boxtimeLabel = contextMenu->addAction(QIcon("://ressources/logo_mini.png"), "Boxtime v1.0");
-     boxtimeLabel->setIconVisibleInMenu(true);
+     QAction * aboutLabel = contextMenu->addAction(QIcon("://ressources/logo_mini.png"), APPLICATION_NAME+QString(" v")+VERSION);
+     aboutLabel->setIconVisibleInMenu(true);
 
 #ifndef Q_OS_WIN32
      contextMenu->addSeparator();
      if(false==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
      {
-        QAction * proxyEnableAction = contextMenu->addAction("Blocking (disable)");
+        QAction * proxyEnableAction = contextMenu->addAction("Enable blocking");
         proxyEnableAction->setCheckable(true);
-        connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SIGNAL(proxySettingChange(bool)));
+        connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SLOT(proxySettingChange(bool)));
      }
 #endif
      if(true==StorageController::getInstance()->historyExists())
@@ -163,4 +162,10 @@ void TaskWidget::showContextMenu(const QPoint& pos){
      connect(exit, SIGNAL(triggered()),
              this, SLOT(close()));
      contextMenu->exec(globalPos);
+}
+
+
+void TaskWidget::proxySettingChange(bool enable)
+{
+    SettingsController::getInstance()->setValue("proxy/enable", enable);
 }

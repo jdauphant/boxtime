@@ -5,6 +5,7 @@
 
 #include "taskwidget.h"
 #include "taskcontroller.h"
+#include "proxycontroller.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +21,7 @@ int main(int argc, char *argv[])
 
     TaskWidget taskWidget;
     taskWidget.show();
+    ProxyController::getInstance();
     TaskController::getInstance()->checkRecovery();
     return qApplication.exec();
 }

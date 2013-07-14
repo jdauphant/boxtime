@@ -21,7 +21,6 @@ public:
 
 signals:
     void newTask(QString taskName);
-    void proxySettingChange(bool enable);
 
 private slots:
     void textValided();
@@ -29,6 +28,7 @@ private slots:
     void taskEnded();
     void newTime(double time);
     void showContextMenu(const QPoint& pos);
+    void proxySettingChange(bool enable);
     
 private:
     Ui::TaskWidget *ui;
