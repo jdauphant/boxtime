@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     views/taskwidget.cpp \
     views/genericwidget.cpp \
     utils/systemproxy.cpp \
-    controllers/storagecontroller.cpp
+    controllers/storagecontroller.cpp \
+    utils/startuplaunch.cpp
 
 HEADERS  += \
     models/task.h \
@@ -30,7 +31,8 @@ HEADERS  += \
     views/taskwidget.h \
     views/genericwidget.h \
     utils/systemproxy.h \
-    controllers/storagecontroller.h
+    controllers/storagecontroller.h \
+    utils/startuplaunch.h
 
 FORMS    += \
     views/taskwidget.ui

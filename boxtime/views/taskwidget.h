@@ -29,6 +29,7 @@ private slots:
     void newTime(double time);
     void showContextMenu(const QPoint& pos);
     void proxySettingChange(bool enable);
+    void onStartupSettingChange(bool enable);
     
 private:
     Ui::TaskWidget *ui;

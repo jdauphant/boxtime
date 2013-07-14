@@ -18,6 +18,8 @@ const QString APPLICATION_DESCRIPTION = QString("Boxtime is a little widget that
 const QString VERSION = QString("0.2");
 const QString MAINTAINER = QString("Julien DAUPHANT <julien@boxti.me>");
 const QString WEBSITE_HOMEPAGE = QString("http://www.boxti.me");
+
+const bool DEFAULT_STARTUP_LAUNCH = true;
 }
 
 class SettingsController: public QObject
@@ -36,9 +38,13 @@ public:
 public slots:
     void setValue(const QString & key, const QVariant & value);
     void removeValue(const QString & key);
+    void checkStartupLaunch();
 
 signals:
     void valueChanged(const QString & key, const QVariant & newValue);
+
+private slots:
+    void settingValueChanged(const QString & key, const QVariant &);
 
 private:
     SettingsController();

@@ -2,14 +2,19 @@
 
 #include <QtCore>
 #include <QDesktopServices>
+#include <QApplication>
 #include "task.h"
+#include "startuplaunch.h"
 
 SettingsController::SettingsController()
 {
     QCoreApplication::setOrganizationName(ORGANIZATION_NAME);
     QCoreApplication::setOrganizationDomain(ORGANIZATION_DOMAIN);
     QCoreApplication::setApplicationName(APPLICATION_NAME);
+    QCoreApplication::setApplicationVersion(VERSION);
     settings = new QSettings();
+    checkStartupLaunch();
+    connect(this, SIGNAL(valueChanged(QString,QVariant)),this, SLOT(settingValueChanged(QString,QVariant)));
 }
 
 SettingsController::~SettingsController()
@@ -64,6 +69,30 @@ void SettingsController::removeValue(const QString & key)
     this->settings->remove(key);
 }
 
+void SettingsController::checkStartupLaunch()
+{
+    if(getValue<bool>("application/onstartup", DEFAULT_STARTUP_LAUNCH)==true)
+    {
+        if(false==StartupLaunch::isOnStartup(APPLICATION_NAME))
+        {
+            StartupLaunch::addOnStartup(APPLICATION_NAME, QCoreApplication::applicationFilePath(), APPLICATION_DESCRIPTION);
+            qDebug() << APPLICATION_NAME << " added to startup " << QCoreApplication::applicationFilePath();
+        }
+    }
+    else
+    {
+        StartupLaunch::removeFromStartup(APPLICATION_NAME);
+        qDebug() << APPLICATION_NAME << " removed from startup";
+    }
+}
+
+void SettingsController::settingValueChanged(const QString &key, const QVariant &)
+{
+    if("application/onstartup"==key)
+    {
+        checkStartupLaunch();
+    }
+}
 
 template QString SettingsController::getValue<QString>(const QString & key, const QVariant & defaultValue);
 template bool SettingsController::getValue<bool>(const QString & key, const QVariant & defaultValue);

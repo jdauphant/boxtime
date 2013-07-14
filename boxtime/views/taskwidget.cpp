@@ -151,6 +151,23 @@ void TaskWidget::showContextMenu(const QPoint& pos){
         connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SLOT(proxySettingChange(bool)));
      }
 #endif
+#ifdef Q_OS_LINUX
+     QAction * onStartupEnableAction = contextMenu->addAction("Disable startup launch");
+     if(true==SettingsController::getInstance()->getValue<bool>("application/onstartup", DEFAULT_PROXY_ENABLE))
+     {
+        onStartupEnableAction->setCheckable(true);
+        onStartupEnableAction->setChecked(true);
+        connect(onStartupEnableAction, SIGNAL(toggled(bool)), this, SLOT(onStartupSettingChange(bool)));
+     }
+     else
+     {
+         onStartupEnableAction->setText("Enable startup launch");
+         onStartupEnableAction->setCheckable(true);
+         onStartupEnableAction->setChecked(false);
+         connect(onStartupEnableAction, SIGNAL(toggled(bool)), this, SLOT(onStartupSettingChange(bool)));
+     }
+#endif
+
      if(true==StorageController::getInstance()->historyExists())
      {
          QAction * exportAndOpenCSVAction = contextMenu->addAction("Export to spreadsheet");
@@ -168,4 +185,9 @@ void TaskWidget::showContextMenu(const QPoint& pos){
 void TaskWidget::proxySettingChange(bool enable)
 {
     SettingsController::getInstance()->setValue("proxy/enable", enable);
+}
+
+void TaskWidget::onStartupSettingChange(bool enable)
+{
+    SettingsController::getInstance()->setValue("application/onstartup", enable);
 }
