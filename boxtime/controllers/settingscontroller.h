@@ -14,10 +14,15 @@ const QString APPLICATION_NAME = QString("boxtime_debug");
 #else
 const QString APPLICATION_NAME = QString("boxtime");
 #endif
+const QString APPLICATION_DESCRIPTION = QString("Boxtime is a little widget that help you to keep focus on one task.");
+const QString VERSION = QString("0.2");
+const QString MAINTAINER = QString("Julien DAUPHANT <julien@boxti.me>");
+const QString WEBSITE_HOMEPAGE = QString("http://www.boxti.me");
 }
 
-class SettingsController
+class SettingsController: public QObject
 {
+    Q_OBJECT
 public:
     ~SettingsController();
 
@@ -32,9 +37,12 @@ public slots:
     void setValue(const QString & key, const QVariant & value);
     void removeValue(const QString & key);
 
+signals:
+    void valueChanged(const QString & key, const QVariant & newValue);
+
 private:
     SettingsController();
-    SettingsController(const SettingsController &) {}
+    SettingsController(const SettingsController &c): QObject(c.parent()) {}
     SettingsController & operator=(const SettingsController &) {return *this;}
     QSettings * settings;
 };

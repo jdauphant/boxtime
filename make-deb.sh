@@ -1,15 +1,14 @@
 #!/bin/sh
 APPLICATION_NAME=boxtime
-VERSION=0.2
 BUILD_PATH=deb
-DESCRIPTION="Boxtime is a little widget that help you to keep focus on one task."
-HOMEPAGE="http://www.boxti.me"
-MAINTAINER="Julien DAUPHANT <julien@boxti.me>"
 SECTION=gnome
 
 set -x -e
-
 WORKING_DIRECTORY=`pwd`/$BUILD_PATH
+
+echo "Retreive variable from sourcecode"
+eval `cat $WORKING_DIRECTORY/../${APPLICATION_NAME}/controllers/settingscontroller.h | grep "const [a-zA-Z0-9]* [A-Z_]* =" | sed -e "s/const [a-zA-Z0-9]* \([A-Z_]*\) = [a-zA-Z0-9]*(\(.*\))/\1=\2/g"`
+
 ARCHI=amd64
 file $WORKING_DIRECTORY/../build-${APPLICATION_NAME}-Desktop-Release/${APPLICATION_NAME} | grep "x86-64" || ARCHI=i386
 ROOT_PKG_PATH=$WORKING_DIRECTORY/${APPLICATION_NAME}_${VERSION}_${ARCHI}
@@ -26,8 +25,8 @@ mkdir -p $ROOT_PKG_PATH/usr/share/applications
 cat << EOF > $ROOT_PKG_PATH/usr/share/applications/${APPLICATION_NAME}.desktop
 [Desktop Entry]
 Name=$APPLICATION_NAME
-Comment=$HOMEPAGE
-Version=$VERSION
+Comment=$WEBSITE_HOMEPAGE
+VERSION=$VERSION
 Exec=$APPLICATION_NAME
 Icon=${APPLICATION_NAME}.png
 Terminal=false
@@ -50,10 +49,10 @@ Section: ${SECTION}
 Installed-Size: ${INSTALLED_SIZE}
 Maintainer: ${MAINTAINER}
 Architecture: ${ARCHI} 
-Version: ${VERSION}
+VERSION: ${VERSION}
 Depends: libc6 (>= 2.15), libqtcore4 (>= 4:4.8.0), libqtgui4 (>=4:4.8.0), libqt4-network (>=4:4.8.0)
-Description: ${DESCRIPTION}
-Homepage: ${HOMEPAGE}
+Description: ${APPLICATION_DESCRIPTION}
+Homepage: ${WEBSITE_HOMEPAGE}
 EOF
 
 md5sum `find . -type f | grep -v '^[.]/DEBIAN/'` > $ROOT_PKG_PATH/DEBIAN/md5sums
@@ -61,5 +60,6 @@ chmod 644 $ROOT_PKG_PATH/DEBIAN/md5sums
 
 chmod -R g-w $ROOT_PKG_PATH
 
+echo "Finally generate the .deb"
 cd $WORKING_DIRECTORY
 fakeroot dpkg-deb -b ${APPLICATION_NAME}_${VERSION}_${ARCHI}

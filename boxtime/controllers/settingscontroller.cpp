@@ -52,7 +52,11 @@ T SettingsController::getValue(const QString & key, const QVariant & defaultValu
 
 void SettingsController::setValue(const QString & key, const QVariant & value)
 {
-    this->settings->setValue(key, value);
+    if(this->settings->value(key)!=value)
+    {
+        this->settings->setValue(key, value);
+        valueChanged(key, value);
+    }
 }
 
 void SettingsController::removeValue(const QString & key)
