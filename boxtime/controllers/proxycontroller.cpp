@@ -14,6 +14,7 @@ ProxyController::ProxyController()
     TaskController * taskController = TaskController::getInstance();
     connect(taskController,SIGNAL(started(Task *)),this,SLOT(start()));
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(stop()));
+    connect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configValueChanged(QString,QVariant)));
 }
 
 ProxyController::~ProxyController()
@@ -36,7 +37,7 @@ void ProxyController::start()
 {
     if(false==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
     {
-        qDebug() << "Proxy is disable";
+        qDebug("Proxy is disable");
         return;
     }
 
@@ -56,7 +57,7 @@ void ProxyController::start()
     }
     else
     {
-        qDebug() << "Fail to start proxy, we disable the fonctionality";
+        qWarning("Fail to start tinyproxy, fonctionality disable");
         SettingsController::getInstance()->setValue("proxy/enable", false);
     }
 }
@@ -81,15 +82,13 @@ void ProxyController::restoreDefaultSystemProxy()
     SystemProxy::disableSystemProxy();
 }
 
-void ProxyController::enable(bool enable)
+void ProxyController::configValueChanged(const QString &key, const QVariant &newValue)
 {
-    if(false==enable)
+    if("proxy/enable"==key)
     {
-        stop();
-        SettingsController::getInstance()->setValue("proxy/enable", false);
-    }
-    else
-    {
-        SettingsController::getInstance()->setValue("proxy/enable", true);
+        if(false==newValue)
+        {
+            stop();
+        }
     }
 }

@@ -5,10 +5,8 @@
 StorageController::StorageController()
 {
     TaskController * taskController = TaskController::getInstance();
-    connect(taskController,SIGNAL(started(Task *)),this,SLOT(taskStarted(Task*)));
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(taskEnded(Task*)));
-
-    qDebug() << "Storage File : " << SettingsController::getInstance()->getValue<QString>("storage/file",DEFAULT_STORAGE_FILE);
+    qDebug() << "History Storage File : " << SettingsController::getInstance()->getValue<QString>("storage/file",DEFAULT_STORAGE_FILE);
 }
 
 StorageController * StorageController::getInstance()
@@ -19,11 +17,6 @@ StorageController * StorageController::getInstance()
         storageController = new StorageController();
     }
     return storageController;
-}
-
-void StorageController::taskStarted(Task* task)
-{
-
 }
 
 void StorageController::taskEnded(Task* task)

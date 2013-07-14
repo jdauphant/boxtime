@@ -29,7 +29,6 @@ private:
 
 
 public slots:
-    void taskStarted(Task * task);
     void taskEnded(Task * task);
     void exportAndOpenCSV();
 };

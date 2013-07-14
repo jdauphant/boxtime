@@ -31,6 +31,8 @@ const QString DEFAULT_PROXY_PROCESS = QString("");
 const QString DEFAULT_PROXY_KILLPROCESS = QString("");
 const bool DEFAULT_PROXY_ENABLE = false;
 #endif
+
+//const QString DEFAULT_PROXY_CONF_FOLDER = SettingsController::getDataPath()+QString("/privoxy");
 }
 
 class ProxyController: public QObject
@@ -50,12 +52,12 @@ private:
     QProcess *proxyProcess;
     void setGsettingsParams(QString schema, QString key, QString value);
 
-public slots:
+private slots:
     void start();
     void stop();
     void setDefaultSystemProxy();
     void restoreDefaultSystemProxy();
-    void enable(bool enable);
+    void configValueChanged(const QString & key, const QVariant & newValue);
 };
 
 #endif // PROXYCONTROLLER_H
