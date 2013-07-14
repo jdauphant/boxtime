@@ -6,8 +6,8 @@ SECTION=gnome
 set -x -e
 WORKING_DIRECTORY=`pwd`/$BUILD_PATH
 
-echo "Retreive variable from sourcecode"
-eval `cat $WORKING_DIRECTORY/../${APPLICATION_NAME}/controllers/settingscontroller.h | grep "const [a-zA-Z0-9]* [A-Z_]* =" | sed -e "s/const [a-zA-Z0-9]* \([A-Z_]*\) = [a-zA-Z0-9]*(\(.*\))/\1=\2/g"`
+echo "Retreive QString variables from sourcecode"
+eval `cat $WORKING_DIRECTORY/../${APPLICATION_NAME}/controllers/settingscontroller.h | grep "const QString [A-Z_]* =" | sed -e "s/const QString \([A-Z_]*\) = [a-zA-Z0-9]*(\(.*\))/\1=\2/g"`
 
 ARCHI=amd64
 file $WORKING_DIRECTORY/../build-${APPLICATION_NAME}-Desktop-Release/${APPLICATION_NAME} | grep "x86-64" || ARCHI=i386
@@ -50,7 +50,7 @@ Installed-Size: ${INSTALLED_SIZE}
 Maintainer: ${MAINTAINER}
 Architecture: ${ARCHI} 
 VERSION: ${VERSION}
-Depends: libc6 (>= 2.15), libqtcore4 (>= 4:4.8.0), libqtgui4 (>=4:4.8.0), libqt4-network (>=4:4.8.0)
+Depends: libc6 (>= 2.15), libqtcore4 (>= 4:4.8.0), libqtgui4 (>=4:4.8.0), libqt4-network (>=4:4.8.0), privoxy (>=3.0.15)
 Description: ${APPLICATION_DESCRIPTION}
 Homepage: ${WEBSITE_HOMEPAGE}
 EOF

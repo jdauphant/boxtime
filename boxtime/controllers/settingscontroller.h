@@ -29,7 +29,7 @@ public:
     ~SettingsController();
 
     static SettingsController * getInstance();
-    static QString getDataPath();
+    QString getDataPath();
     static QString getDocumentsPath();
 
     template<typename T>

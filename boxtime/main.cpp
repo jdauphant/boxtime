@@ -1,7 +1,7 @@
 #include <QtCore>
-#include <QApplication>
 #include <QDesktopWidget>
 #include <QFontDatabase>
+#include <QApplication>
 
 #include "taskwidget.h"
 #include "taskcontroller.h"
@@ -10,6 +10,7 @@
 int main(int argc, char *argv[])
 {
     QApplication qApplication(argc, argv);
+    qDebug("Install fonts");
     if(-1 == QFontDatabase::addApplicationFont("://ressources/Nexa Light.otf"))
     {
         qDebug() << "Impossible to install font Nexa Light.otf";
@@ -19,9 +20,12 @@ int main(int argc, char *argv[])
         qDebug() << "Impossible to install font Nexa Bold.otf";
     }
 
+    qDebug("Load GUI");
     TaskWidget taskWidget;
     taskWidget.show();
-    ProxyController::getInstance();
+
+    qDebug("Load modules");
+    QObject::connect(&qApplication,SIGNAL(lastWindowClosed()),ProxyController::getInstance(),SLOT(stop()));
     TaskController::getInstance()->checkRecovery();
     return qApplication.exec();
 }

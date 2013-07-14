@@ -8,7 +8,6 @@
 
 namespace settings
 {
-    const QString DEFAULT_STORAGE_FILE = SettingsController::getDataPath()+QString("/tasks_history.csv");
     const QString DEFAULT_EXPORT_CSV_FILE = SettingsController::getDocumentsPath()+QString("/boxtime_history_%s.csv");
 }
 
@@ -21,6 +20,7 @@ public:
     ~StorageController(){ }
     QString getCSVFile();
     bool historyExists();
+    const QString DEFAULT_STORAGE_FILE;
 
 private:
     StorageController();

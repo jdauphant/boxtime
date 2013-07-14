@@ -34,7 +34,6 @@ SettingsController * SettingsController::getInstance()
 
 QString SettingsController::getDataPath()
 {
-    getInstance();
     QString dataFolder = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
     if(false==QDir(dataFolder).exists())
     {
@@ -97,3 +96,4 @@ void SettingsController::settingValueChanged(const QString &key, const QVariant 
 template QString SettingsController::getValue<QString>(const QString & key, const QVariant & defaultValue);
 template bool SettingsController::getValue<bool>(const QString & key, const QVariant & defaultValue);
 template int SettingsController::getValue<int>(const QString & key, const QVariant & defaultValue);
+template QStringList SettingsController::getValue<QStringList>(const QString & key, const QVariant & defaultValue);

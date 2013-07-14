@@ -38,7 +38,8 @@ FORMS    += \
     views/taskwidget.ui
 
 RESOURCES += \
-    ressources.qrc
+    ressources.qrc \
+    privoxy.qrc
 
 unix:!macx {
     LIBS += -lX11

@@ -3,11 +3,10 @@
 #include <QtCore>
 #include <QtNetwork>
 #include <QApplication>
-#include <settingscontroller.h>
 #include "systemproxy.h"
 #include "taskcontroller.h"
 
-ProxyController::ProxyController()
+ProxyController::ProxyController(): DEFAULT_PROXY_CONFDIR(SettingsController::getInstance()->getDataPath()+QString("/privoxy"))
 {
     proxyProcess = new QProcess(this);
 
@@ -15,6 +14,7 @@ ProxyController::ProxyController()
     connect(taskController,SIGNAL(started(Task *)),this,SLOT(start()));
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(stop()));
     connect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configValueChanged(QString,QVariant)));
+    setupBlockingConfiguration();
 }
 
 ProxyController::~ProxyController()
@@ -42,13 +42,15 @@ void ProxyController::start()
     }
 
     QString programName = SettingsController::getInstance()->getValue<QString>("proxy/process", DEFAULT_PROXY_PROCESS);
-
+    QString confdir = SettingsController::getInstance()->getValue<QString>("proxy/confdir", DEFAULT_PROXY_CONFDIR);
+    QString pidFile = confdir+"/"+programName+"pid";
+    QFile().remove(pidFile);
     proxyProcess->setWorkingDirectory(QCoreApplication::applicationDirPath());
-    qDebug() << "Tinyproxy Working Directory : " << proxyProcess->workingDirectory();
     proxyProcess->start(programName ,
-       QStringList() << "-d" << "-c" << "./tinyproxy_withblocking.conf");
+                        QStringList() << "--no-daemon" << "--pidfile" << pidFile << confdir+"/config");
     proxyProcess->waitForBytesWritten();
     QString output(proxyProcess->readAllStandardOutput());
+    qDebug() << "Start " << programName << " configdir=" << confdir;
     qDebug() << output;
 
     if(QProcess::Running == proxyProcess->state())
@@ -57,16 +59,16 @@ void ProxyController::start()
     }
     else
     {
-        qWarning("Fail to start tinyproxy, fonctionality disable");
+        qWarning("Fail to start privoxy, fonctionality disable");
         SettingsController::getInstance()->setValue("proxy/enable", false);
     }
 }
 
 void ProxyController::stop()
 {
+    restoreDefaultSystemProxy();
     if(QProcess::Running == proxyProcess->state())
     {
-        restoreDefaultSystemProxy();
         proxyProcess->terminate();
         proxyProcess->waitForFinished();
     }
@@ -74,7 +76,7 @@ void ProxyController::stop()
 
 void ProxyController::setDefaultSystemProxy()
 {
-    SystemProxy::setDefaultSystemProxy("127.0.0.1",8888);
+    SystemProxy::setDefaultSystemProxy("127.0.0.1", SettingsController::getInstance()->getValue<int>("proxy/port", DEFAULT_PROXY_PORT));
 }
 
 void ProxyController::restoreDefaultSystemProxy()
@@ -84,11 +86,56 @@ void ProxyController::restoreDefaultSystemProxy()
 
 void ProxyController::configValueChanged(const QString &key, const QVariant &newValue)
 {
-    if("proxy/enable"==key)
+    if("proxy/enable"==key && false==newValue)
     {
-        if(false==newValue)
-        {
-            stop();
-        }
+        stop();
     }
+}
+
+void ProxyController::setupBlockingConfiguration()
+{
+    QString confdir = SettingsController::getInstance()->getValue<QString>("proxy/confdir", DEFAULT_PROXY_CONFDIR);
+    if(false==QDir().exists(confdir))
+        QDir().mkdir(confdir);
+    if(false==QDir().exists(confdir+"/templates"))
+        QDir().mkdir(confdir+"/templates");
+    if(false==QDir().exists(confdir+"/log"))
+        QDir().mkdir(confdir+"/log");
+    QFile configFile(confdir+"/config");
+    if(false==configFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+    {
+        qWarning() << "impossible to open " << confdir+"/config fonctionality disable";
+        SettingsController::getInstance()->setValue("proxy/enable", false);
+        return;
+    }
+    QTextStream configOut(&configFile);
+    configOut << "confdir " << confdir << endl
+        << "logdir " << confdir << "/log" << endl
+        << "logfile logfile" << endl
+        << "actionsfile user.action" << endl
+        << "listen-address 127.0.0.1:" << SettingsController::getInstance()->getValue<int>("proxy/port", DEFAULT_PROXY_PORT) << endl
+        << "toggle  1" << endl
+        << "enable-remote-toggle  0" << endl
+        << "enable-remote-http-toggle  0" << endl
+        << "enable-edit-actions 0" << endl
+        << "enforce-blocks 0" << endl
+        << "allow-cgi-request-crunching 0" << endl
+        << "split-large-forms 0" << endl
+        << "keep-alive-timeout 15" << endl
+        << "tolerate-pipelining 1" << endl
+        << "max-client-connections 256" << endl;
+    configFile.close();
+
+    QFile actionFile(confdir+"/user.action");
+    if(false==actionFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+    {
+        qWarning() << "impossible to open " << confdir+"/user.action fonctionality disable";
+        SettingsController::getInstance()->setValue("proxy/enable", false);
+        return;
+    }
+    QTextStream actiongOut(&actionFile);
+    actiongOut << "{ +block{Procrastination website} }" << endl;
+    foreach(const QString &block, SettingsController::getInstance()->getValue<QStringList>("proxy/blocklist", DEFAULT_PROXY_BLOCKLIST))
+        actiongOut << block << endl;
+    actionFile.close();
 }

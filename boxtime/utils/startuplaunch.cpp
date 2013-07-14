@@ -14,7 +14,11 @@ return false;
 #endif
 
 #ifdef Q_OS_LINUX
-QString filepath = QDesktopServices::storageLocation(QDesktopServices::HomeLocation)+"/.config/autostart/"+name.toLower()+".desktop";
+QString autostartPath = QDesktopServices::storageLocation(QDesktopServices::HomeLocation)+"/.config/autostart";
+if(false==QDir().exists(autostartPath))
+    QDir().mkdir(autostartPath);
+
+QString filepath = autostartPath+"/"+name.toLower()+".desktop";
 QFile file(filepath);
 if(false==file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
 {

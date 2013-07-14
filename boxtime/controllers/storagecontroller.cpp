@@ -2,7 +2,7 @@
 #include "taskcontroller.h"
 #include <QDesktopServices>
 
-StorageController::StorageController()
+StorageController::StorageController(): DEFAULT_STORAGE_FILE(SettingsController::getInstance()->getDataPath()+QString("/tasks_history.csv"))
 {
     TaskController * taskController = TaskController::getInstance();
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(taskEnded(Task*)));

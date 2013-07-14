@@ -3,36 +3,33 @@
 
 #include <QObject>
 #include <QProcess>
+#include <settingscontroller.h>
 
 namespace settings
 {
-/* const QStringList DEFAULT_BLOCK_LIST = QStringList() << "facebook.com" << "9gag.com" << "4chan.org"
+const QStringList DEFAULT_PROXY_BLOCKLIST = QStringList() << "facebook.com" << "9gag.com" << "4chan.org"
           << "twitter.com" << "pinterest.com" << "tweetdeck.com"
-          << "*.facebook.com" << "*.9gag.com" << "*.4chan.org" << "*.twitter.com" << "*.pinterest.com" << "*.tweetdeck.com"
-          << "collegehumor.com" << "*.collegehumor.com" << "reddit.com" << "*.reddit.com"
+          << ".facebook.com" << ".9gag.com" << ".4chan.org" << ".twitter.com" << ".pinterest.com" << ".tweetdeck.com"
+          << "collegehumor.com" << ".collegehumor.com" << "reddit.com" << ".reddit.com"
           << "plus.google.com" << "mail.google.com" << "news.google.com"
-          << "outlook.com" << "*.outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
-          << "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << "*.mail.yahoo.com";*/
+          << "outlook.com" << ".outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
+          << "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com";
 
 #ifdef Q_OS_MAC
-const QString DEFAULT_PROXY_PROCESS = QString("./tinyproxy");
-const QString DEFAULT_PROXY_KILLPROCESS = QString("killall tinyproxy");
-const bool DEFAULT_PROXY_ENABLE = true;
+const QString DEFAULT_PROXY_PROCESS = QString("./privoxy");
 #endif
 
 #ifdef Q_OS_LINUX
-const QString DEFAULT_PROXY_PROCESS = QString("tinyproxy_");
-const QString DEFAULT_PROXY_KILLPROCESS = QString("pkill tinyproxy");
-const bool DEFAULT_PROXY_ENABLE = true;
+const QString DEFAULT_PROXY_PROCESS = QString("privoxy");
 #endif
 
 #ifdef Q_OS_WIN32
 const QString DEFAULT_PROXY_PROCESS = QString("");
-const QString DEFAULT_PROXY_KILLPROCESS = QString("");
-const bool DEFAULT_PROXY_ENABLE = false;
 #endif
 
-//const QString DEFAULT_PROXY_CONF_FOLDER = SettingsController::getDataPath()+QString("/privoxy");
+const bool DEFAULT_PROXY_ENABLE = true;
+const int DEFAULT_PROXY_PORT = 18118;
+
 }
 
 class ProxyController: public QObject
@@ -41,6 +38,7 @@ class ProxyController: public QObject
 public:
     static ProxyController * getInstance();
     ~ProxyController();
+    const QString DEFAULT_PROXY_CONFDIR;
 
 private:
     ProxyController();

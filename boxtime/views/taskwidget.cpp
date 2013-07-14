@@ -8,8 +8,6 @@
 #include "proxycontroller.h"
 #include "storagecontroller.h"
 
-using namespace settings;
-
 TaskWidget::TaskWidget(QWidget *parent) :
     GenericWidget(parent),
     ui(new Ui::TaskWidget)
@@ -153,7 +151,7 @@ void TaskWidget::showContextMenu(const QPoint& pos){
 #endif
 #ifdef Q_OS_LINUX
      QAction * onStartupEnableAction = contextMenu->addAction("Disable startup launch");
-     if(true==SettingsController::getInstance()->getValue<bool>("application/onstartup", DEFAULT_PROXY_ENABLE))
+     if(true==SettingsController::getInstance()->getValue<bool>("application/onstartup",DEFAULT_STARTUP_LAUNCH))
      {
         onStartupEnableAction->setCheckable(true);
         onStartupEnableAction->setChecked(true);

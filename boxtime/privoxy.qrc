@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/privoxy/templates">
+        <file>ressources/privoxy/templates/connect-failed</file>
+        <file>ressources/privoxy/templates/untrusted</file>
+        <file>ressources/privoxy/templates/blocked</file>
+        <file>ressources/privoxy/templates/url-info-osd.xml</file>
+        <file>ressources/privoxy/templates/show-url-info</file>
+        <file>ressources/privoxy/templates/mod-support-and-service</file>
+        <file>ressources/privoxy/templates/toggle-mini</file>
+        <file>ressources/privoxy/templates/forwarding-failed</file>
+        <file>ressources/privoxy/templates/mod-title</file>
+        <file>ressources/privoxy/templates/edit-actions-list-section</file>
+        <file>ressources/privoxy/templates/toggle</file>
+        <file>ressources/privoxy/templates/edit-actions-for-url-filter</file>
+        <file>ressources/privoxy/templates/default</file>
+        <file>ressources/privoxy/templates/mod-local-help</file>
+        <file>ressources/privoxy/templates/edit-actions-url-form</file>
+        <file>ressources/privoxy/templates/cgi-error-file-read-only</file>
+        <file>ressources/privoxy/templates/edit-actions-list-url</file>
+        <file>ressources/privoxy/templates/show-version</file>
+        <file>ressources/privoxy/templates/connection-timeout</file>
+        <file>ressources/privoxy/templates/no-server-data</file>
+        <file>ressources/privoxy/templates/show-request</file>
+        <file>ressources/privoxy/templates/show-status</file>
+        <file>ressources/privoxy/templates/cgi-error-parse</file>
+        <file>ressources/privoxy/templates/edit-actions-add-url-form</file>
+        <file>ressources/privoxy/templates/cgi-style.css</file>
+        <file>ressources/privoxy/templates/show-status-file</file>
+        <file>ressources/privoxy/templates/no-such-domain</file>
+        <file>ressources/privoxy/templates/edit-actions-remove-url-form</file>
+        <file>ressources/privoxy/templates/cgi-error-file</file>
+        <file>ressources/privoxy/templates/cgi-error-modified</file>
+        <file>ressources/privoxy/templates/mod-unstable-warning</file>
+        <file>ressources/privoxy/templates/edit-actions-list</file>
+        <file>ressources/privoxy/templates/cgi-error-bad-param</file>
+        <file>ressources/privoxy/templates/cgi-error-disabled</file>
+        <file>ressources/privoxy/templates/cgi-error-404</file>
+        <file>ressources/privoxy/templates/edit-actions-for-url</file>
+        <file>ressources/privoxy/templates/edit-actions-list-button</file>
+    </qresource>
+</RCC>
