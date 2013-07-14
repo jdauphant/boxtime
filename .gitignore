@@ -2,3 +2,5 @@
 build-boxtime-Desktop-Debug
 *.autosave
 *~
+build-boxtime-Desktop-Release
+git
