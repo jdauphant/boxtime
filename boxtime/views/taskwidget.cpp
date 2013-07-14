@@ -142,27 +142,33 @@ void TaskWidget::showContextMenu(const QPoint& pos){
 
 #ifndef Q_OS_WIN32
      contextMenu->addSeparator();
-     if(false==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
+     QAction * proxyEnableAction = contextMenu->addAction("Disable blocking");
+     connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SLOT(proxySettingChange(bool)));
+     if(true==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
      {
-        QAction * proxyEnableAction = contextMenu->addAction("Enable blocking");
         proxyEnableAction->setCheckable(true);
-        connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SLOT(proxySettingChange(bool)));
+        proxyEnableAction->setChecked(true);
+     }
+     else
+     {
+         proxyEnableAction->setText("Enable blocking");
+         proxyEnableAction->setCheckable(true);
+         proxyEnableAction->setChecked(false);
      }
 #endif
 #ifdef Q_OS_LINUX
      QAction * onStartupEnableAction = contextMenu->addAction("Disable startup launch");
+     connect(onStartupEnableAction, SIGNAL(toggled(bool)), this, SLOT(onStartupSettingChange(bool)));
      if(true==SettingsController::getInstance()->getValue<bool>("application/onstartup",DEFAULT_STARTUP_LAUNCH))
      {
         onStartupEnableAction->setCheckable(true);
         onStartupEnableAction->setChecked(true);
-        connect(onStartupEnableAction, SIGNAL(toggled(bool)), this, SLOT(onStartupSettingChange(bool)));
      }
      else
      {
          onStartupEnableAction->setText("Enable startup launch");
          onStartupEnableAction->setCheckable(true);
          onStartupEnableAction->setChecked(false);
-         connect(onStartupEnableAction, SIGNAL(toggled(bool)), this, SLOT(onStartupSettingChange(bool)));
      }
 #endif
 

@@ -13,6 +13,7 @@ public:
     static TaskController * getInstance();
     ~TaskController(){ }
     void checkRecovery();
+    bool asCurrentTask();
 
 private:
     TaskController();

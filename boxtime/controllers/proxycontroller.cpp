@@ -86,9 +86,16 @@ void ProxyController::restoreDefaultSystemProxy()
 
 void ProxyController::configValueChanged(const QString &key, const QVariant &newValue)
 {
-    if("proxy/enable"==key && false==newValue)
+    if("proxy/enable"==key)
     {
-        stop();
+        if(false==newValue)
+        {
+            stop();
+        }
+        else if(TaskController::getInstance()->asCurrentTask())
+        {
+            start();
+        }
     }
 }
 

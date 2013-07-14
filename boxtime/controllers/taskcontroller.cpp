@@ -21,6 +21,11 @@ void TaskController::checkRecovery()
     }
 }
 
+bool TaskController::asCurrentTask()
+{
+    return currentTask != NULL;
+}
+
 
 TaskController * TaskController::getInstance()
 {
