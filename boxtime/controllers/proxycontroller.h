@@ -17,17 +17,19 @@ const QStringList DEFAULT_PROXY_BLOCKLIST = QStringList() << "facebook.com" << "
 
 #ifdef Q_OS_MAC
 const QString DEFAULT_PROXY_PROCESS = QString("./privoxy");
+const bool DEFAULT_PROXY_ENABLE = false;
 #endif
 
 #ifdef Q_OS_LINUX
 const QString DEFAULT_PROXY_PROCESS = QString("privoxy");
+const bool DEFAULT_PROXY_ENABLE = true;
 #endif
 
 #ifdef Q_OS_WIN32
 const QString DEFAULT_PROXY_PROCESS = QString("");
+const bool DEFAULT_PROXY_ENABLE = false;
 #endif
 
-const bool DEFAULT_PROXY_ENABLE = true;
 const int DEFAULT_PROXY_PORT = 18118;
 
 }
