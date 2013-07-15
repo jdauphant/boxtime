@@ -44,3 +44,5 @@ RESOURCES += \
 unix:!macx {
     LIBS += -lX11
 }
+
+macx:ICON = logo.icns

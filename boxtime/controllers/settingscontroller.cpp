@@ -75,13 +75,11 @@ void SettingsController::checkStartupLaunch()
         if(false==StartupLaunch::isOnStartup(APPLICATION_NAME))
         {
             StartupLaunch::addOnStartup(APPLICATION_NAME, QCoreApplication::applicationFilePath(), APPLICATION_DESCRIPTION);
-            qDebug() << APPLICATION_NAME << " added to startup " << QCoreApplication::applicationFilePath();
         }
     }
     else
     {
         StartupLaunch::removeFromStartup(APPLICATION_NAME);
-        qDebug() << APPLICATION_NAME << " removed from startup";
     }
 }
 

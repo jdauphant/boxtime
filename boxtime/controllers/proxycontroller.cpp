@@ -66,9 +66,9 @@ void ProxyController::start()
 
 void ProxyController::stop()
 {
-    restoreDefaultSystemProxy();
     if(QProcess::Running == proxyProcess->state())
     {
+        restoreDefaultSystemProxy();
         proxyProcess->terminate();
         proxyProcess->waitForFinished();
     }

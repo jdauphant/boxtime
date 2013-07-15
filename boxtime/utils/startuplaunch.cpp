@@ -37,6 +37,7 @@ out << "[Desktop Entry]" << endl
     << "Comment[en]=" << comments << endl
     << "Comment=" << comments << endl;
 file.close();
+qDebug() << name << " added to startup " << executable;
 return true;
 #endif
 
@@ -53,6 +54,7 @@ return false;
 
 #ifdef Q_OS_LINUX
 return QFile::remove(QDesktopServices::storageLocation(QDesktopServices::HomeLocation)+QString("/.config/autostart/")+name.toLower()+QString(".desktop"));
+qDebug() << APPLICATION_NAME << " removed from startup";
 #endif
 
 #ifdef Q_OS_WIN32
