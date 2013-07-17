@@ -15,7 +15,7 @@ const QString APPLICATION_NAME = QString("boxtime_debug");
 const QString APPLICATION_NAME = QString("boxtime");
 #endif
 const QString APPLICATION_DESCRIPTION = QString("Boxtime is a little widget that help you to keep focus on one task.");
-const QString VERSION = QString("0.3");
+const QString VERSION = QString("0.4");
 const QString MAINTAINER = QString("Julien DAUPHANT <julien@boxti.me>");
 const QString WEBSITE_HOMEPAGE = QString("http://www.boxti.me");
 
