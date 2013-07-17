@@ -54,7 +54,7 @@ return false;
 
 #ifdef Q_OS_LINUX
 return QFile::remove(QDesktopServices::storageLocation(QDesktopServices::HomeLocation)+QString("/.config/autostart/")+name.toLower()+QString(".desktop"));
-qDebug() << APPLICATION_NAME << " removed from startup";
+qDebug() << name << " removed from startup";
 #endif
 
 #ifdef Q_OS_WIN32

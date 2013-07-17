@@ -11,9 +11,10 @@ const QStringList DEFAULT_PROXY_BLOCKLIST = QStringList() << "facebook.com" << "
           << "twitter.com" << "pinterest.com" << "tweetdeck.com"
           << ".facebook.com" << ".9gag.com" << ".4chan.org" << ".twitter.com" << ".pinterest.com" << ".tweetdeck.com"
           << "collegehumor.com" << ".collegehumor.com" << "reddit.com" << ".reddit.com"
-          << "plus.google.com" << "mail.google.com" << "news.google.com"
-          << "outlook.com" << ".outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
-          << "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com";
+          << "plus.google.com" << "news.google.com" //<< "mail.google.com"
+          //<< "outlook.com" << ".outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
+          //<< "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com"
+             ;
 
 #ifdef Q_OS_MAC
 const QString DEFAULT_PROXY_PROCESS = QString("./privoxy");
