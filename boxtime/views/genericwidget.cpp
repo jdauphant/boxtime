@@ -5,6 +5,9 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #endif
+#ifdef Q_WS_MAC
+#include <objc/objc-runtime.h>
+#endif
 
 GenericWidget::GenericWidget(QWidget *parent) :
     QWidget(parent)
@@ -52,5 +55,22 @@ void GenericWidget::setVisibleAllDesktops()
                      reinterpret_cast<unsigned char *>(&data), // all desktop
                      1);
     // more information http://standards.freedesktop.org/wm-spec/1.4/ar01s05.html
+#endif
+#ifdef Q_WS_MAC
+
+    WId windowObject = this->winId();
+
+    if(windowObject != NULL)
+    {
+        objc_object * nsviewObject = reinterpret_cast<objc_object *>(windowObject);
+        objc_object * nsWindowObject = objc_msgSend(nsviewObject, sel_registerName("window"));
+
+        int NSWindowCollectionBehaviorCanJoinAllSpaces = 1 << 0;
+        objc_msgSend(nsWindowObject, sel_registerName("setCollectionBehavior:"), NSWindowCollectionBehaviorCanJoinAllSpaces);
+    }
+    else
+    {
+        qDebug("Impossible to set visible on all spaces");
+    }
 #endif
 }
