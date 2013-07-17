@@ -14,10 +14,7 @@ TaskWidget::TaskWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint );
-
-    int x = SettingsController::getInstance()->getValue<int>("taskwidget/x", (QApplication::desktop()->width() / 2) - (width() / 2));
-    int y = SettingsController::getInstance()->getValue<int>("taskwidget/y", 0);
-    move(x,y);
+    restorePositionFromSettings();
 
     ui->validationButton->setVisible(false);
     setVisibleAllDesktops();
@@ -39,9 +36,20 @@ TaskWidget::TaskWidget(QWidget *parent) :
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
         this, SLOT(showContextMenu(const QPoint&)));
+    connect(QApplication::desktop(),SIGNAL(workAreaResized(int)),this,SLOT(restorePositionFromSettings()));
 
     initConnectToTaskController();
     StorageController::getInstance();
+}
+
+void TaskWidget::restorePositionFromSettings()
+{
+    QSize desktopSize = QApplication::desktop()->size();
+    QString desktopSizeString = QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height());
+    int x = SettingsController::getInstance()->getValue<int>("taskwidget/"+desktopSizeString+"_x", (QApplication::desktop()->width() / 2) - (width() / 2));
+    int y = SettingsController::getInstance()->getValue<int>("taskwidget/"+desktopSizeString+"_y", 0);
+    move(x,y);
+    qDebug() << "Position restore for resolution" << desktopSizeString << " to x=" << x << " and y=" << y;
 }
 
 void TaskWidget::initConnectToTaskController()
@@ -120,8 +128,10 @@ void TaskWidget::mouseMoveEvent(QMouseEvent *event)
     if (event->buttons() & Qt::LeftButton) {
         QPoint destination = event->globalPos() - dragPosition;
         move(destination);
-        SettingsController::getInstance()->setValue("taskwidget/x", destination.x());
-        SettingsController::getInstance()->setValue("taskwidget/y", destination.y());
+        QSize desktopSize = QApplication::desktop()->size();
+        SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_x", destination.x());
+        SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_y", destination.y());
+
         event->accept();
     }
 }
@@ -194,4 +204,16 @@ void TaskWidget::proxySettingChange(bool enable)
 void TaskWidget::onStartupSettingChange(bool enable)
 {
     SettingsController::getInstance()->setValue("application/onstartup", enable);
+}
+
+bool TaskWidget::event(QEvent * event)
+{
+    bool ret = QWidget::event(event);
+    if(QEvent::WinIdChange==event->type())
+    {
+        setVisibleAllDesktops();
+        qDebug("WinIdChange event, setVisibleAllDesktops flag readded");
+        return ret;
+    }
+    return ret;
 }

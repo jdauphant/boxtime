@@ -19,6 +19,7 @@ public:
     ~TaskWidget();
 
 
+
 signals:
     void newTask(QString taskName);
 
@@ -30,7 +31,8 @@ private slots:
     void showContextMenu(const QPoint& pos);
     void proxySettingChange(bool enable);
     void onStartupSettingChange(bool enable);
-    
+    void restorePositionFromSettings();
+
 private:
     Ui::TaskWidget *ui;
     void initConnectToTaskController();
@@ -39,6 +41,7 @@ protected:
      void mouseMoveEvent(QMouseEvent *event);
      void mousePressEvent(QMouseEvent *event);
      void mouseReleaseEvent(QMouseEvent *event);
+     bool event(QEvent * event);
 
 private:
      QPoint dragPosition;
