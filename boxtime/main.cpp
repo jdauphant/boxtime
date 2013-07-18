@@ -2,14 +2,44 @@
 #include <QDesktopWidget>
 #include <QFontDatabase>
 #include <QApplication>
+#include <iostream>
 
 #include "taskwidget.h"
 #include "taskcontroller.h"
 #include "proxycontroller.h"
 
+void fileMessageHandler(QtMsgType type, const char *message)
+{
+    QString logText;
+    unsigned int timestamp = QDateTime::currentDateTime().toTime_t();
+    switch (type) {
+    case QtDebugMsg:
+        logText = QString("%1 DEBUG %2").arg(timestamp).arg(message);
+        break;
+
+    case QtWarningMsg:
+        logText = QString("%1 WARNING: %2").arg(timestamp).arg(message);
+    break;
+    case QtCriticalMsg:
+        logText = QString("%1 CRITICAL : %2").arg(timestamp).arg(message);
+    break;
+    case QtFatalMsg:
+        logText = QString("%1 FATAL: %2").arg(timestamp).arg(message);
+        abort();
+    }
+
+    QFile logFile(SettingsController::getInstance()->getDataPath()+"/logfile");
+    logFile.open(QIODevice::WriteOnly | QIODevice::Append);
+    QTextStream textStream(&logFile);
+    textStream << logText << endl;
+    std::cout << logText.toStdString() << std::endl;
+}
+
 int main(int argc, char *argv[])
 {
     QApplication qApplication(argc, argv);
+    qInstallMsgHandler(fileMessageHandler);
+    qDebug("************* Application start *************");
     qDebug("Install fonts");
     if(-1 == QFontDatabase::addApplicationFont("://ressources/Nexa Light.otf"))
     {
