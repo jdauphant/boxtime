@@ -45,4 +45,7 @@ unix:!macx {
     LIBS += -lX11
 }
 
-macx:ICON = logo.icns
+macx {
+    ICON = logo.icns
+    LIBS += -lobjc
+}
