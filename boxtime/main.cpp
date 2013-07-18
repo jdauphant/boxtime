@@ -28,7 +28,7 @@ void fileMessageHandler(QtMsgType type, const char *message)
         abort();
     }
 
-    QFile logFile(SettingsController::getInstance()->getDataPath()+"/logfile");
+    QFile logFile(SettingsController::getInstance()->getValue<QString>("log/file", SettingsController::getInstance()->getDataPath()+DEFAULT_LOGFILE));
     logFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream textStream(&logFile);
     textStream << logText << endl;
