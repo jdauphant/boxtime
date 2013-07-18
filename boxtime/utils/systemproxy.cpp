@@ -13,12 +13,6 @@ void SystemProxy::setGsettingsParams(QString schema, QString key, QString value)
     gsettingsProcess.waitForFinished();
 }
 
-void SystemProxy::setMacOSXNetworksetupParams(const QStringList params)
-{
-    QProcess networksetupProcess;
-    networksetupProcess.start("networksetup", params);
-    networksetupProcess.waitForFinished();
-}
 
 void SystemProxy::setDefaultSystemProxy(const QString address, const unsigned int port)
 {
@@ -37,14 +31,7 @@ void SystemProxy::setDefaultSystemProxy(const QString address, const unsigned in
     setGsettingsParams("org.gnome.system.proxy", "mode", "'manual'");
 #endif
 #ifdef Q_OS_MAC
-    setMacOSXNetworksetupParams(QStringList() << "-setwebproxy" << "Ethernet" << address << portString << "off"
-                                << "-setsecurewebproxy" << "Ethernet" << address << portString << "off"
-                                << "-setwebproxy" << "Wi-Fi" << address << portString << "off"
-                                << "-setsecurewebproxy" << "Wi-Fi" << address << portString << "off"
-                                << "-setwebproxystate" << "Ethernet" << "on"
-                                << "-setsecurewebproxystate" << "Ethernet"  << "on"
-                                << "-setwebproxystate" << "Wi-Fi" << "on"
-                                << "-setsecurewebproxystate" << "Wi-Fi" << "on");
+
 #endif
 #ifdef Q_OS_WIN32
 
@@ -57,11 +44,6 @@ void SystemProxy::enableSystemProxy()
     setGsettingsParams("org.gnome.system.proxy", "mode", "'manual'");
 #endif
 #ifdef Q_OS_MAC
-    // we have to iterate network interface normally
-    setMacOSXNetworksetupParams(QStringList() << "-setwebproxystate" << "Ethernet" << "on"
-                                << "-setsecurewebproxystate" << "Ethernet"  << "on"
-                                << "-setwebproxystate" << "Wi-Fi" << "on"
-                                << "-setsecurewebproxystate" << "Wi-Fi" << "on");
 #endif
 }
 
@@ -71,10 +53,6 @@ void SystemProxy::disableSystemProxy()
     setGsettingsParams("org.gnome.system.proxy", "mode", "'none'");
 #endif
 #ifdef Q_OS_MAC
-    // we have to iterate network interface normally
-    setMacOSXNetworksetupParams(QStringList() << "-setwebproxystate" << "Ethernet" << "off"
-                                << "-setsecurewebproxystate" << "Ethernet"  << "off"
-                                << "-setwebproxystate" << "Wi-Fi" << "off"
-                                << "-setsecurewebproxystate" << "Wi-Fi" << "off");
+
 #endif
 }
