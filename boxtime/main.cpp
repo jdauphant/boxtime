@@ -32,7 +32,8 @@ void fileMessageHandler(QtMsgType type, const char *message)
     logFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream textStream(&logFile);
     textStream << logText << endl;
-    std::cout << logText.toStdString() << std::endl;
+    std::cout << logText.toAscii().data();
+    std::cout << std::endl;
 }
 
 int main(int argc, char *argv[])
