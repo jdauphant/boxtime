@@ -17,8 +17,8 @@ class TaskWidget : public GenericWidget
 public:
     explicit TaskWidget(QWidget *parent = 0);
     ~TaskWidget();
-
-
+    void move(int x, int y);
+    void move(const QPoint & qpoint);
 
 signals:
     void newTask(QString taskName);

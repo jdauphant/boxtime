@@ -127,8 +127,8 @@ void TaskWidget::mouseMoveEvent(QMouseEvent *event)
 {
     if (event->buttons() & Qt::LeftButton) {
         QPoint destination = event->globalPos() - dragPosition;
-        move(destination);
         QSize desktopSize = QApplication::desktop()->size();
+        move(destination);
         SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_x", destination.x());
         SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_y", destination.y());
 
@@ -224,4 +224,21 @@ bool TaskWidget::event(QEvent * event)
         return ret;
     }
     return ret;
+}
+
+void TaskWidget::move(int x, int y)
+{
+    QSize desktopSize = QApplication::desktop()->size();
+    int maxX = desktopSize.width()-width();
+    int maxY = desktopSize.height()-height();
+    if(x<0)  x = 0;
+    else if(x>maxX) x = maxX;
+    if(y<0) y = 0;
+    else if(y>maxY) y = maxY;
+    QWidget::move(x,y);
+}
+
+void TaskWidget::move(const QPoint & qpoint)
+{
+    this->move(qpoint.x(),qpoint.y());
 }
