@@ -32,6 +32,7 @@ private slots:
     void proxySettingChange(bool enable);
     void onStartupSettingChange(bool enable);
     void restorePositionFromSettings();
+    void openLogFile();
 
 private:
     Ui::TaskWidget *ui;

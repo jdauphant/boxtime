@@ -182,6 +182,9 @@ void TaskWidget::showContextMenu(const QPoint& pos){
      }
 #endif
 
+     QAction * openLogAction = contextMenu->addAction("Open log file");
+     connect(openLogAction, SIGNAL(triggered()), this, SLOT(openLogFile()));
+
      if(true==StorageController::getInstance()->historyExists())
      {
          QAction * exportAndOpenCSVAction = contextMenu->addAction("Export to spreadsheet");
@@ -204,6 +207,11 @@ void TaskWidget::proxySettingChange(bool enable)
 void TaskWidget::onStartupSettingChange(bool enable)
 {
     SettingsController::getInstance()->setValue("application/onstartup", enable);
+}
+
+void TaskWidget::openLogFile()
+{
+    QDesktopServices::openUrl(QUrl("file://"+SettingsController::getInstance()->getValue<QString>("log/file", SettingsController::getInstance()->getDataPath()+DEFAULT_LOGFILE),QUrl::TolerantMode));
 }
 
 bool TaskWidget::event(QEvent * event)

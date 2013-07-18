@@ -18,6 +18,7 @@ const QString APPLICATION_DESCRIPTION = QString("Boxtime is a little widget that
 const QString VERSION = QString("0.4");
 const QString MAINTAINER = QString("Julien DAUPHANT <julien@boxti.me>");
 const QString WEBSITE_HOMEPAGE = QString("http://www.boxti.me");
+const QString DEFAULT_LOGFILE = QString("/logfile.txt");
 
 const bool DEFAULT_STARTUP_LAUNCH = true;
 }
