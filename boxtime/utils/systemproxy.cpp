@@ -16,6 +16,7 @@ void SystemProxy::setGsettingsParams(QString schema, QString key, QString value)
 void SystemProxy::setMacOSXChangeProxy(const QStringList params)
 {
     QProcess changeProxyProcess;
+    changeProxyProcess.setWorkingDirectory(QCoreApplication::applicationDirPath());
     changeProxyProcess.start("/usr/sbin/changelocalproxy", params);
     changeProxyProcess.waitForFinished();
 }
@@ -65,14 +66,14 @@ bool SystemProxy::isThatPosibleToChangeProxy()
     bool result = QFile().exists("/usr/sbin/changelocalproxy");
     if(false==result)
     {
-        if(false==QFile().exists("./clproxy_install.sh"))
+        if(false==QFile().exists(QCoreApplication::applicationDirPath()+"/clproxy_install.sh"))
         {
-            qWarning("./clproxy_install.sh missing");
+            qWarning() << QCoreApplication::applicationDirPath () << "/clproxy_install.sh missing";
             return false;
         }
 
         QProcess changeProxyProcess;
-        changeProxyProcess.start("osascript", QStringList() << "-e" << "do shell script \"./clproxy_install.sh\" with administrator privileges");
+        changeProxyProcess.start("osascript", QStringList() << "-e" << "do shell script \""+QDir::currentPath()+"/clproxy_install.sh\" with administrator privileges");
         if(false==changeProxyProcess.waitForFinished())
         {
 

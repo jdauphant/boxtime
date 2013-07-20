@@ -6,7 +6,17 @@
 #include "systemproxy.h"
 #include "taskcontroller.h"
 
-ProxyController::ProxyController(): DEFAULT_PROXY_CONFDIR(SettingsController::getInstance()->getDataPath()+QString("/privoxy"))
+ProxyController::ProxyController():
+    DEFAULT_PROXY_CONFDIR(SettingsController::getInstance()->getDataPath()+QString("/privoxy")),
+#ifdef Q_OS_MAC
+    DEFAULT_PROXY_PROCESS(QCoreApplication::applicationDirPath()+QString("/privoxy"))
+#endif
+#ifdef Q_OS_LINUX
+    DEFAULT_PROXY_PROCESS(QString("privoxy"))
+#endif
+#ifdef Q_OS_WIN32
+    DEFAULT_PROXY_PROCESS(QString(""))
+#endif
 {
     proxyProcess = new QProcess(this);
 
