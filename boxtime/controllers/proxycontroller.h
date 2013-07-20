@@ -32,7 +32,6 @@ const bool DEFAULT_PROXY_ENABLE = false;
 #endif
 
 const int DEFAULT_PROXY_PORT = 18118;
-
 }
 
 class ProxyController: public QObject

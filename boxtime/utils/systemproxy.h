@@ -6,9 +6,9 @@
 class SystemProxy
 {
 public:
-    static void setDefaultSystemProxy(const QString address, const unsigned int port);
-    static void enableSystemProxy();
+    static void setAndEnableSystemProxy(const QString address, const unsigned int port);
     static void disableSystemProxy();
+    static bool isThatPosibleToChangeProxy();
 
 private:
     SystemProxy();
@@ -16,7 +16,7 @@ private:
     SystemProxy & operator=(const SystemProxy &) {return *this;}
 
     static void setGsettingsParams(QString schema, QString key, QString value);
-    static void setMacOSXNetworksetupParams(const QStringList params);
+    static void setMacOSXChangeProxy(const QStringList params);
 };
 
 #endif // SYSTEMPROXY_H
