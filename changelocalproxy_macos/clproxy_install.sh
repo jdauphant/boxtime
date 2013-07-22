@@ -11,5 +11,5 @@ cp $PROGRAM $INSTALL_DIR
 chown root:wheel $INSTALL_DIR"/"$PROGRAM
 chmod +s $INSTALL_DIR"/"$PROGRAM
 
-echo "Install sucess"
+echo "Install success"
  

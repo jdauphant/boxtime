@@ -21,13 +21,9 @@ ProxyController::ProxyController():
 {
     proxyProcess = new QProcess(this);
     createConfigurationFiles();
-
-    if(false==SystemProxy::isThatPosibleToChangeProxy())
-    {
-        qDebug("Proxy setup unvailable, fonctionality disable");
-        SettingsController::getInstance()->setValue("proxy/enable", false);
-    }
 }
+
+
 
 ProxyController::~ProxyController()
 {
@@ -52,6 +48,7 @@ bool ProxyController::start()
     {
         qDebug() << programName << "started configdir=" << confdir;
         setDefaultSystemProxy();
+
     }
     else
     {
@@ -163,5 +160,15 @@ bool ProxyController::isConfigurationOk()
     if(false==QFile().exists(confdir+"/user.action"))
         return false;
     return true;
+}
+
+bool ProxyController::isChangeProxyOk()
+{
+    bool result =  SystemProxy::isThatPosibleToChangeProxy();
+    if(false==result)
+    {
+        qDebug("Proxy setup unvailable");
+    }
+    return result;
 }
 

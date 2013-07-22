@@ -25,6 +25,13 @@ void BlockingController::load()
     TaskController * taskController = TaskController::getInstance();
     connect(taskController,SIGNAL(started(Task *)),this,SLOT(block()));
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(unblock()));
+    if(false==proxyController->isChangeProxyOk())
+    {
+        qWarning("Disable blocking");
+        SettingsController::getInstance()->setValue("blocking/enable", false);
+        return;
+    }
+
     if(taskController->asCurrentTask())
        block();
 }

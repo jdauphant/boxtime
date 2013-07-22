@@ -68,22 +68,24 @@ bool SystemProxy::isThatPosibleToChangeProxy()
     bool result = QFile().exists(DEFAULT_PROXYCHANGE_EXEC);
     if(false==result)
     {
-        QString proxychangeInstallerPath = QCoreApplication::applicationDirPath()+"/"+DEFAULT_PROXYCHANGE_INSTALLER;
-        if(false==QFile().exists(proxychangeInstallerPath))
+        QString proxychangeInstallerPath = "./"+DEFAULT_PROXYCHANGE_INSTALLER;
+        if(false==QFile().exists(QCoreApplication::applicationDirPath()+"/"+proxychangeInstallerPath))
         {
             qWarning() << proxychangeInstallerPath << "missing";
             return false;
         }
 
         QProcess changeProxyProcess;
+        changeProxyProcess.setWorkingDirectory(QCoreApplication::applicationDirPath());
         changeProxyProcess.start("osascript", QStringList() << "-e" << "do shell script \""+proxychangeInstallerPath+"\" with administrator privileges");
         changeProxyProcess.waitForFinished();
+        qDebug() << changeProxyProcess.readAll();
 
         result = QFile().exists(DEFAULT_PROXYCHANGE_EXEC);
         if(result)
             qDebug() << "Service " << DEFAULT_PROXYCHANGE_EXEC << " installed.";
         else
-            qDebug() << "Script "<< proxychangeInstallerPath << " fail to install " << DEFAULT_PROXYCHANGE_EXEC;
+            qDebug() << "Script "<< proxychangeInstallerPath << " fail to install " << DEFAULT_PROXYCHANGE_EXEC << " workingDirectory" << QCoreApplication::applicationDirPath();
     }
     return result;
 #endif

@@ -20,6 +20,7 @@ public:
     bool stop();
     bool setBlockingList(QStringList blockingList);
     bool isConfigurationOk();
+    bool isChangeProxyOk();
 
 private:
     void setDefaultSystemProxy();
