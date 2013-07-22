@@ -6,7 +6,17 @@
 #include "systemproxy.h"
 #include "taskcontroller.h"
 
-ProxyController::ProxyController(): DEFAULT_PROXY_CONFDIR(SettingsController::getInstance()->getDataPath()+QString("/privoxy"))
+ProxyController::ProxyController():
+    DEFAULT_PROXY_CONFDIR(SettingsController::getInstance()->getDataPath()+QString("/privoxy")),
+#ifdef Q_OS_MAC
+    DEFAULT_PROXY_PROCESS(QCoreApplication::applicationDirPath()+QString("/privoxy"))
+#endif
+#ifdef Q_OS_LINUX
+    DEFAULT_PROXY_PROCESS(QString("privoxy"))
+#endif
+#ifdef Q_OS_WIN32
+    DEFAULT_PROXY_PROCESS(QString(""))
+#endif
 {
     proxyProcess = new QProcess(this);
 
@@ -15,6 +25,11 @@ ProxyController::ProxyController(): DEFAULT_PROXY_CONFDIR(SettingsController::ge
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(stop()));
     connect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configValueChanged(QString,QVariant)));
     setupBlockingConfiguration();
+    if(false==SystemProxy::isThatPosibleToChangeProxy())
+    {
+        qDebug("Proxy setup unvailable, fonctionality disable");
+        SettingsController::getInstance()->setValue("proxy/enable", false);
+    }
 }
 
 ProxyController::~ProxyController()
@@ -43,7 +58,7 @@ void ProxyController::start()
 
     QString programName = SettingsController::getInstance()->getValue<QString>("proxy/process", DEFAULT_PROXY_PROCESS);
     QString confdir = SettingsController::getInstance()->getValue<QString>("proxy/confdir", DEFAULT_PROXY_CONFDIR);
-    QString pidFile = confdir+"/"+programName+"pid";
+    QString pidFile = confdir+"/"+programName+".pid";
     QFile().remove(pidFile);
     proxyProcess->setWorkingDirectory(QCoreApplication::applicationDirPath());
     proxyProcess->start(programName ,
@@ -59,7 +74,7 @@ void ProxyController::start()
     }
     else
     {
-        qWarning("Fail to start privoxy, fonctionality disable");
+        qWarning() << "Fail to start" << programName << ", proxy fonctionality disable";
         SettingsController::getInstance()->setValue("proxy/enable", false);
     }
 }
@@ -76,7 +91,7 @@ void ProxyController::stop()
 
 void ProxyController::setDefaultSystemProxy()
 {
-    SystemProxy::setDefaultSystemProxy("127.0.0.1", SettingsController::getInstance()->getValue<int>("proxy/port", DEFAULT_PROXY_PORT));
+    SystemProxy::setAndEnableSystemProxy("127.0.0.1", SettingsController::getInstance()->getValue<int>("proxy/port", DEFAULT_PROXY_PORT));
 }
 
 void ProxyController::restoreDefaultSystemProxy()
@@ -86,16 +101,16 @@ void ProxyController::restoreDefaultSystemProxy()
 
 void ProxyController::configValueChanged(const QString &key, const QVariant &newValue)
 {
-    if("proxy/enable"==key)
+    if("proxy/enable"!=key)
+        return;
+
+    if(false==newValue)
     {
-        if(false==newValue)
-        {
-            stop();
-        }
-        else if(TaskController::getInstance()->asCurrentTask())
-        {
-            start();
-        }
+        stop();
+    }
+    else if(TaskController::getInstance()->asCurrentTask())
+    {
+        start();
     }
 }
 

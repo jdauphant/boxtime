@@ -13,8 +13,17 @@ void SystemProxy::setGsettingsParams(QString schema, QString key, QString value)
     gsettingsProcess.waitForFinished();
 }
 
+void SystemProxy::setMacOSXChangeProxy(const QStringList params)
+{
+    QProcess changeProxyProcess;
+    changeProxyProcess.setWorkingDirectory(QCoreApplication::applicationDirPath());
+    changeProxyProcess.start("/usr/sbin/changelocalproxy", params);
+    changeProxyProcess.waitForFinished();
+}
 
-void SystemProxy::setDefaultSystemProxy(const QString address, const unsigned int port)
+
+
+void SystemProxy::setAndEnableSystemProxy(const QString address, const unsigned int port)
 {
     QString portString = QString::number(port);
 #ifdef Q_OS_LINUX
@@ -31,19 +40,10 @@ void SystemProxy::setDefaultSystemProxy(const QString address, const unsigned in
     setGsettingsParams("org.gnome.system.proxy", "mode", "'manual'");
 #endif
 #ifdef Q_OS_MAC
-
+    setMacOSXChangeProxy(QStringList() << "on" << portString);
 #endif
 #ifdef Q_OS_WIN32
 
-#endif
-}
-
-void SystemProxy::enableSystemProxy()
-{
-#ifdef Q_OS_LINUX
-    setGsettingsParams("org.gnome.system.proxy", "mode", "'manual'");
-#endif
-#ifdef Q_OS_MAC
 #endif
 }
 
@@ -53,6 +53,38 @@ void SystemProxy::disableSystemProxy()
     setGsettingsParams("org.gnome.system.proxy", "mode", "'none'");
 #endif
 #ifdef Q_OS_MAC
-
+    setMacOSXChangeProxy(QStringList() << "off");
 #endif
+}
+
+bool SystemProxy::isThatPosibleToChangeProxy()
+{
+#ifdef Q_OS_LINUX
+    return QFile().exists("/usr/bin/gsettings");
+#endif
+#ifdef Q_OS_MAC
+    bool result = QFile().exists("/usr/sbin/changelocalproxy");
+    if(false==result)
+    {
+        if(false==QFile().exists(QCoreApplication::applicationDirPath()+"/clproxy_install.sh"))
+        {
+            qWarning() << QCoreApplication::applicationDirPath () << "/clproxy_install.sh missing";
+            return false;
+        }
+
+        QProcess changeProxyProcess;
+        changeProxyProcess.start("osascript", QStringList() << "-e" << "do shell script \""+QDir::currentPath()+"/clproxy_install.sh\" with administrator privileges");
+        if(false==changeProxyProcess.waitForFinished())
+        {
+
+        }
+
+
+        result = QFile().exists("/usr/sbin/changelocalproxy");
+        if(result)
+            qDebug("Service /usr/sbin/changelocalproxy installed.");
+    }
+    return result;
+#endif
+    return false;
 }

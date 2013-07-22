@@ -40,7 +40,10 @@ int main(int argc, char *argv[])
 {
     QApplication qApplication(argc, argv);
     qInstallMsgHandler(fileMessageHandler);
-    qDebug("************* Application start *************");
+    qDebug() <<  "************* Application v" << VERSION << "start *************";
+    qDebug() <<  "Current directory : " << QDir::currentPath();
+    qDebug() <<  "App directory : " << QCoreApplication::applicationDirPath ();
+
     qDebug("Install fonts");
     if(-1 == QFontDatabase::addApplicationFont("://ressources/Nexa Light.otf"))
     {

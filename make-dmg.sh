@@ -1,6 +1,7 @@
 #!/bin/sh
 APPLICATION_NAME=boxtime
 BUILD_PATH=dmg
+PRIVOXY_BUILD_PATH=privoxy_compile
 
 set -x -e
 WORKING_DIRECTORY=`pwd`/$BUILD_PATH
@@ -16,15 +17,22 @@ echo "Copy package files"
 [ -d $WORKING_DIRECTORY/../build-${APPLICATION_NAME}-Desktop-Release/${APPLICATION_NAME}.app/ ] ||{ echo "Need Release compiled by QtCreator"; exit; } 
 cp -r $WORKING_DIRECTORY/../build-${APPLICATION_NAME}-Desktop-Release/${APPLICATION_NAME}.app $WORKING_DIRECTORY
 
-echo "Create DMG"
-macdeployqt $WORKING_DIRECTORY/${APPLICATION_NAME}.app -dmg 
+echo "Add proxy service"
+cp $WORKING_DIRECTORY/../changelocalproxy_macos/changelocalproxy $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
+cp $WORKING_DIRECTORY/../changelocalproxy_macos/clproxy_install.sh $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
+cp $WORKING_DIRECTORY/../$PRIVOXY_BUILD_PATH/privoxy*/privoxy $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
 
-hdiutil convert -format UDRW -o $WORKING_DIRECTORY/${APPLICATION_NAME}-rw.dmg $WORKING_DIRECTORY/${APPLICATION_NAME}.dmg
+cd $WORKING_DIRECTORY
+echo "Create DMG"
+macdeployqt ${APPLICATION_NAME}.app -dmg 
+
+hdiutil convert -format UDRW -o ${APPLICATION_NAME}-rw.dmg ${APPLICATION_NAME}.dmg
 mkdir $WORKING_DIRECTORY/mnt
-hdiutil mount -mountpoint $WORKING_DIRECTORY/mnt $WORKING_DIRECTORY/${APPLICATION_NAME}-rw.dmg
-ln -s /Applications/ $WORKING_DIRECTORY/mnt/Applications
-hdiutil detach $WORKING_DIRECTORY/mnt -force 
-rm $WORKING_DIRECTORY/${APPLICATION_NAME}.dmg
-hdiutil convert -format UDZO -o $WORKING_DIRECTORY/${APPLICATION_NAME}-${VERSION}.dmg $WORKING_DIRECTORY/${APPLICATION_NAME}-rw.dmg
+hdiutil mount -mountpoint mnt ${APPLICATION_NAME}-rw.dmg
+ln -s /Applications/ mnt/Applications
+cp ../${APPLICATION_NAME}/logo.icns mnt/.VolumeIcon.icns
+SetFile -a C mnt
+hdiutil detach mnt -force 
+hdiutil convert -format UDZO -o ${APPLICATION_NAME}-${VERSION}.dmg ${APPLICATION_NAME}-rw.dmg
  
 echo "Finish"

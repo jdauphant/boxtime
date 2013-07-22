@@ -1,8 +1,7 @@
 #ifndef PROXYCONTROLLER_H
 #define PROXYCONTROLLER_H
 
-#include <QObject>
-#include <QProcess>
+#include <QtCore>
 #include <settingscontroller.h>
 
 namespace settings
@@ -16,23 +15,16 @@ const QStringList DEFAULT_PROXY_BLOCKLIST = QStringList() << "facebook.com" << "
           //<< "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com"
              ;
 
-#ifdef Q_OS_MAC
-const QString DEFAULT_PROXY_PROCESS = QString("./privoxy");
-const bool DEFAULT_PROXY_ENABLE = false;
-#endif
-
-#ifdef Q_OS_LINUX
-const QString DEFAULT_PROXY_PROCESS = QString("privoxy");
+#ifdef Q_OS_UNIX
 const bool DEFAULT_PROXY_ENABLE = true;
 #endif
 
 #ifdef Q_OS_WIN32
-const QString DEFAULT_PROXY_PROCESS = QString("");
 const bool DEFAULT_PROXY_ENABLE = false;
 #endif
 
-const int DEFAULT_PROXY_PORT = 18118;
 
+const int DEFAULT_PROXY_PORT = 18118;
 }
 
 class ProxyController: public QObject
@@ -42,6 +34,7 @@ public:
     static ProxyController * getInstance();
     ~ProxyController();
     const QString DEFAULT_PROXY_CONFDIR;
+    const QString DEFAULT_PROXY_PROCESS;
 
 private:
     ProxyController();
