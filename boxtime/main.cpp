@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 {
     QApplication qApplication(argc, argv);
     qInstallMsgHandler(fileMessageHandler);
-    qDebug() <<  "************* Application v" << VERSION << "start *************";
+    qDebug() <<  "************* Application v" << VERSION << "started *************";
     qDebug() <<  "Current directory : " << QDir::currentPath();
     qDebug() <<  "App directory : " << QCoreApplication::applicationDirPath();
 

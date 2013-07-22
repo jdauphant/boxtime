@@ -47,15 +47,15 @@ bool ProxyController::start()
     proxyProcess->start(programName ,
                         QStringList() << "--no-daemon" << "--pidfile" << pidFile << confdir+"/config");
     proxyProcess->waitForStarted();
-    QString output(proxyProcess->readAllStandardOutput());
-    qDebug() << "Start " << programName << " configdir=" << confdir;
 
     if(QProcess::Running == proxyProcess->state())
     {
+        qDebug() << programName << "started configdir=" << confdir;
         setDefaultSystemProxy();
     }
     else
     {
+        restoreDefaultSystemProxy();
         qWarning() << "Fail to start" << programName;
         return false;
     }
@@ -125,6 +125,7 @@ bool ProxyController::createConfigurationFiles()
     }
     actionFile.close();
     qDebug() << "Privoxy config writed";
+    return true;
 }
 
 
@@ -145,6 +146,7 @@ bool ProxyController::setBlockingList(QStringList blockingList)
         actiongOut << block << endl;
     actionFile.close();
     qDebug() << "Proxy blocking list changed";
+    return true;
 }
 
 bool ProxyController::isConfigurationOk()

@@ -2,9 +2,8 @@
 #include "taskcontroller.h"
 #include "settingscontroller.h"
 
-TaskController::TaskController()
+TaskController::TaskController(): timer(new QTimer(this)), currentTask(NULL)
 {
-    timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(timerTimeout()));
 }
 
