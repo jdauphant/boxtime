@@ -6,7 +6,7 @@
 
 #include "taskwidget.h"
 #include "taskcontroller.h"
-#include "proxycontroller.h"
+#include "blockingcontroller.h"
 
 void fileMessageHandler(QtMsgType type, const char *message)
 {
@@ -16,13 +16,12 @@ void fileMessageHandler(QtMsgType type, const char *message)
     case QtDebugMsg:
         logText = QString("%1 DEBUG %2").arg(timestamp).arg(message);
         break;
-
     case QtWarningMsg:
         logText = QString("%1 WARNING: %2").arg(timestamp).arg(message);
-    break;
+        break;
     case QtCriticalMsg:
         logText = QString("%1 CRITICAL : %2").arg(timestamp).arg(message);
-    break;
+        break;
     case QtFatalMsg:
         logText = QString("%1 FATAL: %2").arg(timestamp).arg(message);
         abort();
@@ -42,7 +41,7 @@ int main(int argc, char *argv[])
     qInstallMsgHandler(fileMessageHandler);
     qDebug() <<  "************* Application v" << VERSION << "start *************";
     qDebug() <<  "Current directory : " << QDir::currentPath();
-    qDebug() <<  "App directory : " << QCoreApplication::applicationDirPath ();
+    qDebug() <<  "App directory : " << QCoreApplication::applicationDirPath();
 
     qDebug("Install fonts");
     if(-1 == QFontDatabase::addApplicationFont("://ressources/Nexa Light.otf"))
@@ -59,7 +58,7 @@ int main(int argc, char *argv[])
     taskWidget.show();
 
     qDebug("Load modules");
-    QObject::connect(&qApplication,SIGNAL(lastWindowClosed()),ProxyController::getInstance(),SLOT(stop()));
+    QObject::connect(&qApplication,SIGNAL(lastWindowClosed()),BlockingController::getInstance(),SLOT(unblock()));
     TaskController::getInstance()->checkRecovery();
     return qApplication.exec();
 }

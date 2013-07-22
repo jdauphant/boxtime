@@ -29,7 +29,7 @@ private slots:
     void taskEnded();
     void newTime(double time);
     void showContextMenu(const QPoint& pos);
-    void proxySettingChange(bool enable);
+    void blockingSettingChange(bool enable);
     void onStartupSettingChange(bool enable);
     void restorePositionFromSettings();
     void openLogFile();

@@ -4,9 +4,9 @@
 #include <QDesktopWidget>
 #include <QtGui>
 #include "taskcontroller.h"
-#include "settingscontroller.h"
-#include "proxycontroller.h"
 #include "storagecontroller.h"
+#include "settingscontroller.h"
+#include "blockingcontroller.h"
 
 TaskWidget::TaskWidget(QWidget *parent) :
     GenericWidget(parent),
@@ -152,18 +152,18 @@ void TaskWidget::showContextMenu(const QPoint& pos){
 
 #ifndef Q_OS_WIN32
      contextMenu->addSeparator();
-     QAction * proxyEnableAction = contextMenu->addAction("Disable blocking");
-     connect(proxyEnableAction, SIGNAL(toggled(bool)), this, SLOT(proxySettingChange(bool)));
-     if(true==SettingsController::getInstance()->getValue<bool>("proxy/enable", DEFAULT_PROXY_ENABLE))
+     QAction * blockingEnableAction = contextMenu->addAction("Disable blocking");
+     connect(blockingEnableAction, SIGNAL(toggled(bool)), this, SLOT(blockingSettingChange(bool)));
+     if(true==SettingsController::getInstance()->getValue<bool>("blocking/enable", DEFAULT_BLOCKING_ENABLE))
      {
-        proxyEnableAction->setCheckable(true);
-        proxyEnableAction->setChecked(true);
+        blockingEnableAction->setCheckable(true);
+        blockingEnableAction->setChecked(true);
      }
      else
      {
-         proxyEnableAction->setText("Enable blocking");
-         proxyEnableAction->setCheckable(true);
-         proxyEnableAction->setChecked(false);
+         blockingEnableAction->setText("Enable blocking");
+         blockingEnableAction->setCheckable(true);
+         blockingEnableAction->setChecked(false);
      }
 #endif
 #ifdef Q_OS_LINUX
@@ -199,9 +199,9 @@ void TaskWidget::showContextMenu(const QPoint& pos){
 }
 
 
-void TaskWidget::proxySettingChange(bool enable)
+void TaskWidget::blockingSettingChange(bool enable)
 {
-    SettingsController::getInstance()->setValue("proxy/enable", enable);
+    SettingsController::getInstance()->setValue("blocking/enable", enable);
 }
 
 void TaskWidget::onStartupSettingChange(bool enable)

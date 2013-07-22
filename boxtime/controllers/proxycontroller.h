@@ -6,52 +6,28 @@
 
 namespace settings
 {
-const QStringList DEFAULT_PROXY_BLOCKLIST = QStringList() << "facebook.com" << "9gag.com" << "4chan.org"
-          << "twitter.com" << "pinterest.com" << "tweetdeck.com"
-          << ".facebook.com" << ".9gag.com" << ".4chan.org" << ".twitter.com" << ".pinterest.com" << ".tweetdeck.com"
-          << "collegehumor.com" << ".collegehumor.com" << "reddit.com" << ".reddit.com"
-          << "plus.google.com" << "news.google.com" //<< "mail.google.com"
-          //<< "outlook.com" << ".outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
-          //<< "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com"
-             ;
-
-#ifdef Q_OS_UNIX
-const bool DEFAULT_PROXY_ENABLE = true;
-#endif
-
-#ifdef Q_OS_WIN32
-const bool DEFAULT_PROXY_ENABLE = false;
-#endif
-
-
-const int DEFAULT_PROXY_PORT = 18118;
+    const int DEFAULT_PROXY_PORT = 18118;
 }
 
 class ProxyController: public QObject
 {
-    Q_OBJECT
 public:
-    static ProxyController * getInstance();
+    ProxyController();
     ~ProxyController();
     const QString DEFAULT_PROXY_CONFDIR;
     const QString DEFAULT_PROXY_PROCESS;
+    bool start();
+    bool stop();
+    bool setBlockingList(QStringList blockingList);
+    bool isConfigurationOk();
 
 private:
-    ProxyController();
-    ProxyController(const ProxyController & c): QObject(c.parent()) {}
-    ProxyController & operator=(const ProxyController &) {return *this;}
-
-    void setupBlockingConfiguration();
-
-    QProcess *proxyProcess;
-    void setGsettingsParams(QString schema, QString key, QString value);
-
-private slots:
-    void start();
-    void stop();
     void setDefaultSystemProxy();
     void restoreDefaultSystemProxy();
-    void configValueChanged(const QString & key, const QVariant & newValue);
+    bool createConfigurationFiles();
+
+    QProcess *proxyProcess;
+    void setGsettingsParams(QString schema, QString key, QString value);  
 };
 
 #endif // PROXYCONTROLLER_H

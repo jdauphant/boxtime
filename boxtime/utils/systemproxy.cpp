@@ -63,26 +63,27 @@ bool SystemProxy::isThatPosibleToChangeProxy()
     return QFile().exists("/usr/bin/gsettings");
 #endif
 #ifdef Q_OS_MAC
-    bool result = QFile().exists("/usr/sbin/changelocalproxy");
+    const QString DEFAULT_PROXYCHANGE_EXEC = QString("/usr/sbin/changelocalproxy");
+    const QString DEFAULT_PROXYCHANGE_INSTALLER = QString("clproxy_install.sh");
+    bool result = QFile().exists(DEFAULT_PROXYCHANGE_EXEC);
     if(false==result)
     {
-        if(false==QFile().exists(QCoreApplication::applicationDirPath()+"/clproxy_install.sh"))
+        QString proxychangeInstallerPath = QCoreApplication::applicationDirPath()+"/"+DEFAULT_PROXYCHANGE_INSTALLER;
+        if(false==QFile().exists(proxychangeInstallerPath))
         {
-            qWarning() << QCoreApplication::applicationDirPath () << "/clproxy_install.sh missing";
+            qWarning() << proxychangeInstallerPath << "missing";
             return false;
         }
 
         QProcess changeProxyProcess;
-        changeProxyProcess.start("osascript", QStringList() << "-e" << "do shell script \""+QDir::currentPath()+"/clproxy_install.sh\" with administrator privileges");
-        if(false==changeProxyProcess.waitForFinished())
-        {
+        changeProxyProcess.start("osascript", QStringList() << "-e" << "do shell script \""+proxychangeInstallerPath+"\" with administrator privileges");
+        changeProxyProcess.waitForFinished();
 
-        }
-
-
-        result = QFile().exists("/usr/sbin/changelocalproxy");
+        result = QFile().exists(DEFAULT_PROXYCHANGE_EXEC);
         if(result)
-            qDebug("Service /usr/sbin/changelocalproxy installed.");
+            qDebug() << "Service " << DEFAULT_PROXYCHANGE_EXEC << " installed.";
+        else
+            qDebug() << "Script "<< proxychangeInstallerPath << " fail to install " << DEFAULT_PROXYCHANGE_EXEC;
     }
     return result;
 #endif
