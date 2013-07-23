@@ -9,10 +9,8 @@ div.page
 	height: 100%;
 	min-width: 960px;
 	min-height: 650px;
-	color: white;
 	padding: 0px;
 	margin: Opx;
-	font-family: 'Brawler', serif;
 }
 div.bottom-right
 {
@@ -47,7 +45,14 @@ div.bottom-left
 
 div#main
 {
-	background-color: #00CCFF; 
+	background: url(../img/bg.jpg) repeat;
+	color: #445869;
+	font-family: 'Open Sans', sans-serif;
+}
+
+div#main h1
+{
+	padding-bottom: 20px;
 }
 
 div#page2
