@@ -11,7 +11,7 @@ namespace settings
           << "twitter.com" << "pinterest.com" << "tweetdeck.com"
           << ".facebook.com" << ".9gag.com" << ".4chan.org" << ".twitter.com" << ".pinterest.com" << ".tweetdeck.com"
           << "collegehumor.com" << ".collegehumor.com" << "reddit.com" << "tumblr.com" << ".tumblr.com" <<
-             ".reddit.com"
+             ".reddit.com" << "lemonde.fr" << ".lemonde.fr"
           << "plus.google.com" << "news.google.com" //<< "mail.google.com"
           //<< "outlook.com" << ".outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
           //<< "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com"
