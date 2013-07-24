@@ -60,7 +60,7 @@ void GenericWidget::setVisibleAllDesktops()
 
     WId windowObject = this->winId();
 
-    if(windowObject != NULL)
+    if(NULL != windowObject)
     {
         objc_object * nsviewObject = reinterpret_cast<objc_object *>(windowObject);
         objc_object * nsWindowObject = objc_msgSend(nsviewObject, sel_registerName("window"));

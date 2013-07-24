@@ -52,4 +52,5 @@ unix:!macx {
 macx {
     ICON = logo.icns
     LIBS += -lobjc
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.5
 }
