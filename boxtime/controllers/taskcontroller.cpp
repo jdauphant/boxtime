@@ -16,6 +16,7 @@ void TaskController::checkRecovery()
         QDateTime recoveryTaskStartDateTime = QDateTime::fromTime_t(SettingsController::getInstance()->getValue<int>("current_task/start_time", QDateTime::currentDateTime().toTime_t()));
         currentTask = new Task(recoveryTaskName,recoveryTaskStartDateTime, 0);;
         timer->start(1000);
+        qDebug() << "Task" << currentTask->name << "restore at" << currentTask->timeElapsed << "secondes";
         started(currentTask);
     }
 }
@@ -43,13 +44,13 @@ void TaskController::start(QString taskName)
     SettingsController::getInstance()->setValue("current_task/start_time", currentTask->startDateTime.toTime_t());
 
     timer->start(1000);
-
+    qDebug() << "Task" << taskName << "started.";
     started(currentTask);
 }
 
 void TaskController::timerTimeout()
 {
-    double calculateTime = QDateTime::currentDateTime().toTime_t()-currentTask->startDateTime.toTime_t();
+    int calculateTime = QDateTime::currentDateTime().toTime_t()-currentTask->startDateTime.toTime_t();
     if(calculateTime >= currentTask->timeElapsed)
         currentTask->timeElapsed=calculateTime;
     else
@@ -62,7 +63,8 @@ void TaskController::end()
     timer->stop();
     newTime(0);
     SettingsController::getInstance()->removeValue("current_task/name");
-    SettingsController::getInstance()->removeValue("current_task/start_time");
+    SettingsController::getInstance()->removeValue("current_task/start_time");    
+    qDebug() << "Task" << currentTask->name << "ended after" << currentTask->timeElapsed << "secondes";
     ended(currentTask);
     delete currentTask;
     currentTask = NULL;

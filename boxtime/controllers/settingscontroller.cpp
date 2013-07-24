@@ -95,3 +95,5 @@ template QString SettingsController::getValue<QString>(const QString & key, cons
 template bool SettingsController::getValue<bool>(const QString & key, const QVariant & defaultValue);
 template int SettingsController::getValue<int>(const QString & key, const QVariant & defaultValue);
 template QStringList SettingsController::getValue<QStringList>(const QString & key, const QVariant & defaultValue);
+template char SettingsController::getValue<char>(const QString & key, const QVariant & defaultValue);
+

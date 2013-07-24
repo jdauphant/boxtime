@@ -46,7 +46,7 @@ bool ProxyController::start()
 
     if(QProcess::Running == proxyProcess->state())
     {
-        qDebug() << programName << "started configdir=" << confdir;
+        qDebug() << programName << "started pid:" << proxyProcess->pid() <<"configdir:" << confdir;
         setDefaultSystemProxy();
 
     }
