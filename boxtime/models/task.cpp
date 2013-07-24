@@ -2,7 +2,7 @@
 #include <QFile>
 #include <QTextStream>
 
-Task::Task(QString name, QDateTime startDateTime, double timeElapsed)
+Task::Task(QString name, QDateTime startDateTime, long timeElapsed)
     :name(name),startDateTime(startDateTime),timeElapsed(timeElapsed)
 {
 }

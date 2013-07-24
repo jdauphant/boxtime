@@ -6,7 +6,7 @@
 #include "systemproxy.h"
 #include "taskcontroller.h"
 
-ProxyController::ProxyController():
+ProxyController::ProxyController(): QObject(0),
     DEFAULT_PROXY_CONFDIR(SettingsController::getInstance()->getDataPath()+QString("/privoxy")),
 
 #ifdef Q_OS_MAC
@@ -40,13 +40,15 @@ bool ProxyController::start()
     QString confdir = SettingsController::getInstance()->getValue<QString>("proxy/confdir", DEFAULT_PROXY_CONFDIR);
     QString pidFile = confdir+"/"+programName+".pid";
     QFile().remove(pidFile);
+    connect(proxyProcess,SIGNAL(error(QProcess::ProcessError)),this,SLOT(handleProcessError(QProcess::ProcessError)));
+    connect(proxyProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(handleFinished(int,QProcess::ExitStatus)));
     proxyProcess->start(programName ,
                         QStringList() << "--no-daemon" << "--pidfile" << pidFile << confdir+"/config");
     proxyProcess->waitForStarted();
 
     if(QProcess::Running == proxyProcess->state())
     {
-        qDebug() << programName << "started configdir=" << confdir;
+        qDebug() << programName << "started pid:" << proxyProcess->pid() <<"configdir:" << confdir;
         setDefaultSystemProxy();
 
     }
@@ -63,6 +65,8 @@ bool ProxyController::stop()
 {
     if(QProcess::Running == proxyProcess->state())
     {
+        disconnect(proxyProcess,SIGNAL(error(QProcess::ProcessError)),this,SLOT(handleProcessError(QProcess::ProcessError)));
+        disconnect(proxyProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(handleFinished(int,QProcess::ExitStatus)));
         restoreDefaultSystemProxy();
         proxyProcess->terminate();
         proxyProcess->waitForFinished();
@@ -73,12 +77,16 @@ bool ProxyController::stop()
 
 void ProxyController::setDefaultSystemProxy()
 {
-    SystemProxy::setAndEnableSystemProxy("127.0.0.1", SettingsController::getInstance()->getValue<int>("proxy/port", DEFAULT_PROXY_PORT));
+    int port = SettingsController::getInstance()->getValue<int>("proxy/port", DEFAULT_PROXY_PORT);
+    QString address = "127.0.0.1";
+    SystemProxy::setAndEnableSystemProxy(address, port);
+    qDebug() << "System proxy set to" << address << ":" << port;
 }
 
 void ProxyController::restoreDefaultSystemProxy()
 {
     SystemProxy::disableSystemProxy();
+    qDebug() << "System proxy restore to default";
 }
 
 bool ProxyController::createConfigurationFiles()
@@ -125,6 +133,16 @@ bool ProxyController::createConfigurationFiles()
     return true;
 }
 
+void ProxyController::handleProcessError(QProcess::ProcessError error)
+{
+    qWarning() << "Error with proxy process pid:" << proxyProcess->pid() <<  "error:" << error;
+}
+
+void ProxyController::handleFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    qDebug() << "Proxy Process finished pid:" << proxyProcess->pid() <<  "exitCode:" << exitCode<<  "exitStatus:" << exitStatus;
+    restoreDefaultSystemProxy();
+}
 
 bool ProxyController::setBlockingList(QStringList blockingList)
 {

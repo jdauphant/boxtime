@@ -11,6 +11,7 @@ namespace settings
 
 class ProxyController: public QObject
 {
+    Q_OBJECT
 public:
     ProxyController();
     ~ProxyController();
@@ -22,13 +23,15 @@ public:
     bool isConfigurationOk();
     bool isChangeProxyOk();
 
+private slots:
+    void handleProcessError(QProcess::ProcessError error);
+    void handleFinished( int exitCode, QProcess::ExitStatus exitStatus );
+
 private:
     void setDefaultSystemProxy();
     void restoreDefaultSystemProxy();
     bool createConfigurationFiles();
-
     QProcess *proxyProcess;
-    void setGsettingsParams(QString schema, QString key, QString value);  
 };
 
 #endif // PROXYCONTROLLER_H

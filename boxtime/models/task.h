@@ -6,12 +6,12 @@
 class Task
 {
 public:
-    Task(QString name, QDateTime startDateTime, double timeElapsed);
+    Task(QString name, QDateTime startDateTime, long timeElapsed);
     QString toCSVLine(QChar separator = ';');
 
     QString name;
     QDateTime startDateTime;
-    double timeElapsed;
+    long timeElapsed;
 };
 
 #endif // TASK_H

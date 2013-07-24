@@ -10,7 +10,10 @@ void SystemProxy::setGsettingsParams(QString schema, QString key, QString value)
     QProcess gsettingsProcess;
     gsettingsProcess.start("gsettings",
          QStringList() << "set" << schema << key << value);
-    gsettingsProcess.waitForFinished();
+    if(false == gsettingsProcess.waitForFinished())
+    {
+        qWarning() << "Process gsettings fail pid:" << gsettingsProcess.pid();
+    }
 }
 
 void SystemProxy::setMacOSXChangeProxy(const QStringList params)
@@ -18,7 +21,11 @@ void SystemProxy::setMacOSXChangeProxy(const QStringList params)
     QProcess changeProxyProcess;
     changeProxyProcess.setWorkingDirectory(QCoreApplication::applicationDirPath());
     changeProxyProcess.start("/usr/sbin/changelocalproxy", params);
-    changeProxyProcess.waitForFinished();
+    if(false == changeProxyProcess.waitForFinished())
+    {
+        qWarning() << "Process /usr/sbin/changelocalproxy fail pid:" << changeProxyProcess.pid();
+    }
+
 }
 
 
@@ -78,14 +85,17 @@ bool SystemProxy::isThatPosibleToChangeProxy()
         QProcess changeProxyProcess;
         changeProxyProcess.setWorkingDirectory(QCoreApplication::applicationDirPath());
         changeProxyProcess.start("osascript", QStringList() << "-e" << "do shell script \""+proxychangeInstallerPath+"\" with administrator privileges");
-        changeProxyProcess.waitForFinished();
+        if(false == changeProxyProcess.waitForFinished())
+        {
+            qWarning() << "Process osascript fail pid:" << changeProxyProcess.pid();
+        }
         qDebug() << changeProxyProcess.readAll();
 
         result = QFile().exists(DEFAULT_PROXYCHANGE_EXEC);
         if(result)
             qDebug() << "Service " << DEFAULT_PROXYCHANGE_EXEC << " installed.";
         else
-            qDebug() << "Script "<< proxychangeInstallerPath << " fail to install " << DEFAULT_PROXYCHANGE_EXEC << " workingDirectory" << QCoreApplication::applicationDirPath();
+            qDebug() << "Script "<< proxychangeInstallerPath << " fail to install " << DEFAULT_PROXYCHANGE_EXEC << "workingDirectory:" << QCoreApplication::applicationDirPath();
     }
     return result;
 #endif
