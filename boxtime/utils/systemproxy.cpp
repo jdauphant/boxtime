@@ -12,7 +12,7 @@ void SystemProxy::setGsettingsParams(QString schema, QString key, QString value)
          QStringList() << "set" << schema << key << value);
     if(false == gsettingsProcess.waitForFinished())
     {
-        qWarning() << "Process /usr/sbin/changelocalproxy fail pid:" << changeProxyProcess.pid();
+        qWarning() << "Process gsettings fail pid:" << gsettingsProcess.pid();
     }
 }
 
