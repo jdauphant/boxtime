@@ -9,6 +9,7 @@
 namespace settings
 {
     const QString DEFAULT_EXPORT_CSV_FILE = SettingsController::getDocumentsPath()+QString("/boxtime_history_%s.csv");
+    const char DEFAULT_EXPORT_CSV_SEPARATOR = ',';
 }
 
 class StorageController : public QObject
