@@ -20,7 +20,11 @@ cp -r $WORKING_DIRECTORY/../build-${APPLICATION_NAME}-Desktop-Release/${APPLICAT
 echo "Add proxy service"
 cp $WORKING_DIRECTORY/../changelocalproxy_macos/changelocalproxy $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
 cp $WORKING_DIRECTORY/../changelocalproxy_macos/clproxy_install.sh $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
-cp $WORKING_DIRECTORY/../$PRIVOXY_BUILD_PATH/privoxy*/privoxy $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
+#cp $WORKING_DIRECTORY/../$PRIVOXY_BUILD_PATH/privoxy*/privoxy $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
+cp $WORKING_DIRECTORY/../privoxy_pkg/MacOS/privoxy $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/MacOS/
+mkdir $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/Frameworks
+cp $WORKING_DIRECTORY/../privoxy_pkg/Frameworks/* $WORKING_DIRECTORY/${APPLICATION_NAME}.app/Contents/Frameworks 
+
 
 cd $WORKING_DIRECTORY
 echo "Create DMG"

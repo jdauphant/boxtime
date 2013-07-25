@@ -11,3 +11,5 @@ privoxy_compile
 deb
 release
 boxtime.pro.user*
+polipo_compile
+privoxy_pkg
