@@ -95,6 +95,12 @@
        <kerning>true</kerning>
       </font>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::NoContextMenu</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit { border-radius: 10px; padding-top: 1px;  padding-bottom: 1px;}</string>
      </property>
