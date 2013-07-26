@@ -20,7 +20,8 @@ xar -xf Privoxy*.pkg
 cd pkgContent.pkg
 tar -xvf Payload
 cp usr/local/sbin/privoxy $WORKING_DIRECTORY"/MacOS"
-cp usr/local/lib/*.dylib $WORKING_DIRECTORY"/Frameworks"
+cp usr/local/lib/libpcre.0.dylib $WORKING_DIRECTORY"/Frameworks"
+cp usr/local/lib/libpcreposix.0.dylib $WORKING_DIRECTORY"/Frameworks"
 
 cd $WORKING_DIRECTORY
 
