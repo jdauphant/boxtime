@@ -28,7 +28,7 @@ cp $WORKING_DIRECTORY/../privoxy_pkg/Frameworks/* $WORKING_DIRECTORY/${APPLICATI
 
 cd $WORKING_DIRECTORY
 echo "Create DMG"
-macdeployqt ${APPLICATION_NAME}.app -dmg 
+macdeployqt ${APPLICATION_NAME}.app -dmg -verbose=2 
 
 hdiutil convert -format UDRW -o ${APPLICATION_NAME}-rw.dmg ${APPLICATION_NAME}.dmg
 mkdir $WORKING_DIRECTORY/mnt
