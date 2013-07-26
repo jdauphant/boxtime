@@ -1,0 +1,3 @@
+[submodule "changelocalproxy_macos"]
+	path = changelocalproxy_macos
+	url = git@github.com:jdauphant/changelocalproxy_macos.git
