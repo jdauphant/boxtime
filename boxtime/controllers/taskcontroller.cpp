@@ -15,17 +15,22 @@ void TaskController::checkRecovery()
     {
         QDateTime recoveryTaskStartDateTime = QDateTime::fromTime_t(SettingsController::getInstance()->getValue<int>("current_task/start_time", QDateTime::currentDateTime().toTime_t()));
         int calculateTime = QDateTime::currentDateTime().toTime_t()-recoveryTaskStartDateTime.toTime_t();
-        currentTask = new Task(recoveryTaskName,recoveryTaskStartDateTime, calculateTime);;
+        currentTask = new Task(recoveryTaskName,recoveryTaskStartDateTime, calculateTime);
         timer->start(1000);
         qDebug() << "Task" << currentTask->name << "restore at" << currentTask->timeElapsed << "secondes";
         started(currentTask);
         newTime(currentTask->timeElapsed);
     }
+    else
+    {
+        currentTask = new Task(QString("Unknown task"),QDateTime::currentDateTime(),0,Task::UNKNOWN);
+        timer->start(1000);
+    }
 }
 
 bool TaskController::asCurrentTask()
 {
-    return currentTask != NULL;
+    return currentTask != NULL && currentTask->type==Task::NORMAL;
 }
 
 
@@ -70,7 +75,8 @@ void TaskController::end()
     qDebug() << "Task" << currentTask->name << "ended after" << currentTask->timeElapsed << "secondes";
     ended(currentTask);
     delete currentTask;
-    currentTask = NULL;
+    currentTask = new Task(QString("Unknown task"),QDateTime::currentDateTime(),0,Task::UNKNOWN);
+    timer->start(1000);
 }
 
 

@@ -37,6 +37,7 @@ TaskWidget::TaskWidget(QWidget *parent) :
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
         this, SLOT(showContextMenu(const QPoint&)));
     connect(QApplication::desktop(),SIGNAL(workAreaResized(int)),this,SLOT(restorePositionFromSettings()));
+    ui->taskLineEdit->installEventFilter(this);
 
     initConnectToTaskController();
     StorageController::getInstance();
@@ -74,24 +75,28 @@ void TaskWidget::textValided()
 void TaskWidget::taskStarted(Task * task)
 {
     ui->taskLineEdit->setEnabled(false);
+    ui->taskLineEdit->setMaxLength(65);
     ui->taskLineEdit->setText("<"+task->name+"/>");
     ui->taskLineEdit->setCursor(Qt::OpenHandCursor);
     // boxtime color : 3577B1;
     ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; border-radius: 8px }");
-    ui->taskLineEdit->setMaxLength(65);
     ui->validationButton->setVisible(true);
     ui->timeLabel->setText("");
+    ui->horizontalSpacer->changeSize(0,0);
+    ui->noTaskLabel->setVisible(false);
 }
 
 void TaskWidget::taskEnded()
 {
-    ui->taskLineEdit->setMaxLength(60);
+    ui->taskLineEdit->setMaxLength(50);
     ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; border-radius: 8px }");
     ui->validationButton->setVisible(false);
     ui->taskLineEdit->setText("");
-    ui->timeLabel->setText("00s  ");
+    ui->timeLabel->setText("00s");
+    ui->horizontalSpacer->changeSize(5,0);
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
+    ui->noTaskLabel->setVisible(true);
 }
 
 
@@ -104,8 +109,10 @@ void TaskWidget::newTime(double time)
         timeText = qtime.toString("ss's'");
     else if(time<60*60)
         timeText = qtime.toString("mm'm':ss's'");
-    else
+    else if(time<60*60*24)
         timeText = qtime.toString("HH'h':mm'm'");
+    else
+        timeText = QString::number(qFloor(time/(60*60*24)))+qtime.toString("'d':HH'h'");
     ui->timeLabel->setText(timeText);
 }
 
@@ -133,6 +140,10 @@ void TaskWidget::mouseMoveEvent(QMouseEvent *event)
         SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_y", destination.y());
 
         event->accept();
+    }
+    else
+    {
+        QApplication::setOverrideCursor(Qt::OpenHandCursor);
     }
 }
 
@@ -212,6 +223,25 @@ void TaskWidget::onStartupSettingChange(bool enable)
 void TaskWidget::openLogFile()
 {
     QDesktopServices::openUrl(QUrl("file://"+SettingsController::getInstance()->getValue<QString>("log/file", SettingsController::getInstance()->getDataPath()+DEFAULT_LOGFILE),QUrl::TolerantMode));
+}
+
+bool TaskWidget::eventFilter(QObject *dist, QEvent *event)
+{
+    switch(event->type())
+    {
+    case QEvent::MouseButtonPress:
+        mousePressEvent(static_cast<QMouseEvent*>(event));
+        break;
+    case QEvent::MouseButtonRelease:
+        mouseReleaseEvent(static_cast<QMouseEvent*>(event));
+        break;
+    case QEvent::MouseMove:
+        mouseMoveEvent(static_cast<QMouseEvent*>(event));
+        break;
+    default:
+        break;
+    }
+    return false;
 }
 
 bool TaskWidget::event(QEvent * event)

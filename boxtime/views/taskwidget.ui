@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>732</width>
+    <width>668</width>
     <height>28</height>
    </rect>
   </property>
@@ -55,7 +55,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QWIdget{ margin: 0px; padding:0px}</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -95,20 +95,29 @@
        <kerning>true</kerning>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
      <property name="focusPolicy">
       <enum>Qt::ClickFocus</enum>
      </property>
      <property name="contextMenuPolicy">
       <enum>Qt::NoContextMenu</enum>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="styleSheet">
-      <string notr="true">QLineEdit { border-radius: 10px; padding-top: 1px;  padding-bottom: 1px;}</string>
+      <string notr="true">QLineEdit { border-radius: 10px; padding-top: 0px;  padding-bottom: 0px; margin: 0px}</string>
      </property>
      <property name="inputMask">
       <string/>
      </property>
      <property name="maxLength">
-      <number>60</number>
+      <number>50</number>
      </property>
      <property name="echoMode">
       <enum>QLineEdit::Normal</enum>
@@ -120,7 +129,37 @@
       <bool>false</bool>
      </property>
      <property name="placeholderText">
-      <string>Enter your task and press &quot;enter&quot; to begin.</string>
+      <string>Enter your current task and press &quot;enter&quot; to begin.</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="noTaskLabel">
+     <property name="font">
+      <font>
+       <family>Nexa Bold</family>
+       <pointsize>16</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { color:#1B4971; margin-top: 3px}</string>
+     </property>
+     <property name="text">
+      <string>&lt;no current task/&gt;</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
@@ -153,6 +192,9 @@
      <property name="mouseTracking">
       <bool>false</bool>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel { margin:0px; margin-top: 1px }</string>
+     </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -160,7 +202,7 @@
       <enum>QFrame::Plain</enum>
      </property>
      <property name="text">
-      <string>00s  </string>
+      <string>00s</string>
      </property>
      <property name="textFormat">
       <enum>Qt::PlainText</enum>
@@ -172,6 +214,22 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>5</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QPushButton" name="validationButton">
@@ -209,7 +267,7 @@
      border-radius: 10px;
      border-color: beige;
      font: bold 14px;
-     padding: 2px;
+     padding: 1px;
  }
 QPushButton:hover {
      background-color:  #2f6b9f;

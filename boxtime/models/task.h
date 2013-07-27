@@ -6,12 +6,19 @@
 class Task
 {
 public:
-    Task(QString name, QDateTime startDateTime, long timeElapsed);
+    typedef enum {
+        NORMAL,
+        BREATHER,
+        UNKNOWN
+    } TYPE;
+
+    Task(QString name, QDateTime startDateTime, long timeElapsed, TYPE type = NORMAL);
     QString toCSVLine(QChar separator = ';');
 
     QString name;
     QDateTime startDateTime;
     long timeElapsed;
+    TYPE type;
 };
 
 #endif // TASK_H

@@ -33,6 +33,7 @@ private slots:
     void onStartupSettingChange(bool enable);
     void restorePositionFromSettings();
     void openLogFile();
+    bool eventFilter( QObject *dist, QEvent *event );
 
 private:
     Ui::TaskWidget *ui;

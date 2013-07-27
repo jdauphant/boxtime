@@ -2,8 +2,8 @@
 #include <QFile>
 #include <QTextStream>
 
-Task::Task(QString name, QDateTime startDateTime, long timeElapsed)
-    :name(name),startDateTime(startDateTime),timeElapsed(timeElapsed)
+Task::Task(QString name, QDateTime startDateTime, long timeElapsed, TYPE type)
+    :name(name),startDateTime(startDateTime),timeElapsed(timeElapsed),type(type)
 {
 }
 
