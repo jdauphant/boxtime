@@ -23,12 +23,16 @@ TaskWidget::TaskWidget(QWidget *parent) :
 
 #ifdef Q_OS_MAC
     QFont taskLineEditFont(ui->taskLineEdit->font());
-    taskLineEditFont.setPointSize(18);
+    taskLineEditFont.setPointSize(17);
     ui->taskLineEdit->setFont(taskLineEditFont);
 
     QFont timeLabelFont(ui->timeLabel->font());
-    timeLabelFont.setPointSize(18);
+    timeLabelFont.setPointSize(19);
     ui->timeLabel->setFont(timeLabelFont);
+
+    QFont noTaskLabelFont(ui->noTaskLabel->font());
+    noTaskLabelFont.setPointSize(17);
+    ui->noTaskLabel->setFont(noTaskLabelFont);
 #endif
 
     QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(textValided()));
