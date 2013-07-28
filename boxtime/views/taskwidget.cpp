@@ -18,7 +18,6 @@ TaskWidget::TaskWidget(QWidget *parent) :
 
     ui->validationButton->setVisible(false);
     setVisibleAllDesktops();
-    roundCorners(6);
     ui->taskLineEdit->setAttribute(Qt::WA_MacShowFocusRect, 0);
 
 #ifdef Q_OS_MAC
@@ -42,6 +41,8 @@ TaskWidget::TaskWidget(QWidget *parent) :
         this, SLOT(showContextMenu(const QPoint&)));
     connect(QApplication::desktop(),SIGNAL(workAreaResized(int)),this,SLOT(restorePositionFromSettings()));
     ui->taskLineEdit->installEventFilter(this);
+    this->setFixedWidth(500);
+    roundCorners(6);
 
     initConnectToTaskController();
     StorageController::getInstance();
@@ -88,6 +89,11 @@ void TaskWidget::taskStarted(Task * task)
     ui->timeLabel->setText("");
     ui->horizontalSpacer->changeSize(0,0);
     ui->noTaskLabel->setVisible(false);
+    QFontMetrics fontMetrics(ui->taskLineEdit->font());
+    int newWidth = fontMetrics.width(ui->taskLineEdit->text())+120;
+    qDebug() << "Width set to" << newWidth;
+    this->setFixedWidth(newWidth);
+    roundCorners(6);
 }
 
 void TaskWidget::taskEnded()
@@ -101,6 +107,8 @@ void TaskWidget::taskEnded()
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
     ui->noTaskLabel->setVisible(true);
+    this->setFixedWidth(500);
+    roundCorners(6);
 }
 
 
