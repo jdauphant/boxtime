@@ -135,7 +135,7 @@
       <bool>false</bool>
      </property>
      <property name="placeholderText">
-      <string>Enter your current task here</string>
+      <string>What are you working on?</string>
      </property>
     </widget>
    </item>
@@ -162,7 +162,7 @@
       <string notr="true">QLabel { color:#1B4971; margin-top: 2px; padding: 0px;}</string>
      </property>
      <property name="text">
-      <string>&lt;no current task/&gt;</string>
+      <string>&lt;Working Finished/&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::PlainText</enum>
