@@ -41,7 +41,7 @@ TaskWidget::TaskWidget(QWidget *parent) :
         this, SLOT(showContextMenu(const QPoint&)));
     connect(QApplication::desktop(),SIGNAL(workAreaResized(int)),this,SLOT(restorePositionFromSettings()));
     ui->taskLineEdit->installEventFilter(this);
-    this->setFixedWidth(500);
+    this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASK_WIDGET_WIDTH));
     roundCorners(6);
 
     initConnectToTaskController();
@@ -56,6 +56,8 @@ void TaskWidget::restorePositionFromSettings()
     int y = SettingsController::getInstance()->getValue<int>("taskwidget/"+desktopSizeString+"_y", 0);
     move(x,y);
     qDebug() << "Position restore for resolution" << desktopSizeString << " to x=" << x << " and y=" << y;
+    qDebug() << "Desktop size:" << desktopSizeString << "availablegeometry:" << QApplication::desktop()->availableGeometry()
+             << "isVirtualDesktop:" << QApplication::desktop()->isVirtualDesktop() << "screenNumber" << QApplication::desktop()->screenCount();
 }
 
 void TaskWidget::initConnectToTaskController()
@@ -107,7 +109,7 @@ void TaskWidget::taskEnded()
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
     ui->noTaskLabel->setVisible(true);
-    this->setFixedWidth(500);
+    this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASK_WIDGET_WIDTH));
     roundCorners(6);
 }
 
@@ -139,6 +141,7 @@ void TaskWidget::mousePressEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton) {
         QApplication::setOverrideCursor(Qt::ClosedHandCursor);
         dragPosition = event->globalPos() - frameGeometry().topLeft();
+        asMove = false;
         event->accept();
     }
 }
@@ -146,11 +149,8 @@ void TaskWidget::mouseMoveEvent(QMouseEvent *event)
 {
     if (event->buttons() & Qt::LeftButton) {
         QPoint destination = event->globalPos() - dragPosition;
-        QSize desktopSize = QApplication::desktop()->size();
         move(destination);
-        SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_x", destination.x());
-        SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_y", destination.y());
-
+        asMove = true;
         event->accept();
     }
     else
@@ -163,6 +163,14 @@ void TaskWidget::mouseReleaseEvent(QMouseEvent * event)
 {
     if (event->button() == Qt::LeftButton) {
         QApplication::restoreOverrideCursor();
+        if(asMove==true)
+        {
+            QPoint position = this->pos();
+            QSize desktopSize = QApplication::desktop()->size();
+            SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_x", position.x());
+            SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_y", position.y());
+            qDebug() << "New position save" << position;
+        }
         event->accept();
     }
 }

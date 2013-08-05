@@ -10,6 +10,10 @@ namespace Ui {
 class TaskWidget;
 }
 
+namespace settings {
+    const int DEFAULT_TASK_WIDGET_WIDTH = 600;
+}
+
 class TaskWidget : public GenericWidget
 {
     Q_OBJECT
@@ -47,6 +51,7 @@ protected:
 
 private:
      QPoint dragPosition;
+     bool asMove;
 };
 
 #endif // TASKWIDGET_H
