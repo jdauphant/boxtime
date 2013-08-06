@@ -23,14 +23,14 @@ void TaskController::checkRecovery()
     }
     else
     {
-        currentTask = new Task(QString("Unknown task"),QDateTime::currentDateTime(),0,Task::UNKNOWN);
+        currentTask = new Task(QString("Unknown task"),QDateTime::currentDateTime(),0,task::UNKNOWN);
         timer->start(1000);
     }
 }
 
 bool TaskController::asCurrentTask()
 {
-    return currentTask != NULL && currentTask->type==Task::NORMAL;
+    return currentTask != NULL && currentTask->type()==task::NORMAL;
 }
 
 
@@ -73,9 +73,10 @@ void TaskController::end()
     SettingsController::getInstance()->removeValue("current_task/name");
     SettingsController::getInstance()->removeValue("current_task/start_time");    
     qDebug() << "Task" << currentTask->name << "ended after" << currentTask->timeElapsed << "secondes";
+    currentTask->ended();
     ended(currentTask);
     delete currentTask;
-    currentTask = new Task(QString("Unknown task"),QDateTime::currentDateTime(),0,Task::UNKNOWN);
+    currentTask = new Task(QString("Unknown task"),QDateTime::currentDateTime(),0,task::UNKNOWN);
     timer->start(1000);
 }
 
