@@ -7,12 +7,16 @@
 
 namespace settings
 {
-    const QStringList DEFAULT_BLOCKING_LIST = QStringList() << "facebook.com" << "9gag.com" << "4chan.org"
+    const QStringList DEFAULT_BLOCKING_LIST = QStringList() << "facebook.com"
           << "twitter.com" << "pinterest.com" << "tweetdeck.com"
-          << ".facebook.com" << ".9gag.com" << ".4chan.org" << ".twitter.com" << ".pinterest.com" << ".tweetdeck.com"
-          << "collegehumor.com" << ".collegehumor.com" << "reddit.com" << "tumblr.com" << ".tumblr.com" <<
-             ".reddit.com" << "lemonde.fr" << ".lemonde.fr"
-          << "plus.google.com" << "news.google.com" //<< "mail.google.com"
+          << ".facebook.com"  << ".twitter.com" << ".pinterest.com" << ".tweetdeck.com"
+
+          << "9gag.com" << "4chan.org" << ".9gag.com" << ".4chan.org" << "collegehumor.com" << ".collegehumor.com" << "tumblr.com" << ".tumblr.com"
+
+          << "plus.google.com" << "news.google.com" << "lemonde.fr" << ".lemonde.fr" << "reddit.com" << ".reddit.com" << "rue89.com" << ".rue89.com"
+
+          << "imdb.com" << ".imdb.com" << "imdb.fr" << ".imdb.fr" << "allocine.fr" << ".allocine.fr"
+             //<< "mail.google.com"
           //<< "outlook.com" << ".outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
           //<< "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com"
              ;
