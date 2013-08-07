@@ -37,6 +37,8 @@ private:
 public:
     inline task::Type type(){ return _type; }
     inline task::State state(){ return _state; }
+    inline const char * typeString(){ return task::TypeNames[_type]; }
+    inline const char * stateString(){ return task::StateNames[_state]; }
     inline bool isRestored(){ return restored; }
     inline void ended(){ _state = task::ENDED; endedDateTime= QDateTime::currentDateTime();}
 };
