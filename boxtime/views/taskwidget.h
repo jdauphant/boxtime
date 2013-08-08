@@ -5,6 +5,7 @@
 #include <QTime>
 #include "genericwidget.h"
 #include "task.h"
+#include "movablecharm.h"
 
 namespace Ui {
 class TaskWidget;
@@ -21,8 +22,7 @@ class TaskWidget : public GenericWidget
 public:
     explicit TaskWidget(QWidget *parent = 0);
     ~TaskWidget();
-    void move(int x, int y);
-    void move(const QPoint & qpoint);
+
 
 signals:
     void newTask(QString taskName);
@@ -35,23 +35,13 @@ private slots:
     void showContextMenu(const QPoint& pos);
     void blockingSettingChange(bool enable);
     void onStartupSettingChange(bool enable);
-    void restorePositionFromSettings();
     void openLogFile();
-    bool eventFilter( QObject *dist, QEvent *event );
 
 private:
     Ui::TaskWidget *ui;
     void initConnectToTaskController();
-
-protected:
-     void mouseMoveEvent(QMouseEvent *event);
-     void mousePressEvent(QMouseEvent *event);
-     void mouseReleaseEvent(QMouseEvent *event);
-     bool event(QEvent * event);
-
-private:
-     QPoint dragPosition;
-     bool asMove;
+    bool event(QEvent * event);
+    MovableCharm * movableCharm;
 };
 
 #endif // TASKWIDGET_H

@@ -19,6 +19,7 @@ SOURCES += main.cpp\
     controllers/taskcontroller.cpp \
     views/taskwidget.cpp \
     views/genericwidget.cpp \
+    views/movablecharm.cpp \
     utils/systemproxy.cpp \
     controllers/storagecontroller.cpp \
     utils/startuplaunch.cpp \
@@ -32,6 +33,7 @@ HEADERS  += \
     controllers/taskcontroller.h \
     views/taskwidget.h \
     views/genericwidget.h \
+    views/movablecharm.h \
     utils/systemproxy.h \
     controllers/storagecontroller.h \
     utils/startuplaunch.h \

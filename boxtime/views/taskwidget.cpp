@@ -14,7 +14,6 @@ TaskWidget::TaskWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint );
-    restorePositionFromSettings();
 
     ui->validationButton->setVisible(false);
     setVisibleAllDesktops();
@@ -39,25 +38,15 @@ TaskWidget::TaskWidget(QWidget *parent) :
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)),
         this, SLOT(showContextMenu(const QPoint&)));
-    connect(QApplication::desktop(),SIGNAL(workAreaResized(int)),this,SLOT(restorePositionFromSettings()));
-    ui->taskLineEdit->installEventFilter(this);
+
+    movableCharm = new MovableCharm();
+    movableCharm->activateOn(this);
+
     this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASK_WIDGET_WIDTH));
     roundCorners(6);
 
     initConnectToTaskController();
     StorageController::getInstance();
-}
-
-void TaskWidget::restorePositionFromSettings()
-{
-    QSize desktopSize = QApplication::desktop()->size();
-    QString desktopSizeString = QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height());
-    int x = SettingsController::getInstance()->getValue<int>("taskwidget/"+desktopSizeString+"_x", (QApplication::desktop()->width() / 2) - (width() / 2));
-    int y = SettingsController::getInstance()->getValue<int>("taskwidget/"+desktopSizeString+"_y", 0);
-    move(x,y);
-    qDebug() << "Position restore for resolution" << desktopSizeString << " to x=" << x << " and y=" << y;
-    qDebug() << "Desktop size:" << desktopSizeString << "availablegeometry:" << QApplication::desktop()->availableGeometry()
-             << "isVirtualDesktop:" << QApplication::desktop()->isVirtualDesktop() << "screenNumber" << QApplication::desktop()->screenCount();
 }
 
 void TaskWidget::initConnectToTaskController()
@@ -135,45 +124,6 @@ TaskWidget::~TaskWidget()
     delete ui;
 }
 
-/* drag windows */
-void TaskWidget::mousePressEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton) {
-        QApplication::setOverrideCursor(Qt::ClosedHandCursor);
-        dragPosition = event->globalPos() - frameGeometry().topLeft();
-        asMove = false;
-        event->accept();
-    }
-}
-void TaskWidget::mouseMoveEvent(QMouseEvent *event)
-{
-    if (event->buttons() & Qt::LeftButton) {
-        QPoint destination = event->globalPos() - dragPosition;
-        move(destination);
-        asMove = true;
-        event->accept();
-    }
-    else
-    {
-        QApplication::setOverrideCursor(Qt::OpenHandCursor);
-    }
-}
-
-void TaskWidget::mouseReleaseEvent(QMouseEvent * event)
-{
-    if (event->button() == Qt::LeftButton) {
-        QApplication::restoreOverrideCursor();
-        if(asMove==true)
-        {
-            QPoint position = this->pos();
-            QSize desktopSize = QApplication::desktop()->size();
-            SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_x", position.x());
-            SettingsController::getInstance()->setValue("taskwidget/"+QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height())+"_y", position.y());
-            qDebug() << "New position save" << position;
-        }
-        event->accept();
-    }
-}
 
 void TaskWidget::showContextMenu(const QPoint& pos){
      QPoint globalPos = this->mapToGlobal(pos);
@@ -245,24 +195,6 @@ void TaskWidget::openLogFile()
     QDesktopServices::openUrl(QUrl("file://"+SettingsController::getInstance()->getValue<QString>("log/file", SettingsController::getInstance()->getDataPath()+DEFAULT_LOGFILE),QUrl::TolerantMode));
 }
 
-bool TaskWidget::eventFilter(QObject *dist, QEvent *event)
-{
-    switch(event->type())
-    {
-    case QEvent::MouseButtonPress:
-        mousePressEvent(static_cast<QMouseEvent*>(event));
-        break;
-    case QEvent::MouseButtonRelease:
-        mouseReleaseEvent(static_cast<QMouseEvent*>(event));
-        break;
-    case QEvent::MouseMove:
-        mouseMoveEvent(static_cast<QMouseEvent*>(event));
-        break;
-    default:
-        break;
-    }
-    return false;
-}
 
 bool TaskWidget::event(QEvent * event)
 {
@@ -276,19 +208,4 @@ bool TaskWidget::event(QEvent * event)
     return ret;
 }
 
-void TaskWidget::move(int x, int y)
-{
-    QSize desktopSize = QApplication::desktop()->size();
-    int maxX = desktopSize.width()-width();
-    int maxY = desktopSize.height()-height();
-    if(x<0)  x = 0;
-    else if(x>maxX) x = maxX;
-    if(y<0) y = 0;
-    else if(y>maxY) y = maxY;
-    QWidget::move(x,y);
-}
 
-void TaskWidget::move(const QPoint & qpoint)
-{
-    this->move(qpoint.x(),qpoint.y());
-}
