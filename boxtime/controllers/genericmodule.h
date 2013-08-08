@@ -1,14 +1,14 @@
-#ifndef GENERICMODULECONTROLLER_H
-#define GENERICMODULECONTROLLER_H
+#ifndef GENERICMODULE_H
+#define GENERICMODULE_H
 
 #include <QObject>
 
-class GenericModuleController : public QObject
+class GenericModule : public QObject
 {
     Q_OBJECT
 public:
-    GenericModuleController(QString name, bool defaultEnable, QObject *parent = 0);
-    virtual ~GenericModuleController(){}
+    GenericModule(QString name, bool defaultEnable, QObject *parent = 0);
+    virtual ~GenericModule(){}
     const QString name;
     const bool defaultEnable;
     void checkEnable();
@@ -21,4 +21,4 @@ public slots:
     virtual void unload() =0;
 };
 
-#endif // GENERICMODULECONTROLLER_H
+#endif // GENERICMODULE_H

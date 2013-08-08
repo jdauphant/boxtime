@@ -2,7 +2,7 @@
 #include "taskcontroller.h"
 
 BlockingController::BlockingController() :
-    GenericModuleController("blocking", DEFAULT_BLOCKING_ENABLE)
+    GenericModule("blocking", DEFAULT_BLOCKING_ENABLE)
 {
     checkEnable();
 }
