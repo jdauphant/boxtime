@@ -13,8 +13,6 @@ public:
 
 private:
     static QRegion roundedCorners(const QRect& rect, int r);
-
-
     
 };
 

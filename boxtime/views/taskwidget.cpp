@@ -13,7 +13,7 @@ TaskWidget::TaskWidget(QWidget *parent) :
     ui(new Ui::TaskWidget)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint );
+    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint |  Qt::Tool | Qt::FramelessWindowHint);
 
     ui->validationButton->setVisible(false);
     setVisibleAllDesktops();
@@ -209,3 +209,12 @@ bool TaskWidget::event(QEvent * event)
 }
 
 
+TaskWidget *TaskWidget::getInstance()
+{
+    static TaskWidget * taskWidgetInstance = 0;
+    if(!taskWidgetInstance)
+    {
+        taskWidgetInstance = new TaskWidget();
+    }
+    return taskWidgetInstance;
+}

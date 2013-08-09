@@ -7,6 +7,7 @@
 #include "taskwidget.h"
 #include "taskcontroller.h"
 #include "blockingcontroller.h"
+#include "protipswidget.h"
 
 void fileMessageHandler(QtMsgType type, const char *message)
 {
@@ -55,8 +56,10 @@ int main(int argc, char *argv[])
     }
 
     qDebug("Load GUI");
-    TaskWidget taskWidget;
-    taskWidget.show();
+    TaskWidget * taskWidget = TaskWidget::getInstance();
+    taskWidget->show();
+
+    ProTipsWidget proTipsWidget;
 
     qDebug("Load modules");
     QObject::connect(&qApplication,SIGNAL(lastWindowClosed()),BlockingController::getInstance(),SLOT(unblock()));

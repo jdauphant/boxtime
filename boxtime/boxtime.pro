@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     controllers/storagecontroller.cpp \
     utils/startuplaunch.cpp \
     controllers/blockingcontroller.cpp \
-    controllers/genericmodule.cpp
+    controllers/genericmodule.cpp \
+    views/protipswidget.cpp
 
 HEADERS  += \
     models/task.h \
@@ -38,10 +39,12 @@ HEADERS  += \
     controllers/storagecontroller.h \
     utils/startuplaunch.h \
     controllers/blockingcontroller.h \
-    controllers/genericmodule.h
+    controllers/genericmodule.h \
+    views/protipswidget.h
 
 FORMS    += \
-    views/taskwidget.ui
+    views/taskwidget.ui \
+    views/protipswidget.ui
 
 RESOURCES += \
     ressources.qrc \
@@ -56,3 +59,5 @@ macx {
     LIBS += -lobjc
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.5
 }
+
+OTHER_FILES +=

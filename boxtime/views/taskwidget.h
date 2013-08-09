@@ -20,9 +20,14 @@ class TaskWidget : public GenericWidget
     Q_OBJECT
     
 public:
-    explicit TaskWidget(QWidget *parent = 0);
+    static TaskWidget * getInstance();
     ~TaskWidget();
+    Ui::TaskWidget *ui;
 
+private:
+    explicit TaskWidget(QWidget *parent = 0);
+    TaskWidget(const TaskWidget & c): GenericWidget(c.parentWidget()) {}
+    TaskWidget & operator=(const TaskWidget &) {return *this;}
 
 signals:
     void newTask(QString taskName);
@@ -38,7 +43,6 @@ private slots:
     void openLogFile();
 
 private:
-    Ui::TaskWidget *ui;
     void initConnectToTaskController();
     bool event(QEvent * event);
     MovableCharm * movableCharm;
