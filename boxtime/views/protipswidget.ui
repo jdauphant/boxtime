@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>393</width>
-    <height>156</height>
+    <width>419</width>
+    <height>162</height>
    </rect>
   </property>
   <property name="palette">
@@ -36,7 +36,7 @@
        <color alpha="255">
         <red>31</red>
         <green>31</green>
-        <blue>31</blue>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
@@ -52,45 +52,45 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>7</red>
-        <green>7</green>
-        <blue>7</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>18</red>
-        <green>18</green>
-        <blue>17</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Shadow">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>34</red>
-        <green>34</green>
-        <blue>34</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="AlternateBase">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>30</red>
-        <green>4</green>
-        <blue>4</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="NoRole">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>15</red>
-        <green>8</green>
-        <blue>34</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
@@ -119,7 +119,7 @@
        <color alpha="255">
         <red>31</red>
         <green>31</green>
-        <blue>31</blue>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
@@ -135,45 +135,45 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>7</red>
-        <green>7</green>
-        <blue>7</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>18</red>
-        <green>18</green>
-        <blue>17</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Shadow">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>34</red>
-        <green>34</green>
-        <blue>34</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="AlternateBase">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>30</red>
-        <green>4</green>
-        <blue>4</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="NoRole">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>15</red>
-        <green>8</green>
-        <blue>34</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
@@ -202,7 +202,7 @@
        <color alpha="255">
         <red>31</red>
         <green>31</green>
-        <blue>31</blue>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
@@ -218,45 +218,45 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>18</red>
-        <green>18</green>
-        <blue>17</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>18</red>
-        <green>18</green>
-        <blue>17</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Shadow">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>34</red>
-        <green>34</green>
-        <blue>34</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="AlternateBase">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>30</red>
-        <green>4</green>
-        <blue>4</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="NoRole">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>15</red>
-        <green>8</green>
-        <blue>34</blue>
+        <red>31</red>
+        <green>31</green>
+        <blue>30</blue>
        </color>
       </brush>
      </colorrole>
@@ -299,9 +299,9 @@
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;What are you working on ?&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enter a short task ( ~ 25min to 1 hour max)&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Type &amp;quot;enter&amp;quot; to start the task&lt;/li&gt;
-&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;During your task, social networks and news websites are blocked&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Wrote the task you want to do (max 50 caracters)&lt;/li&gt;
+&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Press enter to start the task&lt;/li&gt;
+&lt;li style=&quot; font-size:12pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;During your task, some social networks and news websites are blocked (the exact list exist somewhere)&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::NoTextInteraction</set>

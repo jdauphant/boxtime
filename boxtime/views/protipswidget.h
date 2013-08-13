@@ -1,8 +1,9 @@
 #ifndef PROTIPSWIDGET_H
 #define PROTIPSWIDGET_H
 
-#include <QWidget>
+#include <QtGui>
 #include "genericwidget.h"
+#include "taskwidget.h"
 
 namespace Ui {
 class ProTipsWidget;
@@ -18,10 +19,13 @@ public:
 
 public slots:
     void show();
+    void putback();
     
 private:
     Ui::ProTipsWidget *ui;
     bool eventFilter(QObject *, QEvent *event );
+    TaskWidget * taskWidget;
+
 };
 
 #endif // PROTIPSWIDGET_H
