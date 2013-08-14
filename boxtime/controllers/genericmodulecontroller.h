@@ -3,12 +3,12 @@
 
 #include <QObject>
 
-class GenericModule : public QObject
+class GenericModuleController : public QObject
 {
     Q_OBJECT
 public:
-    GenericModule(QString name, bool defaultEnable, QObject *parent = 0);
-    virtual ~GenericModule(){}
+    GenericModuleController(QString name, bool defaultEnable, QObject *parent = 0);
+    virtual ~GenericModuleController(){}
     const QString name;
     const bool defaultEnable;
     void checkEnable();

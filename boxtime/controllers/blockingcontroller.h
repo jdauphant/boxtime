@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "proxycontroller.h"
-#include "genericmodule.h"
+#include "genericmodulecontroller.h"
 
 namespace settings
 {
@@ -27,7 +27,7 @@ namespace settings
 
 }
 
-class BlockingController : public GenericModule
+class BlockingController : public GenericModuleController
 {
     Q_OBJECT
 public:
@@ -37,7 +37,7 @@ public:
 
 private:
     BlockingController();
-    BlockingController(const BlockingController & c): GenericModule("blocking", DEFAULT_BLOCKING_ENABLE,c.parent()) {}
+    BlockingController(const BlockingController & c): GenericModuleController("blocking", DEFAULT_BLOCKING_ENABLE,c.parent()) {}
     BlockingController & operator=(const BlockingController &) {return *this;}
     ProxyController * proxyController;
 
