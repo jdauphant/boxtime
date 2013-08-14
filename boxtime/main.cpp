@@ -55,11 +55,12 @@ int main(int argc, char *argv[])
         qDebug() << "Impossible to install font Nexa Bold.otf";
     }
 
-    qDebug("Load GUI");
+    qDebug("Load GUI modules");
     TaskWidget * taskWidget = TaskWidget::getInstance();
-    taskWidget->show();
+    taskWidget->load();
 
     ProTipsWidget proTipsWidget;
+    proTipsWidget.load();
 
     qDebug("Load modules");
     QObject::connect(&qApplication,SIGNAL(lastWindowClosed()),BlockingController::getInstance(),SLOT(unblock()));

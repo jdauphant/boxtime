@@ -9,8 +9,8 @@
 #include <objc/objc-runtime.h>
 #endif
 
-GenericWidget::GenericWidget(QWidget *parent) :
-    QWidget(parent)
+GenericWidget::GenericWidget(QString name, bool defaultEnable, QWidget *parent) :
+    GenericViewModule(name, defaultEnable, parent)
 {
 
 }

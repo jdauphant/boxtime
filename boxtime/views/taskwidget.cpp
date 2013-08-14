@@ -9,7 +9,7 @@
 #include "blockingcontroller.h"
 
 TaskWidget::TaskWidget(QWidget *parent) :
-    GenericWidget(parent),
+    GenericWidget("taskwidget",DEFAULT_TASKWIDGET_ENABLE,parent),
     ui(new Ui::TaskWidget)
 {
     ui->setupUi(this);
@@ -42,21 +42,31 @@ TaskWidget::TaskWidget(QWidget *parent) :
     movableCharm = new MovableCharm();
     movableCharm->activateOn(this);
 
-    this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASK_WIDGET_WIDTH));
+    this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASKWIDGET_WIDTH));
     roundCorners(6);
-
-    initConnectToTaskController();
-    StorageController::getInstance();
 }
 
-void TaskWidget::initConnectToTaskController()
+void TaskWidget::load()
 {
+    StorageController::getInstance();
     TaskController * taskController = TaskController::getInstance();
     connect(this,SIGNAL(newTask(QString)),taskController,SLOT(start(QString)));
     connect(taskController,SIGNAL(newTime(double)),this,SLOT(newTime(double)));
     connect(taskController,SIGNAL(started(Task*)),this,SLOT(taskStarted(Task*)));
     connect(ui->validationButton, SIGNAL(clicked()),taskController,SLOT(end()));
     connect(taskController,SIGNAL(ended(Task*)),this,SLOT(taskEnded()));
+    show();
+}
+
+void TaskWidget::unload()
+{
+    TaskController * taskController = TaskController::getInstance();
+    disconnect(this,SIGNAL(newTask(QString)),taskController,SLOT(start(QString)));
+    disconnect(taskController,SIGNAL(newTime(double)),this,SLOT(newTime(double)));
+    disconnect(taskController,SIGNAL(started(Task*)),this,SLOT(taskStarted(Task*)));
+    disconnect(ui->validationButton, SIGNAL(clicked()),taskController,SLOT(end()));
+    disconnect(taskController,SIGNAL(ended(Task*)),this,SLOT(taskEnded()));
+    hide();
 }
 
 void TaskWidget::textValided()
@@ -98,7 +108,7 @@ void TaskWidget::taskEnded()
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
     ui->noTaskLabel->setVisible(true);
-    this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASK_WIDGET_WIDTH));
+    this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASKWIDGET_WIDTH));
     roundCorners(6);
 }
 

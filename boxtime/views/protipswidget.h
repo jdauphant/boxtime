@@ -9,6 +9,12 @@ namespace Ui {
 class ProTipsWidget;
 }
 
+
+namespace settings
+{
+    const bool DEFAULT_PROTIPS_ENABLE = true;
+}
+
 class ProTipsWidget : public GenericWidget
 {
     Q_OBJECT
@@ -20,6 +26,8 @@ public:
 public slots:
     void show();
     void putback();
+    void load();
+    void unload();
     
 private:
     Ui::ProTipsWidget *ui;

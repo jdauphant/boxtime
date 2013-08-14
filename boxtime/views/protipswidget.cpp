@@ -2,8 +2,10 @@
 #include "ui_protipswidget.h"
 #include "ui_taskwidget.h"
 
+using namespace settings;
+
 ProTipsWidget::ProTipsWidget(QWidget *parent) :
-    GenericWidget(parent),
+    GenericWidget("protips", DEFAULT_PROTIPS_ENABLE,parent),
     ui(new Ui::ProTipsWidget)
 {
     ui->setupUi(this);
@@ -12,9 +14,6 @@ ProTipsWidget::ProTipsWidget(QWidget *parent) :
     roundCorners(30);
     setVisibleAllDesktops();
     taskWidget = TaskWidget::getInstance();
-    taskWidget->ui->taskLineEdit->installEventFilter(this);
-    taskWidget->installEventFilter(this);
-
 }
 
 ProTipsWidget::~ProTipsWidget()
@@ -44,6 +43,19 @@ void ProTipsWidget::putback()
         move(proTipsWidgetPosition);
         qDebug() << "Show protips position=" << proTipsWidgetPosition << "maxY=" << maxY << "desktopAvailableGeometry=" << desktopAvailableGeometry;
     }
+}
+
+void ProTipsWidget::load()
+{
+    taskWidget->ui->taskLineEdit->installEventFilter(this);
+    taskWidget->installEventFilter(this);
+}
+
+void ProTipsWidget::unload()
+{
+    taskWidget->removeEventFilter(this);
+    taskWidget->ui->taskLineEdit->removeEventFilter(this);
+    hide();
 }
 
 bool ProTipsWidget::eventFilter(QObject * sender, QEvent *event)

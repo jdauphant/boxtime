@@ -12,8 +12,11 @@ class TaskWidget;
 }
 
 namespace settings {
-    const int DEFAULT_TASK_WIDGET_WIDTH = 600;
+    const int DEFAULT_TASKWIDGET_WIDTH = 600;
+    const bool DEFAULT_TASKWIDGET_ENABLE = true;
 }
+
+using namespace settings;
 
 class TaskWidget : public GenericWidget
 {
@@ -26,11 +29,15 @@ public:
 
 private:
     explicit TaskWidget(QWidget *parent = 0);
-    TaskWidget(const TaskWidget & c): GenericWidget(c.parentWidget()) {}
+    TaskWidget(const TaskWidget & c): GenericWidget("taskwidget", DEFAULT_TASKWIDGET_ENABLE, c.parentWidget()) {}
     TaskWidget & operator=(const TaskWidget &) {return *this;}
 
 signals:
     void newTask(QString taskName);
+
+public slots:
+    void load();
+    void unload();
 
 private slots:
     void textValided();
@@ -43,7 +50,6 @@ private slots:
     void openLogFile();
 
 private:
-    void initConnectToTaskController();
     bool event(QEvent * event);
     MovableCharm * movableCharm;
 };

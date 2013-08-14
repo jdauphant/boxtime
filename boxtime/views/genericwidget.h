@@ -2,12 +2,13 @@
 #define GENERICWIDGET_H
 
 #include <QWidget>
+#include "genericviewmodule.h"
 
-class GenericWidget : public QWidget
+class GenericWidget : public GenericViewModule
 {
     Q_OBJECT
 public:
-    explicit GenericWidget(QWidget *parent = 0);
+    explicit GenericWidget(QString name, bool defaultEnable, QWidget *parent = 0);
     void roundCorners(int r);
     void setVisibleAllDesktops();
 
