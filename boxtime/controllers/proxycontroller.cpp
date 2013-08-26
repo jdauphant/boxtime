@@ -129,8 +129,39 @@ bool ProxyController::createConfigurationFiles()
         return false;
     }
     actionFile.close();
+    installTemplateFromRessource("blocked", confdir);
+    installTemplateFromRessource("cgi-style.css", confdir);
     qDebug() << "Privoxy config writed";
     return true;
+}
+
+void ProxyController::installTemplateFromRessource(QString templateName, QString confdir)
+{
+    QString templateFilePath = confdir+"/templates/"+templateName;
+    if(true==QFile().exists(templateFilePath))
+    {
+        qDebug() << "Privoxy template already installed" << templateName;
+        return;
+    }
+    QFile templateFile(templateFilePath);
+    if(false==templateFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+    {
+         qWarning() << "Impossible to open template file" << templateFilePath;
+         return;
+    }
+    QTextStream templateFileOut(&templateFile);
+
+    QFile templateResourceFile("://ressources/privoxy/templates/"+templateName);
+    if(false==templateResourceFile.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+         qWarning() << "Impossible to open template ressource file" << "://ressources/privoxy/templates/"+templateName;
+         return;
+    }
+    QTextStream templateFileIn(&templateResourceFile);
+    templateFileOut << templateFileIn.readAll();
+    templateFile.close();
+    templateResourceFile.close();
+    qDebug() << "Privoxy template installed : " << templateName;
 }
 
 void ProxyController::handleProcessError(QProcess::ProcessError error)

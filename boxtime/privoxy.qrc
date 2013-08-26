@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/privoxy/templates">
+    <qresource prefix="/">
         <file>ressources/privoxy/templates/connect-failed</file>
         <file>ressources/privoxy/templates/untrusted</file>
         <file>ressources/privoxy/templates/blocked</file>

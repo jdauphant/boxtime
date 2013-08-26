@@ -31,6 +31,7 @@ private:
     void setDefaultSystemProxy();
     void restoreDefaultSystemProxy();
     bool createConfigurationFiles();
+    void installTemplateFromRessource(QString templateName, QString confdir);
     QProcess *proxyProcess;
 };
 
