@@ -31,6 +31,14 @@ void ProTipsWidget::show()
     }
 }
 
+void ProTipsWidget::hide()
+{
+    if(false==isHidden())
+    {
+         GenericWidget::hide();
+    }
+}
+
 void ProTipsWidget::putback()
 {
     if(false==isHidden())
