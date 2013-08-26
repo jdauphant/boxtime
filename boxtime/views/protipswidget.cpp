@@ -23,9 +23,12 @@ ProTipsWidget::~ProTipsWidget()
 
 void ProTipsWidget::show()
 {
-     GenericWidget::show();
-     setVisibleAllDesktops();
-     putback();
+    if(true==isHidden() || false==isVisible())
+    {
+         GenericWidget::show();
+         setVisibleAllDesktops();
+         putback();
+    }
 }
 
 void ProTipsWidget::putback()
