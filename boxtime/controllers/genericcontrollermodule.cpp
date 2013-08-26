@@ -1,8 +1,8 @@
-#include "genericviewmodule.h"
+#include "genericcontrollermodule.h"
 #include "settingscontroller.h"
 
-GenericViewModule::GenericViewModule(QString name, bool defaultEnable, QWidget *parent) :
-    QWidget(parent), Module(name, defaultEnable)
+GenericControllerModule::GenericControllerModule(QString name, bool defaultEnable, QObject *parent) :
+    QObject(parent), Module(name,defaultEnable)
 {
     SettingsController * settingsController = SettingsController::getInstance();
     connect(settingsController,SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configValueChanged(QString,QVariant)));
