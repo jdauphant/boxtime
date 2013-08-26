@@ -83,7 +83,7 @@ bool ProTipsWidget::eventFilter(QObject * sender, QEvent *event)
             break;
         }
     }
-    else
+    else if(sender==taskWidget->ui->taskLineEdit)
     {
         switch(event->type())
         {
