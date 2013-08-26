@@ -25,6 +25,7 @@ public:
 
 public slots:
     void show();
+    void hide();
     void putback();
     void load();
     void unload();
