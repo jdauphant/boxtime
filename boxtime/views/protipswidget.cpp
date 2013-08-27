@@ -51,7 +51,7 @@ void ProTipsWidget::putback()
         int appHeight = taskWidget->height()+height();
         const QRect desktopAvailableGeometry = QApplication::desktop()->availableGeometry(proTipsWidgetPosition);
         int maxY = desktopAvailableGeometry.height()+desktopAvailableGeometry.y()-appHeight;
-        if(newY > maxY)
+        if(newY > (desktopAvailableGeometry.y()+desktopAvailableGeometry.height())/2)
            newY = proTipsWidgetPosition.y() - height();
 
         proTipsWidgetPosition.setY(newY);
