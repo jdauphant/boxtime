@@ -85,9 +85,9 @@ bool MovableCharm::eventFilter(QObject *dist, QEvent *event)
     return false;
 }
 
-void MovableCharm::move(const QPoint & qpoint, const QPoint & mousePosition)
+void MovableCharm::move(const QPoint & qpoint, const QPoint & cursorPosition)
 {
-    this->move(qpoint.x(),qpoint.y(), mousePosition);
+    this->move(qpoint.x(),qpoint.y(), cursorPosition);
 }
 
 void MovableCharm::activateOn(QWidget *widget)

@@ -17,7 +17,7 @@ protected:
      void mousePressEvent(QMouseEvent *event);
      void mouseReleaseEvent(QMouseEvent *event);
      void move(int x, int y, const QPoint & cursorPosition);
-     void move(const QPoint & qpoint, const QPoint & mousePosition);
+     void move(const QPoint & qpoint, const QPoint & cursorPosition);
 
 public slots:
      void restorePositionFromSettings();
