@@ -12,10 +12,10 @@ namespace settings
           << ".facebook.com"  << ".twitter.com" << ".pinterest.com" << ".tweetdeck.com"
           << "9gag.com" << "4chan.org" << ".9gag.com" << ".4chan.org" << "collegehumor.com" << ".collegehumor.com" << "tumblr.com" << ".tumblr.com"
           << "plus.google.com" << "news.google.com" << "lemonde.fr" << ".lemonde.fr" << "reddit.com" << ".reddit.com" << "rue89.com" << ".rue89.com"
-          << "imdb.com" << ".imdb.com" << "imdb.fr" << ".imdb.fr" << "allocine.fr" << ".allocine.fr"
-             //<< "mail.google.com"
+          << "imdb.com" << ".imdb.com" << "imdb.fr" << ".imdb.fr" << "allocine.fr" << ".allocine.fr" << ".techcrunch.com" << "techcrunch.com"
+          << ".techcrunch.fr" << "techcrunch.fr" << ".frenchweb.fr" << "frenchweb.fr"
           //<< "outlook.com" << ".outlook.com" << "hotmail.com" << "www.hotmail.com" << "mail.live.com"
-          //<< "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com"
+          //<< "mail.google.com" << "hotmail.fr" << "www.hotmail.fr" << "mail.yahoo.com" << ".mail.yahoo.com"
 ;
 #ifdef Q_OS_UNIX
     const bool DEFAULT_BLOCKING_ENABLE = true;
