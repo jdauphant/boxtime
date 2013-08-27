@@ -22,7 +22,7 @@ void MovableCharm::mouseMoveEvent(QMouseEvent *event)
 {
     if (event->buttons() & Qt::LeftButton) {
         QPoint destination = event->globalPos() - dragPosition;
-        move(destination);
+        move(destination, event->globalPos());
         asMove = true;
         event->accept();
     }
@@ -48,15 +48,21 @@ void MovableCharm::mouseReleaseEvent(QMouseEvent * event)
     }
 }
 
-void MovableCharm::move(int x, int y)
+void MovableCharm::move(int x, int y, const QPoint & cursorPosition)
 {
-    QSize desktopSize = QApplication::desktop()->size();
-    int maxX = desktopSize.width()-charmedObject->width();
-    int maxY = desktopSize.height()-charmedObject->height();
-    if(x<0)  x = 0;
+    QDesktopWidget * desktopWidget = QApplication::desktop();
+    QRect desktopAvailableGeometry = desktopWidget->screenGeometry(cursorPosition);
+
+    int minX = desktopAvailableGeometry.x();
+    int minY = desktopAvailableGeometry.y();
+    int maxX = desktopAvailableGeometry.width()+desktopAvailableGeometry.x()-charmedObject->width();
+    int maxY = desktopAvailableGeometry.height()+desktopAvailableGeometry.y()-charmedObject->height();
+
+    if(x<minX) x = minX;
     else if(x>maxX) x = maxX;
-    if(y<0) y = 0;
+    if(y<minY) y = minY;
     else if(y>maxY) y = maxY;
+
     charmedObject->move(x,y);
 }
 
@@ -79,9 +85,9 @@ bool MovableCharm::eventFilter(QObject *dist, QEvent *event)
     return false;
 }
 
-void MovableCharm::move(const QPoint & qpoint)
+void MovableCharm::move(const QPoint & qpoint, const QPoint & mousePosition)
 {
-    this->move(qpoint.x(),qpoint.y());
+    this->move(qpoint.x(),qpoint.y(), mousePosition);
 }
 
 void MovableCharm::activateOn(QWidget *widget)
@@ -104,7 +110,7 @@ void MovableCharm::restorePositionFromSettings()
     QString desktopSizeString = QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height());
     int x = SettingsController::getInstance()->getValue<int>("ui/"+desktopSizeString+"_x", (QApplication::desktop()->width() / 2) - (charmedObject->width() / 2));
     int y = SettingsController::getInstance()->getValue<int>("ui/"+desktopSizeString+"_y", 0);
-    move(x,y);
+    move(x,y,QPoint(x,y));
     qDebug() << "Position restore for resolution" << desktopSizeString << " to x=" << x << " and y=" << y;
     qDebug() << "Desktop size:" << desktopSizeString << "availablegeometry:" << QApplication::desktop()->availableGeometry()
              << "isVirtualDesktop:" << QApplication::desktop()->isVirtualDesktop() << "screenNumber" << QApplication::desktop()->screenCount();
