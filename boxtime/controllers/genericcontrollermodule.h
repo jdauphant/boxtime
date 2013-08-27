@@ -2,9 +2,9 @@
 #define GENERICCONTROLLERMODULE_H
 
 #include <QObject>
-#include "module.h"
+#include "bmodule.h"
 
-class GenericControllerModule : public QObject, public Module
+class GenericControllerModule : public QObject, public  BModule
 {
     Q_OBJECT
 public:
@@ -12,7 +12,7 @@ public:
     virtual ~GenericControllerModule(){}
 
 public slots:
-    void configValueChanged(const QString & key, const QVariant & newValue){ Module::configValueChanged(key,newValue); }
+    void configValueChanged(const QString & key, const QVariant & newValue){  BModule::configValueChanged(key,newValue); }
 };
 
 #endif // GENERICCONTROLLERMODULE_H

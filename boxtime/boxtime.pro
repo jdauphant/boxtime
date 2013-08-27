@@ -26,8 +26,8 @@ SOURCES += main.cpp\
     controllers/blockingcontroller.cpp \
     views/protipswidget.cpp \
     views/genericviewmodule.cpp \
-    module.cpp \
-    controllers/genericcontrollermodule.cpp
+    controllers/genericcontrollermodule.cpp \
+    bmodule.cpp
 
 HEADERS  += \
     models/task.h \
@@ -43,8 +43,8 @@ HEADERS  += \
     controllers/blockingcontroller.h \
     views/protipswidget.h \
     views/genericviewmodule.h \
-    module.h \
-    controllers/genericcontrollermodule.h
+    controllers/genericcontrollermodule.h \
+    bmodule.h
 
 FORMS    += \
     views/taskwidget.ui \

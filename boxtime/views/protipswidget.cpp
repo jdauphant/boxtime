@@ -23,17 +23,17 @@ ProTipsWidget::~ProTipsWidget()
 
 void ProTipsWidget::show()
 {
-    if(true==isHidden() || false==isVisible())
+    if(isHidden())
     {
          GenericWidget::show();
-         setVisibleAllDesktops();
          putback();
+         setVisibleAllDesktops();
     }
 }
 
 void ProTipsWidget::hide()
 {
-    if(false==isHidden())
+    if(isVisible())
     {
          GenericWidget::hide();
     }
@@ -43,8 +43,11 @@ void ProTipsWidget::putback()
 {
     if(false==isHidden())
     {
-        QPoint proTipsWidgetPosition = taskWidget->pos();
-        int newY = proTipsWidgetPosition.y()+taskWidget->height();
+        QPoint taskWidgetPosition = taskWidget->pos();
+
+        QPoint proTipsWidgetPosition = taskWidgetPosition;
+
+        int newY = taskWidgetPosition.y()+taskWidget->height();
         int appHeight = taskWidget->height()+height();
         const QRect desktopAvailableGeometry = QApplication::desktop()->availableGeometry(proTipsWidgetPosition);
         int maxY = desktopAvailableGeometry.height()+desktopAvailableGeometry.y()-appHeight;

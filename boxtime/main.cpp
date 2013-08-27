@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     ProTipsWidget proTipsWidget;
 
     qDebug("Load modules");
-    foreach(Module * module, Module::list())
+    foreach( BModule * module,  BModule::list())
     {
         module->checkEnable();
     }

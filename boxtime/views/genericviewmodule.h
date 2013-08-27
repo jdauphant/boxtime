@@ -2,9 +2,9 @@
 #define GENERICVIEWMODULE_H
 
 #include <QWidget>
-#include "module.h"
+#include "bmodule.h"
 
-class GenericViewModule : public QWidget, public Module
+class GenericViewModule : public QWidget, public  BModule
 {
     Q_OBJECT
 public:
@@ -12,7 +12,7 @@ public:
     virtual ~GenericViewModule(){}
 
 public slots:
-    void configValueChanged(const QString & key, const QVariant & newValue){ Module::configValueChanged(key,newValue); }
+    void configValueChanged(const QString & key, const QVariant & newValue){  BModule::configValueChanged(key,newValue); }
 };
 
 #endif // GENERICVIEWMODULE_H

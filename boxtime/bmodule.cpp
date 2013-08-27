@@ -1,21 +1,21 @@
-#include "module.h"
+#include "bmodule.h"
 #include "settingscontroller.h"
 
-QMap<QString, Module *> Module::moduleList;
+QMap<QString,  BModule *>  BModule::moduleList;
 
-Module::Module(QString name, bool defaultEnable) :
+ BModule:: BModule(QString name, bool defaultEnable) :
                name(name), defaultEnable(defaultEnable)
 {
     add(name,this);
 }
 
-void Module::checkEnable()
+void  BModule::checkEnable()
 {
     if(SettingsController::getInstance()->getValue<bool>(name+"/enable", defaultEnable))
         load();
 }
 
-void Module::configValueChanged(const QString &key, const QVariant &newValue)
+void  BModule::configValueChanged(const QString &key, const QVariant &newValue)
 {
     if(name+"/enable"!=key)
         return;
@@ -32,13 +32,13 @@ void Module::configValueChanged(const QString &key, const QVariant &newValue)
     }
 }
 
-void Module::add(QString name, Module *module)
+void  BModule::add(QString name,  BModule *module)
 {
     moduleList[name] = module;
 }
 
 
-const QMap<QString, Module *> Module::list()
+const QMap<QString,  BModule *>  BModule::list()
 {
     return moduleList;
 }
