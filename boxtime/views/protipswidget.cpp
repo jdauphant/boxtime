@@ -9,7 +9,7 @@ ProTipsWidget::ProTipsWidget(QWidget *parent) :
     ui(new Ui::ProTipsWidget)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint |  Qt::Tool | Qt::FramelessWindowHint);
+    setWindowFlags(Qt::CustomizeWindowHint |  Qt::Tool | Qt::FramelessWindowHint);
 
     roundCorners(30);
     setVisibleAllDesktops();
