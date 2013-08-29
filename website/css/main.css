@@ -79,3 +79,8 @@ img.logo-os
 .spacer {
     margin-top: 10px;
 }
+
+.hidden {
+	visibility: hidden;
+	display: none;
+}
