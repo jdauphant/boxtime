@@ -10,6 +10,7 @@ ProTipsWidget::ProTipsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::CustomizeWindowHint |  Qt::Tool | Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_ShowWithoutActivating);
 
     roundCorners(30);
     setVisibleAllDesktops();

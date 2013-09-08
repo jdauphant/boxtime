@@ -12,11 +12,7 @@ class ProTipsWidget;
 
 namespace settings
 {
-#ifdef Q_OS_MACX
-    const bool DEFAULT_PROTIPS_ENABLE = false;
-#else
     const bool DEFAULT_PROTIPS_ENABLE = true;
-#endif
 }
 
 class ProTipsWidget : public GenericWidget
