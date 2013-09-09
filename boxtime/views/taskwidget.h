@@ -14,6 +14,7 @@ class TaskWidget;
 namespace settings {
     const int DEFAULT_TASKWIDGET_WIDTH = 600;
     const bool DEFAULT_TASKWIDGET_ENABLE = true;
+    const bool DEFAULT_TASKWIDGET_INACTIVITYTIMER = false;
 }
 
 using namespace settings;
@@ -47,6 +48,8 @@ private slots:
     void showContextMenu(const QPoint& pos);
     void blockingSettingChange(bool enable);
     void onStartupSettingChange(bool enable);
+    void inactivityTimerChange(bool enable);
+    void protipsChange(bool enable);
     void openLogFile();
 
 private:

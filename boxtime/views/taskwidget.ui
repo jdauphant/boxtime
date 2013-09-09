@@ -162,7 +162,7 @@
       <string notr="true">QLabel { color:#1B4971; margin-top: 2px; padding: 0px;}</string>
      </property>
      <property name="text">
-      <string>&lt;Working Finished/&gt;</string>
+      <string>&lt;Untracked tasks/&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::PlainText</enum>

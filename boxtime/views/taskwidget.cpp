@@ -7,6 +7,7 @@
 #include "storagecontroller.h"
 #include "settingscontroller.h"
 #include "blockingcontroller.h"
+#include "protipswidget.h"
 
 TaskWidget::TaskWidget(QWidget *parent) :
     GenericWidget("taskwidget",DEFAULT_TASKWIDGET_ENABLE,parent),
@@ -44,6 +45,10 @@ TaskWidget::TaskWidget(QWidget *parent) :
 
     this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASKWIDGET_WIDTH));
     roundCorners(6);
+
+    bool showTimeWhenInactivity = SettingsController::getInstance()->getValue<bool>("taskwidget/inactivityTimer", DEFAULT_TASKWIDGET_INACTIVITYTIMER);
+    if(false == showTimeWhenInactivity)
+        ui->timeLabel->setText("");
 }
 
 void TaskWidget::load()
@@ -103,7 +108,12 @@ void TaskWidget::taskEnded()
     ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:black; border-radius: 8px }");
     ui->validationButton->setVisible(false);
     ui->taskLineEdit->setText("");
-    ui->timeLabel->setText("00s");
+    bool showTimeWhenInactivity = SettingsController::getInstance()->getValue<bool>("taskwidget/inactivityTimer", DEFAULT_TASKWIDGET_INACTIVITYTIMER);
+    if(showTimeWhenInactivity)
+        ui->timeLabel->setText("00s");
+    else
+        ui->timeLabel->setText("");
+
     ui->horizontalSpacer->changeSize(5,0);
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
@@ -116,6 +126,13 @@ void TaskWidget::taskEnded()
 
 void TaskWidget::newTime(double time)
 {
+    bool showTimeWhenInactivity = SettingsController::getInstance()->getValue<bool>("taskwidget/inactivityTimer", DEFAULT_TASKWIDGET_INACTIVITYTIMER);
+    if(false == showTimeWhenInactivity && false == TaskController::getInstance()->asCurrentTask())
+    {
+        ui->timeLabel->setText("");
+        return;
+    }
+
     QTime qtime = QTime(0,0,0,0).addSecs(time);
     QString timeText;
     if(time<60)
@@ -143,35 +160,35 @@ void TaskWidget::showContextMenu(const QPoint& pos){
 
 #ifndef Q_OS_WIN32
      contextMenu->addSeparator();
-     QAction * blockingEnableAction = contextMenu->addAction("Disable blocking");
+     QAction * blockingEnableAction = contextMenu->addAction("Website Blocking");
+     blockingEnableAction->setCheckable(true);
+     blockingEnableAction->setChecked(false);
      connect(blockingEnableAction, SIGNAL(toggled(bool)), this, SLOT(blockingSettingChange(bool)));
-     if(true==SettingsController::getInstance()->getValue<bool>("blocking/enable", DEFAULT_BLOCKING_ENABLE))
-     {
-        blockingEnableAction->setCheckable(true);
+     if(SettingsController::getInstance()->getValue<bool>("blocking/enable", DEFAULT_BLOCKING_ENABLE))
         blockingEnableAction->setChecked(true);
-     }
-     else
-     {
-         blockingEnableAction->setText("Enable blocking");
-         blockingEnableAction->setCheckable(true);
-         blockingEnableAction->setChecked(false);
-     }
+
 #endif
 #ifdef Q_OS_LINUX
-     QAction * onStartupEnableAction = contextMenu->addAction("Disable startup launch");
+     QAction * onStartupEnableAction = contextMenu->addAction("Startup launch");
      connect(onStartupEnableAction, SIGNAL(toggled(bool)), this, SLOT(onStartupSettingChange(bool)));
-     if(true==SettingsController::getInstance()->getValue<bool>("application/onstartup",DEFAULT_STARTUP_LAUNCH))
-     {
-        onStartupEnableAction->setCheckable(true);
-        onStartupEnableAction->setChecked(true);
-     }
-     else
-     {
-         onStartupEnableAction->setText("Enable startup launch");
-         onStartupEnableAction->setCheckable(true);
-         onStartupEnableAction->setChecked(false);
-     }
+     onStartupEnableAction->setCheckable(true);
+     onStartupEnableAction->setChecked(false);
+     if(SettingsController::getInstance()->getValue<bool>("application/onstartup",DEFAULT_STARTUP_LAUNCH))
+         onStartupEnableAction->setChecked(true);
 #endif
+     QAction * inactivityTimerEnableAction = contextMenu->addAction("Inactivity timer");
+     connect(inactivityTimerEnableAction, SIGNAL(toggled(bool)), this, SLOT(inactivityTimerChange(bool)));
+     inactivityTimerEnableAction->setCheckable(true);
+     inactivityTimerEnableAction->setChecked(false);
+     if(SettingsController::getInstance()->getValue<bool>("taskwidget/inactivityTimer", DEFAULT_TASKWIDGET_INACTIVITYTIMER))
+        inactivityTimerEnableAction->setChecked(true);
+
+     QAction * protipsEnableAction = contextMenu->addAction("Protips popup");
+     protipsEnableAction->setCheckable(true);
+     protipsEnableAction->setChecked(false);
+     connect(protipsEnableAction, SIGNAL(toggled(bool)), this, SLOT(protipsChange(bool)));
+     if(SettingsController::getInstance()->getValue<bool>("protips/enable",DEFAULT_PROTIPS_ENABLE))
+        protipsEnableAction->setChecked(true);
 
      QAction * openLogAction = contextMenu->addAction("Open log file");
      connect(openLogAction, SIGNAL(triggered()), this, SLOT(openLogFile()));
@@ -200,11 +217,20 @@ void TaskWidget::onStartupSettingChange(bool enable)
     SettingsController::getInstance()->setValue("application/onstartup", enable);
 }
 
+void TaskWidget::inactivityTimerChange(bool enable)
+{
+    SettingsController::getInstance()->setValue("taskwidget/inactivityTimer", enable);
+}
+
+void TaskWidget::protipsChange(bool enable)
+{
+    SettingsController::getInstance()->setValue("protips/enable", enable);
+}
+
 void TaskWidget::openLogFile()
 {
     QDesktopServices::openUrl(QUrl("file://"+SettingsController::getInstance()->getValue<QString>("log/file", SettingsController::getInstance()->getDataPath()+DEFAULT_LOGFILE),QUrl::TolerantMode));
 }
-
 
 bool TaskWidget::event(QEvent * event)
 {
