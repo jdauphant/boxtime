@@ -12,13 +12,13 @@ ProTipsWidget::ProTipsWidget(QWidget *parent) :
     setWindowFlags(Qt::CustomizeWindowHint |  Qt::Tool | Qt::FramelessWindowHint);
     setAttribute(Qt::WA_ShowWithoutActivating);
 
-    roundCorners(30);
+    roundCorners(20);
     setVisibleAllDesktops();
     taskWidget = TaskWidget::getInstance();
 
 #ifdef Q_OS_MAC
     QFont textBrowserFont(ui->textBrowser->font());
-    textBrowserFont.setPointSize(12);
+    textBrowserFont.setPointSize(13);
     ui->textBrowser->setFont(textBrowserFont);
 #endif
 }
