@@ -15,6 +15,12 @@ ProTipsWidget::ProTipsWidget(QWidget *parent) :
     roundCorners(30);
     setVisibleAllDesktops();
     taskWidget = TaskWidget::getInstance();
+
+#ifdef Q_OS_MAC
+    QFont textBrowserFont(ui->textBrowser->font());
+    textBrowserFont.setPointSize(12);
+    ui->textBrowser->setFont(textBrowserFont);
+#endif
 }
 
 ProTipsWidget::~ProTipsWidget()
