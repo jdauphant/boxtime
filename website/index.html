@@ -8,7 +8,7 @@
   <link href='http://fonts.googleapis.com/css?family=Brawler' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/bootstrap.min.css" media="all" type="text/css">
   <link href="css/main.css" rel="stylesheet" type="text/css">
-<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+<!-- start Mixpanel --><script  data-cfasync="false" type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
 typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
 b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("313b3217320d044eadce6e51a1d72fb0");</script><!-- end Mixpanel -->
@@ -24,21 +24,6 @@ mixpanel.init("313b3217320d044eadce6e51a1d72fb0");</script><!-- end Mixpanel -->
 </script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  if (navigator.appVersion.indexOf("Intel Mac OS X")!=-1){
-    $('#macosx-button').addClass("btn-primary btn-large");
-  }
-  else if (navigator.appVersion.indexOf("Ubuntu")!=-1 && navigator.appVersion.indexOf("x86_64")!=-1)
-  {
-    $('#ubuntu-64bits-button').addClass("btn-primary btn-large");
-  }
-  else
-  {
-    $('#not-supported-message').removeClass("hidden");
-  }
-});
-</script>
 </head>
 
 <body>
@@ -86,13 +71,13 @@ $(document).ready(function() {
 
           <div class="row-fluid">
             <div class="span6 offset3 text-center spacer">
-              <button id="macosx-button" type="submit" class="btn" onclick="mixpanel.track('Download macos');window.location.href='boxtime-0.8.1.dmg';"><img src="img/apple.png" class="logo-os" alt=""> Download boxtime for MacOS</button>
+              <button id="macosx-button" type="submit" class="btn" onclick="mixpanel.track('Download macos');window.location.href='boxtime-0.9.dmg';"><img src="img/apple.png" class="logo-os" alt=""> Download boxtime for MacOS</button>
             </div>
           </div>
 
           <div class="row-fluid">
             <div class="span6 offset3 text-center spacer">
-              <button id="ubuntu-64bits-button" type="submit" class="btn" onclick="mixpanel.track('Download ubuntu');window.location.href='boxtime_0.7_amd64.deb';"><img src="img/ubuntu.png" class="logo-os" alt=""> Download boxtime for Ubuntu 64bits</button>
+              <button id="ubuntu-64bits-button" type="submit" class="btn" onclick="mixpanel.track('Download ubuntu');window.location.href='boxtime_0.9_amd64.deb';"><img src="img/ubuntu.png" class="logo-os" alt=""> Download boxtime for Ubuntu 64bits</button>
             </div>
           </div>
 <!--
@@ -106,6 +91,19 @@ $(document).ready(function() {
       </div>
     </div>
   </div>
+<script  data-cfasync="false" type='text/javascript'>
+  if (navigator.userAgent.indexOf("Intel Mac OS X")!=-1){
+    $('#macosx-button').addClass("btn-primary btn-large");
+  }
+  else if (navigator.userAgent.indexOf("Ubuntu")!=-1 && navigator.userAgent.indexOf("x86_64")!=-1)
+  {
+    $('#ubuntu-64bits-button').addClass("btn-primary btn-large");
+  }
+  else
+  {
+    $('#not-supported-message').removeClass("hidden");
+  }
+</script>
 <!-- begin olark code -->
 <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
 f[z]=function(){
