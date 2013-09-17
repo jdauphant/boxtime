@@ -13,7 +13,6 @@ SettingsController::SettingsController()
     QCoreApplication::setApplicationName(APPLICATION_NAME);
     QCoreApplication::setApplicationVersion(VERSION);
     settings = new QSettings();
-    checkStartupLaunch();
     connect(this, SIGNAL(valueChanged(QString,QVariant)),this, SLOT(settingValueChanged(QString,QVariant)));
 }
 

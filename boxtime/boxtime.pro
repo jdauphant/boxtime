@@ -10,6 +10,7 @@ DEFAULT_SUBDIR = release
 else: debug: {
      DEFAULT_SUBDIR = debug
 }
+DESTDIR = $$PWD/../bin/$$DEFAULT_SUBDIR
 
 QT       += core gui network
 
@@ -18,8 +19,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = boxtime
 TEMPLATE = app
 INCLUDEPATH = controllers views models utils
-
-DESTDIR = $$PWD/../bin/$$DEFAULT_SUBDIR
 
 SOURCES += main.cpp\
     models/task.cpp \
@@ -31,7 +30,6 @@ SOURCES += main.cpp\
     views/movablecharm.cpp \
     utils/systemproxy.cpp \
     controllers/storagecontroller.cpp \
-    utils/startuplaunch.cpp \
     controllers/blockingcontroller.cpp \
     views/protipswidget.cpp \
     views/genericviewmodule.cpp \
@@ -49,7 +47,6 @@ HEADERS  += \
     views/movablecharm.h \
     utils/systemproxy.h \
     controllers/storagecontroller.h \
-    utils/startuplaunch.h \
     controllers/blockingcontroller.h \
     views/protipswidget.h \
     views/genericviewmodule.h \
@@ -65,19 +62,32 @@ RESOURCES += \
     ressources.qrc \
     privoxy.qrc
 
+macx {
+    ICON = logo.icns
+    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.5
+}
+
+## Libs
 unix:!macx {
     LIBS += -lX11
 }
 
 macx {
-    ICON = logo.icns
     LIBS += -lobjc
-    QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.5
 }
 
-LIBS += -L$$PWD/../lib/$$DEFAULT_SUBDIR -lmixpanel-qt
 
-INCLUDEPATH += $$PWD/../mixpanel-qt/src
 DEPENDPATH += $$PWD/../lib/$$DEFAULT_SUBDIR
+
+# Lib mixpanel
+LIBS += -L$$PWD/../lib/$$DEFAULT_SUBDIR -lmixpanel-qt
+INCLUDEPATH += $$PWD/../mixpanel-qt/src $$PWD/../startuplaunch-qt
+
+# Lib startup launch
+LIBS += -lstartuplaunch-qt
+INCLUDEPATH += $$PWD/../startuplaunch-qt
+win32: PRE_TARGETDEPS += $$PWD/../lib/$$DEFAULT_SUBDIR/startuplaunch-qt.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../lib/$$DEFAULT_SUBDIR/libstartuplaunch-qt.a
+
 
 OTHER_FILES +=

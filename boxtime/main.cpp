@@ -55,6 +55,8 @@ int main(int argc, char *argv[])
         qDebug() << "Impossible to install font Nexa Bold.otf";
     }
 
+    SettingsController::getInstance()->checkStartupLaunch();
+
     qDebug("Create modules");
     BlockingController * blockingController = BlockingController::getInstance();
     TaskWidget * taskWidget = TaskWidget::getInstance();
@@ -65,6 +67,7 @@ int main(int argc, char *argv[])
     {
         module->checkEnable();
     }
+
 
     QObject::connect(&qApplication,SIGNAL(lastWindowClosed()),blockingController,SLOT(unblock()));
     TaskController::getInstance()->checkRecovery();

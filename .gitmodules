@@ -4,3 +4,6 @@
 [submodule "mixpanel-qt"]
 	path = mixpanel-qt
 	url = git@github.com:jdauphant/mixpanel-qt.git
+[submodule "startuplaunch-qt"]
+	path = startuplaunch-qt
+	url = git@github.com:jdauphant/startuplaunch-qt.git
