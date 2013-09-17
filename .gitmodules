@@ -1,3 +1,6 @@
 [submodule "changelocalproxy_macos"]
 	path = changelocalproxy_macos
 	url = git@github.com:jdauphant/changelocalproxy_macos.git 
+[submodule "mixpanel-qt"]
+	path = mixpanel-qt
+	url = git@github.com:jdauphant/mixpanel-qt.git
