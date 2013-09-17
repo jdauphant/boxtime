@@ -4,8 +4,10 @@
 #
 #-------------------------------------------------
 
+release: {
 DEFAULT_SUBDIR = release
-debug: {
+}
+else: debug: {
      DEFAULT_SUBDIR = debug
 }
 
