@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     views/protipswidget.cpp \
     views/genericviewmodule.cpp \
     controllers/genericcontrollermodule.cpp \
-    bmodule.cpp
+    bmodule.cpp \
+    controllers/analyticscontroller.cpp
 
 HEADERS  += \
     models/task.h \
@@ -44,7 +45,8 @@ HEADERS  += \
     views/protipswidget.h \
     views/genericviewmodule.h \
     controllers/genericcontrollermodule.h \
-    bmodule.h
+    bmodule.h \
+    controllers/analyticscontroller.h
 
 FORMS    += \
     views/taskwidget.ui \
@@ -63,5 +65,10 @@ macx {
     LIBS += -lobjc
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.5
 }
+
+LIBS += -L$$OUT_PWD/../lib/ -lmixpanel-qt
+
+INCLUDEPATH += $$PWD/../mixpanel-qt/src
+DEPENDPATH += $$PWD/../lib
 
 OTHER_FILES +=
