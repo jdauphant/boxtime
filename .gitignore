@@ -1,8 +1,7 @@
 *.pro.user
-build-boxtime-Desktop-Debug
+build-*
 *.autosave
 *~
-build-boxtime-Desktop-Release
 git
 dmg
 tinyproxy/var

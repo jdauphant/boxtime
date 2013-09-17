@@ -4,6 +4,11 @@
 #
 #-------------------------------------------------
 
+DEFAULT_SUBDIR = release
+debug: {
+     DEFAULT_SUBDIR = debug
+}
+
 QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -11,6 +16,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = boxtime
 TEMPLATE = app
 INCLUDEPATH = controllers views models utils
+
+DESTDIR = $$PWD/../bin/$$DEFAULT_SUBDIR
 
 SOURCES += main.cpp\
     models/task.cpp \
@@ -66,9 +73,9 @@ macx {
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.5
 }
 
-LIBS += -L$$OUT_PWD/../lib/ -lmixpanel-qt
+LIBS += -L$$PWD/../lib/$$DEFAULT_SUBDIR -lmixpanel-qt
 
 INCLUDEPATH += $$PWD/../mixpanel-qt/src
-DEPENDPATH += $$PWD/../lib
+DEPENDPATH += $$PWD/../lib/$$DEFAULT_SUBDIR
 
 OTHER_FILES +=
