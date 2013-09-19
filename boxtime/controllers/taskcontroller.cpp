@@ -16,6 +16,7 @@ void TaskController::checkRecovery()
         QDateTime recoveryTaskStartDateTime = QDateTime::fromTime_t(SettingsController::getInstance()->getValue<int>("current_task/start_time", QDateTime::currentDateTime().toTime_t()));
         int calculateTime = QDateTime::currentDateTime().toTime_t()-recoveryTaskStartDateTime.toTime_t();
         currentTask = new Task(recoveryTaskName,recoveryTaskStartDateTime, calculateTime);
+        currentTask->setRestored();
         timer->start(1000);
         qDebug() << "Task" << currentTask->name << "restore at" << currentTask->timeElapsed << "secondes";
         started(currentTask);
