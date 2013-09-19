@@ -57,7 +57,7 @@ void AnalyticsController::sendEvent(QString name, QVariantMap properties)
 {
     QVariantMap sendedProperties = properties.unite(defaultTrackProperties);
     if(mixpanel.track(name, sendedProperties))
-        qDebug() << "Event" << name << "sended" << sendedProperties;
+        qDebug() << "Event" << name << "sended";
     else
         qWarning() << "Problem to send event";
 }
@@ -65,7 +65,7 @@ void AnalyticsController::sendEvent(QString name, QVariantMap properties)
 void AnalyticsController::updateProfil(QVariantMap properties)
 {
     if(mixpanel.engage(properties))
-        qDebug() << "Profil updated" << properties;
+        qDebug() << "Profil updated";
     else
         qWarning() << "Problem to update profil";
 
