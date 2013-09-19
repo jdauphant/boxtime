@@ -2,7 +2,8 @@
 #include "settingscontroller.h"
 #include "taskcontroller.h"
 #include "taskwidget.h"
-#include <QSysInfo>
+#include <QApplication>
+#include <QDesktopWidget>
 
 AnalyticsController::AnalyticsController(QObject *parent) :
     GenericControllerModule("analytics", DEFAULT_ANALYTICS_ENABLE), mixpanel(DEFAULT_MIXPANEL_TOKEN), firstLaunch(false), launchEventSend(false)
@@ -19,7 +20,6 @@ AnalyticsController::AnalyticsController(QObject *parent) :
     qDebug() << "Analytics unique id" << uniqueId;
     mixpanel.setDistinct_id(uniqueId);
     defaultTrackProperties.insert("OS Family", settings::OS_FAMILY);
-
 }
 
 void AnalyticsController::load()
@@ -31,7 +31,11 @@ void AnalyticsController::load()
     if(firstLaunch)
     {
         sendEvent("First Launch");
-        updateProfil(defaultTrackProperties);
+        QVariantMap properties;
+        properties.insert("OS Family", settings::OS_FAMILY);
+        QSize desktopSize = QApplication::desktop()->size();
+        properties.insert("Resolution", QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height()));
+        updateProfil(properties);
     }
     if(!launchEventSend)
     {
@@ -89,10 +93,13 @@ void AnalyticsController::taskEnded(Task *task)
 
 void AnalyticsController::configurationChanged(const QString &key, const QVariant &newValue)
 {
-    QVariantMap properties;
-    QStringList split = key.split("/");
-    properties.insert(split[1], newValue);
-    updateProfil(properties);
+    if(key.endsWith("enable"))
+    {
+        QVariantMap properties;
+        QStringList split = key.split("/");
+        properties.insert(split[0], newValue);
+        updateProfil(properties);
+    }
 }
 
 void AnalyticsController::applicationClose()
