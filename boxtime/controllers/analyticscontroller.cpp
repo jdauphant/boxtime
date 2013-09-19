@@ -62,9 +62,9 @@ void AnalyticsController::sendEvent(QString name, QVariantMap properties)
         qWarning() << "Problem to send event";
 }
 
-void AnalyticsController::updateProfil(QVariantMap properties)
+void AnalyticsController::updateProfil(QVariantMap properties, QString operation)
 {
-    if(mixpanel.engage(properties))
+    if(mixpanel.engage(properties, operation))
         qDebug() << "Profil updated";
     else
         qWarning() << "Problem to update profil";
@@ -83,12 +83,17 @@ void AnalyticsController::taskStarted(Task *task)
 
 void AnalyticsController::taskEnded(Task *task)
 {
-    QVariantMap properties;
-    properties.insert("Time Elapsed", QVariant::fromValue(task->timeElapsed));
-    properties.insert("Start Date", task->startDateTime);
+    QVariantMap eventProperties;
+    eventProperties.insert("Time Elapsed", QVariant::fromValue(task->timeElapsed));
+    eventProperties.insert("Start Date", task->startDateTime);
     if(task->isRestored())
-        properties.insert("Restored", true);
-    sendEvent("Task Ended",properties);
+        eventProperties.insert("Restored", true);
+    sendEvent("Task Ended", eventProperties);
+
+    QVariantMap profilProperties;
+    profilProperties.insert("Total Task", 1);
+    profilProperties.insert("Total Task Time", QVariant::fromValue(task->timeElapsed));
+    updateProfil(profilProperties, Mixpanel::ADD);
 }
 
 void AnalyticsController::configurationChanged(const QString &key, const QVariant &newValue)
@@ -100,6 +105,7 @@ void AnalyticsController::configurationChanged(const QString &key, const QVarian
         properties.insert(split[0], newValue);
         updateProfil(properties);
     }
+
 }
 
 void AnalyticsController::applicationClose()

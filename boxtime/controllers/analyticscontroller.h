@@ -36,7 +36,7 @@ public slots:
     void load();
     void unload();
     void sendEvent(QString name, QVariantMap properties = QVariantMap());
-    void updateProfil(QVariantMap properties);
+    void updateProfil(QVariantMap properties, QString operation = Mixpanel::SET);
 
 private slots:
     void taskStarted(Task * task);
