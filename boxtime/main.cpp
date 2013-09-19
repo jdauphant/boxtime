@@ -8,6 +8,7 @@
 #include "taskcontroller.h"
 #include "blockingcontroller.h"
 #include "protipswidget.h"
+#include "analyticscontroller.h"
 
 void fileMessageHandler(QtMsgType type, const char *message)
 {
@@ -61,6 +62,7 @@ int main(int argc, char *argv[])
     BlockingController * blockingController = BlockingController::getInstance();
     TaskWidget * taskWidget = TaskWidget::getInstance();
     ProTipsWidget proTipsWidget;
+    AnalyticsController analyticsController;
 
     qDebug("Load modules");
     foreach( BModule * module,  BModule::list())

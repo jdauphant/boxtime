@@ -19,8 +19,21 @@ const QString VERSION = QString("0.9");
 const QString MAINTAINER = QString("Julien DAUPHANT <julien@boxti.me>");
 const QString WEBSITE_HOMEPAGE = QString("http://www.boxti.me");
 const QString DEFAULT_LOGFILE = QString("/logfile.txt");
-
 const bool DEFAULT_STARTUP_LAUNCH = true;
+
+// System informations
+#ifdef Q_OS_LINUX
+const QString OS_FAMILY = QString("linux");
+#elif Q_OS_MACX
+const QString OS_FAMILY = QString("macosx");
+#elif Q_OS_WIN32
+const QString OS_FAMILY = QString("windows");
+#elif Q_OS_FREEBSD
+const QString OS_FAMILY = QString("freebsd");
+#else
+const QString OS_FAMILY = QString("other");
+#endif
+
 }
 
 class SettingsController: public QObject
