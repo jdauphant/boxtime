@@ -280,6 +280,10 @@
      border-color: beige;
      font: bold 14px;
      padding: 1px;
+	color: white;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 3px;
  }
 QPushButton:hover {
      background-color:  #2f6b9f;
@@ -291,11 +295,7 @@ QPushButton:pressed {
  }</string>
      </property>
      <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="../ressources.qrc">
-       <normaloff>:/ressources/apply.png</normaloff>:/ressources/apply.png</iconset>
+      <string>DONE</string>
      </property>
      <property name="iconSize">
       <size>

@@ -96,7 +96,7 @@ void TaskWidget::taskStarted(Task * task)
     ui->horizontalSpacer->changeSize(0,0);
     ui->noTaskLabel->setVisible(false);
     QFontMetrics fontMetrics(ui->taskLineEdit->font());
-    int newWidth = fontMetrics.width(ui->taskLineEdit->text())+120;
+    int newWidth = fontMetrics.width(ui->taskLineEdit->text())+150;
     qDebug() << "Width set to" << newWidth;
     this->setFixedWidth(newWidth);
     roundCorners(6);
