@@ -4,11 +4,11 @@
 #
 #-------------------------------------------------
 
-release: {
-DEFAULT_SUBDIR = release
-}
-else: debug: {
+CONFIG(debug, debug|release) {
      DEFAULT_SUBDIR = debug
+}
+else: {
+     DEFAULT_SUBDIR = release
 }
 DESTDIR = $$PWD/../bin/$$DEFAULT_SUBDIR
 
@@ -79,9 +79,16 @@ macx {
 
 DEPENDPATH += $$PWD/../lib/$$DEFAULT_SUBDIR
 
+macx {
+#mkdir -p $$DESTDIR/$${TARGET}.app/Contents/Frameworks ;
+    QMAKE_POST_LINK += cp $$PWD/../lib/$${DEFAULT_SUBDIR}/*.dylib $$DESTDIR/$${TARGET}.app/Contents/MacOS/
+}
+
+
 # Lib mixpanel
 LIBS += -L$$PWD/../lib/$$DEFAULT_SUBDIR -lmixpanel-qt
 INCLUDEPATH += $$PWD/../mixpanel-qt/src $$PWD/../startuplaunch-qt
+
 
 # Lib startup launch
 LIBS += -lstartuplaunch-qt
