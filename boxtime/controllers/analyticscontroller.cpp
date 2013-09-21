@@ -84,7 +84,7 @@ void AnalyticsController::taskStarted(Task *task)
 void AnalyticsController::taskEnded(Task *task)
 {
     QVariantMap eventProperties;
-    eventProperties.insert("Time Elapsed", QVariant::fromValue(task->timeElapsed));
+    eventProperties.insert("Time Elapsed", QVariant::fromValue((int)task->timeElapsed)); // (int) because mixpanel-qt don't support long if qjson version is 0.7.1
     eventProperties.insert("Start Date", task->startDateTime);
     if(task->isRestored())
         eventProperties.insert("Restored", true);
@@ -92,7 +92,7 @@ void AnalyticsController::taskEnded(Task *task)
 
     QVariantMap profilProperties;
     profilProperties.insert("Total Task", 1);
-    profilProperties.insert("Total Task Time", QVariant::fromValue(task->timeElapsed));
+    profilProperties.insert("Total Task Time", QVariant::fromValue((int)task->timeElapsed)); // (int) because mixpanel-qt don't support long if qjson version is 0.7.1
     updateProfil(profilProperties, Mixpanel::ADD);
 }
 
