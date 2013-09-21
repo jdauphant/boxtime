@@ -14,7 +14,7 @@ QString Task::toCSVLine(QChar separator)
     return name+separator+startDateTime.toString(Qt::ISODate)+separator+QString::number(timeElapsed);
 }
 
-bool Task::setRestored()
+void Task::setRestored()
 {
     restored = true;
 }
