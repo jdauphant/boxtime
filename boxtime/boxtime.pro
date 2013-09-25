@@ -80,8 +80,9 @@ macx {
 DEPENDPATH += $$PWD/../lib/$$DEFAULT_SUBDIR
 
 macx {
-#mkdir -p $$DESTDIR/$${TARGET}.app/Contents/Frameworks ;
-    QMAKE_POST_LINK += cp $$PWD/../lib/$${DEFAULT_SUBDIR}/*.dylib $$DESTDIR/$${TARGET}.app/Contents/MacOS/
+    QMAKE_POST_LINK += mkdir -p $$DESTDIR/$${TARGET}.app/Contents/Frameworks ;
+    QMAKE_POST_LINK += cp $$PWD/../lib/$${DEFAULT_SUBDIR}/*.dylib $$DESTDIR/$${TARGET}.app/Contents/Frameworks/ ;
+    QMAKE_POST_LINK += macdeployqt $$DESTDIR/$${TARGET}.app
 }
 
 

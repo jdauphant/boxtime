@@ -4,6 +4,7 @@ ROOT_DIR="$( cd "$( dirname "$0" )" && pwd )"/../
 APPLICATION_NAME=boxtime
 BUILD_PATH=build/deb
 SECTION=gnome
+BIN_PATH=bin/release
 
 set -x -e
 WORKING_DIRECTORY=$ROOT_DIR/$BUILD_PATH
@@ -12,7 +13,7 @@ echo "Working directory : $WORKING_DIRECTORY"
 echo "Retreive QString variables from sourcecode"
 eval `cat $ROOT_DIR/${APPLICATION_NAME}/controllers/settingscontroller.h | grep "const QString [A-Z_]* =" | sed -e "s/const QString \([A-Z_]*\) = [a-zA-Z0-9]*(\(.*\))/\1=\2/g"`
 
-APPLICATION_BIN="${ROOT_DIR}/bin/release/${APPLICATION_NAME}"
+APPLICATION_BIN="${ROOT_DIR}/${BIN_PATH}/${APPLICATION_NAME}"
 [ -f $APPLICATION_BIN ] || exit
 
 ARCHI=amd64
