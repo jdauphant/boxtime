@@ -5,6 +5,7 @@ APPLICATION_NAME=boxtime
 BUILD_PATH=build/deb
 SECTION=gnome
 BIN_PATH=bin/release
+LIB_PATH=lib/release
 
 set -x -e
 WORKING_DIRECTORY=$ROOT_DIR/$BUILD_PATH
@@ -29,6 +30,12 @@ echo "Copy packages files"
 mkdir -p $ROOT_PKG_PATH/usr/bin
 cp ${APPLICATION_BIN} $ROOT_PKG_PATH/usr/bin
 chmod 555 $ROOT_PKG_PATH/usr/bin/${APPLICATION_NAME}
+
+mkdir -p $ROOT_PKG_PATH/usr/lib
+cp $LIB_PATH/libmixpanel-qt.so $ROOT_PKG_PATH/usr/lib
+chmod 555 $ROOT_PKG_PATH/usr/lib/libmixpanel-qt.so
+ln -s libmixpanel-qt.so $ROOT_PKG_PATH/usr/lib/libmixpanel-qt.so.1
+
 
 mkdir -p $ROOT_PKG_PATH/usr/share/applications
 cat << EOF > $ROOT_PKG_PATH/usr/share/applications/${APPLICATION_NAME}.desktop
