@@ -28,7 +28,6 @@ void AnalyticsController::load()
     connect(TaskController::getInstance(),SIGNAL(ended(Task*)),this,SLOT(taskEnded(Task*)));
     connect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configurationChanged(QString,QVariant)));
 
-
     QVariantMap properties;
     if(firstLaunch)
     {
@@ -39,11 +38,14 @@ void AnalyticsController::load()
         sendEvent("Launch");
 
     properties.insert("Last Launch", QDateTime::currentDateTime());
+    updateProfil(properties);
+
     QSize desktopSize = QApplication::desktop()->size();
+    QVariantMap resolutionProperties;
     QVariantList resolutions;
     resolutions << QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height());
-    properties.insert("Resolution", resolutions);
-    updateProfil(properties, Mixpanel::UNION);
+    resolutionProperties.insert("Resolution", resolutions);
+    updateProfil(resolutionProperties, Mixpanel::UNION);
 }
 
 void AnalyticsController::unload()
