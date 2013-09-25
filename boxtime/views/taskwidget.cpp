@@ -28,10 +28,6 @@ TaskWidget::TaskWidget(QWidget *parent) :
     QFont timeLabelFont(ui->timeLabel->font());
     timeLabelFont.setPointSize(19);
     ui->timeLabel->setFont(timeLabelFont);
-
-    QFont noTaskLabelFont(ui->noTaskLabel->font());
-    noTaskLabelFont.setPointSize(17);
-    ui->noTaskLabel->setFont(noTaskLabelFont);
 #endif
 
     QObject::connect(ui->taskLineEdit, SIGNAL(returnPressed()),this,SLOT(textValided()));
@@ -93,8 +89,6 @@ void TaskWidget::taskStarted(Task * task)
     ui->taskLineEdit->setStyleSheet("QLineEdit { background: white; color:#1B4971; border-radius: 8px }");
     ui->validationButton->setVisible(true);
     ui->timeLabel->setText("");
-    ui->horizontalSpacer->changeSize(0,0);
-    ui->noTaskLabel->setVisible(false);
     QFontMetrics fontMetrics(ui->taskLineEdit->font());
     int newWidth = fontMetrics.width(ui->taskLineEdit->text())+150;
     qDebug() << "Width set to" << newWidth;
@@ -114,10 +108,8 @@ void TaskWidget::taskEnded()
     else
         ui->timeLabel->setText("");
 
-    ui->horizontalSpacer->changeSize(5,0);
     ui->taskLineEdit->setCursor(Qt::IBeamCursor);
     ui->taskLineEdit->setEnabled(true);
-    ui->noTaskLabel->setVisible(true);
     this->setFixedWidth(SettingsController::getInstance()->getValue<int>("taskwidget/width", DEFAULT_TASKWIDGET_WIDTH));
     roundCorners(6);
 }
