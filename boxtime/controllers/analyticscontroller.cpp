@@ -28,22 +28,22 @@ void AnalyticsController::load()
     connect(TaskController::getInstance(),SIGNAL(ended(Task*)),this,SLOT(taskEnded(Task*)));
     connect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configurationChanged(QString,QVariant)));
 
+
+    QVariantMap properties;
     if(firstLaunch)
     {
         sendEvent("First Launch");
-        QVariantMap properties;
         properties.insert("OS Family", settings::OS_FAMILY);
-        QSize desktopSize = QApplication::desktop()->size();
-        properties.insert("Resolution", QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height()));
-        updateProfil(properties);
     }
     if(!launchEventSend)
-    {
         sendEvent("Launch");
-        QVariantMap properties;
-        properties.insert("Last Launch", QDateTime::currentDateTime());
-        updateProfil(properties);
-    }
+
+    properties.insert("Last Launch", QDateTime::currentDateTime());
+    QSize desktopSize = QApplication::desktop()->size();
+    QVariantList resolutions;
+    resolutions << QString::number(desktopSize.width())+"x"+QString::number(desktopSize.height());
+    properties.insert("Resolution", resolutions);
+    updateProfil(properties, Mixpanel::UNION);
 }
 
 void AnalyticsController::unload()
