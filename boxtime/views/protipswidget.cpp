@@ -99,11 +99,11 @@ bool ProTipsWidget::eventFilter(QObject * sender, QEvent *event)
         {
         case QEvent::FocusIn:
             show();
-            return true;
+            return false;
             break;
         case QEvent::FocusOut:
             hide();
-            return true;
+            return false;
             break;
         default:
             break;
