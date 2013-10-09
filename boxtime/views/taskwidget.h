@@ -12,7 +12,7 @@ class TaskWidget;
 }
 
 namespace settings {
-    const int DEFAULT_TASKWIDGET_WIDTH = 300;
+    const int DEFAULT_TASKWIDGET_WIDTH = 315;
     const bool DEFAULT_TASKWIDGET_ENABLE = true;
     const bool DEFAULT_TASKWIDGET_INACTIVITYTIMER = false;
 }

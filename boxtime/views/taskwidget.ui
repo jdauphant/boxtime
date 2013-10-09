@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>299</width>
+    <width>315</width>
     <height>28</height>
    </rect>
   </property>
@@ -229,9 +229,6 @@
      font: bold 14px;
      padding: 1px;
 	color: white;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 3px;
  }
 QPushButton:hover {
      background-color:  #2f6b9f;
@@ -243,7 +240,11 @@ QPushButton:pressed {
  }</string>
      </property>
      <property name="text">
-      <string>DONE</string>
+      <string extracomment="DONE"/>
+     </property>
+     <property name="icon">
+      <iconset resource="../ressources.qrc">
+       <normaloff>:/ressources/apply.png</normaloff>:/ressources/apply.png</iconset>
      </property>
      <property name="iconSize">
       <size>

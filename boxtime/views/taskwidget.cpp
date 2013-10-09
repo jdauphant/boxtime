@@ -90,7 +90,7 @@ void TaskWidget::taskStarted(Task * task)
     ui->validationButton->setVisible(true);
     ui->timeLabel->setText("");
     QFontMetrics fontMetrics(ui->taskLineEdit->font());
-    int newWidth = fontMetrics.width(ui->taskLineEdit->text())+150;
+    int newWidth = fontMetrics.width(ui->taskLineEdit->text())+90;
     qDebug() << "Width set to" << newWidth;
     this->setFixedWidth(newWidth);
     roundCorners(6);
