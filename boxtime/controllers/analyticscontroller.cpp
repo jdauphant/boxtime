@@ -27,6 +27,7 @@ void AnalyticsController::load()
     connect(TaskController::getInstance(),SIGNAL(started(Task*)),this,SLOT(taskStarted(Task*)));
     connect(TaskController::getInstance(),SIGNAL(ended(Task*)),this,SLOT(taskEnded(Task*)));
     connect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configurationChanged(QString,QVariant)));
+    connect(QApplication::instance(),SIGNAL(lastWindowClosed()),this,SLOT(applicationClose()));
 
     QVariantMap properties;
     if(firstLaunch)
@@ -53,6 +54,7 @@ void AnalyticsController::unload()
     disconnect(TaskController::getInstance(),SIGNAL(started(Task*)),this,SLOT(taskStarted(Task*)));
     disconnect(TaskController::getInstance(),SIGNAL(ended(Task*)),this,SLOT(taskEnded(Task*)));
     disconnect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configurationChanged(QString,QVariant)));
+    disconnect(QApplication::instance(),SIGNAL(lastWindowClosed()),this,SLOT(applicationClose()));
 }
 
 void AnalyticsController::sendEvent(QString name, QVariantMap properties)
@@ -107,10 +109,12 @@ void AnalyticsController::configurationChanged(const QString &key, const QVarian
         properties.insert(split[0], newValue);
         updateProfil(properties);
     }
-
 }
 
 void AnalyticsController::applicationClose()
 {
     sendEvent("Close");
+    QEventLoop loop;
+    connect(&mixpanel, SIGNAL(sended()), &loop, SLOT(quit()));
+    loop.exec();
 }

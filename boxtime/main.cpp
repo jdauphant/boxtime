@@ -70,8 +70,6 @@ int main(int argc, char *argv[])
         module->checkEnable();
     }
 
-
-    QObject::connect(&qApplication,SIGNAL(lastWindowClosed()),blockingController,SLOT(unblock()));
     TaskController::getInstance()->checkRecovery();
     return qApplication.exec();
 }

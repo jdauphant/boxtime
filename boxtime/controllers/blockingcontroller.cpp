@@ -1,5 +1,6 @@
 #include "blockingcontroller.h"
 #include "taskcontroller.h"
+#include <QApplication>
 
 BlockingController::BlockingController() :
     GenericControllerModule("blocking", DEFAULT_BLOCKING_ENABLE)
@@ -24,6 +25,7 @@ void BlockingController::load()
     TaskController * taskController = TaskController::getInstance();
     connect(taskController,SIGNAL(started(Task *)),this,SLOT(block()));
     connect(taskController,SIGNAL(ended(Task *)),this,SLOT(unblock()));
+    connect(QApplication::instance(),SIGNAL(lastWindowClosed()),this,SLOT(unblock()));
     if(false==proxyController->isChangeProxyOk())
     {
         qWarning("Disable blocking");
@@ -40,6 +42,7 @@ void BlockingController::unload()
     TaskController * taskController = TaskController::getInstance();
     disconnect(taskController,SIGNAL(started(Task *)),this,SLOT(block()));
     disconnect(taskController,SIGNAL(ended(Task *)),this,SLOT(unblock()));
+    disconnect(QApplication::instance(),SIGNAL(lastWindowClosed()),this,SLOT(unblock()));
     if(isActive())
         unblock();
 
