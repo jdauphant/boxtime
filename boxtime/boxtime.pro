@@ -82,7 +82,9 @@ DEPENDPATH += $$PWD/../lib/$$DEFAULT_SUBDIR
 macx {
     QMAKE_POST_LINK += mkdir -p $$DESTDIR/$${TARGET}.app/Contents/Frameworks ;
     QMAKE_POST_LINK += cp $$PWD/../lib/$${DEFAULT_SUBDIR}/*.dylib $$DESTDIR/$${TARGET}.app/Contents/Frameworks/ ;
-    QMAKE_POST_LINK += macdeployqt $$DESTDIR/$${TARGET}.app
+    QMAKE_POST_LINK += macdeployqt $$DESTDIR/$${TARGET}.app ;
+    QMAKE_POST_LINK += cp $$PWD/../changelocalproxy_macos/clproxy_install.sh $$PWD/../changelocalproxy_macos/changelocalproxy $$DESTDIR/$${TARGET}.app/Contents/MacOS ;
+    QMAKE_POST_LINK += cp $$PWD/../build/privoxy_pkg/MacOS/privoxy $$DESTDIR/$${TARGET}.app/Contents/MacOS ;
 }
 
 
