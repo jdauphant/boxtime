@@ -159,8 +159,6 @@ void TaskWidget::showContextMenu(const QPoint& pos){
      if(SettingsController::getInstance()->getValue<bool>("blocking/enable", DEFAULT_BLOCKING_ENABLE))
         blockingEnableAction->setChecked(true);
 
-#endif
-#ifdef Q_OS_LINUX
      QAction * onStartupEnableAction = contextMenu->addAction("Startup launch");
      connect(onStartupEnableAction, SIGNAL(toggled(bool)), this, SLOT(onStartupSettingChange(bool)));
      onStartupEnableAction->setCheckable(true);
