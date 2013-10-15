@@ -5,6 +5,7 @@
 BlockingController::BlockingController() :
     GenericControllerModule("blocking", DEFAULT_BLOCKING_ENABLE)
 {
+    proxyController = NULL;
 }
 
 BlockingController * BlockingController::getInstance()
@@ -19,8 +20,11 @@ BlockingController * BlockingController::getInstance()
 
 void BlockingController::load()
 {
-    proxyController = new ProxyController();
-    proxyController->setBlockingList(SettingsController::getInstance()->getValue<QStringList>("proxy/blocklist", DEFAULT_BLOCKING_LIST));
+    if(proxyController==NULL)
+    {
+        proxyController = new ProxyController();
+        proxyController->setBlockingList(SettingsController::getInstance()->getValue<QStringList>("proxy/blocklist", DEFAULT_BLOCKING_LIST));
+    }
 
     TaskController * taskController = TaskController::getInstance();
     connect(taskController,SIGNAL(started(Task *)),this,SLOT(block()));
@@ -45,13 +49,11 @@ void BlockingController::unload()
     disconnect(QApplication::instance(),SIGNAL(lastWindowClosed()),this,SLOT(unblock()));
     if(isActive())
         unblock();
-
-    delete proxyController;
 }
 
 bool BlockingController::isActive()
 {
-    return true;
+    return proxyController!=NULL && proxyController->isActive();
 }
 
 void BlockingController::block()

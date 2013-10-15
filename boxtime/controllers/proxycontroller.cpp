@@ -19,11 +19,9 @@ ProxyController::ProxyController(): QObject(0),
     DEFAULT_PROXY_PROCESS(QString(""))
 #endif
 {
-    proxyProcess = new QProcess(this);
     createConfigurationFiles();
+    proxyProcess = new QProcess(this);
 }
-
-
 
 ProxyController::~ProxyController()
 {
@@ -42,15 +40,14 @@ bool ProxyController::start()
     QFile().remove(pidFile);
     connect(proxyProcess,SIGNAL(error(QProcess::ProcessError)),this,SLOT(handleProcessError(QProcess::ProcessError)));
     connect(proxyProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(handleFinished(int,QProcess::ExitStatus)));
-    proxyProcess->start(programName ,
-                        QStringList() << "--no-daemon" << "--pidfile" << pidFile << confdir+"/config");
+    proxyProcess->start(programName, QStringList() << "--no-daemon" << "--pidfile" << pidFile << confdir+"/config");
     proxyProcess->waitForStarted();
 
     if(QProcess::Running == proxyProcess->state())
     {
         qDebug() << programName << "started pid:" << proxyProcess->pid() <<"configdir:" << confdir;
         setDefaultSystemProxy();
-
+        active = true;
     }
     else
     {
@@ -63,13 +60,14 @@ bool ProxyController::start()
 
 bool ProxyController::stop()
 {
-    if(QProcess::Running == proxyProcess->state())
+    if(active)
     {
         disconnect(proxyProcess,SIGNAL(error(QProcess::ProcessError)),this,SLOT(handleProcessError(QProcess::ProcessError)));
         disconnect(proxyProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(handleFinished(int,QProcess::ExitStatus)));
         restoreDefaultSystemProxy();
         proxyProcess->terminate();
         proxyProcess->waitForFinished();
+        active = false;
         qDebug() << SettingsController::getInstance()->getValue<QString>("proxy/process", DEFAULT_PROXY_PROCESS) << "proxy stopped";
     }
     return true;
@@ -173,6 +171,7 @@ void ProxyController::handleFinished(int exitCode, QProcess::ExitStatus exitStat
 {
     qDebug() << "Proxy Process finished pid:" << proxyProcess->pid() <<  "exitCode:" << exitCode<<  "exitStatus:" << exitStatus;
     restoreDefaultSystemProxy();
+    active=false;
 }
 
 bool ProxyController::setBlockingList(QStringList blockingList)
@@ -219,5 +218,10 @@ bool ProxyController::isChangeProxyOk()
         qDebug("Proxy setup unvailable");
     }
     return result;
+}
+
+bool ProxyController::isActive()
+{
+    return active;
 }
 

@@ -22,6 +22,7 @@ public:
     bool setBlockingList(QStringList blockingList);
     bool isConfigurationOk();
     bool isChangeProxyOk();
+    bool isActive();
 
 private slots:
     void handleProcessError(QProcess::ProcessError error);
@@ -33,6 +34,7 @@ private:
     bool createConfigurationFiles();
     void installTemplateFromRessource(QString templateName, QString confdir);
     QProcess *proxyProcess;
+    bool active = false;
 };
 
 #endif // PROXYCONTROLLER_H
