@@ -34,7 +34,7 @@ private:
     bool createConfigurationFiles();
     void installTemplateFromRessource(QString templateName, QString confdir);
     QProcess *proxyProcess;
-    bool active = false;
+    bool active;
 };
 
 #endif // PROXYCONTROLLER_H

@@ -18,6 +18,7 @@ ProxyController::ProxyController(): QObject(0),
 #ifdef Q_OS_WIN32
     DEFAULT_PROXY_PROCESS(QString(""))
 #endif
+    ,active(false)
 {
     createConfigurationFiles();
     proxyProcess = new QProcess(this);
