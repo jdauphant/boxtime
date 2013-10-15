@@ -20,7 +20,7 @@ void  BModule::configValueChanged(const QString &key, const QVariant &newValue)
     if(name+"/enable"!=key)
         return;
 
-    if(false==newValue)
+    if(true==newValue)
     {
         load();
         qDebug() << "Module"<< name << "loaded";
