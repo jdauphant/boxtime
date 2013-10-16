@@ -51,18 +51,23 @@ void ProTipsWidget::putback()
     if(false==isHidden())
     {
         QPoint taskWidgetPosition = taskWidget->pos();
+        QDesktopWidget * desktopWidget = QApplication::desktop();
+        const QRect desktopAvailableGeometry = desktopWidget->screenGeometry(taskWidgetPosition);
 
-        QPoint proTipsWidgetPosition = taskWidgetPosition;
+        int appHeight = taskWidget->height()+height();
+
+        int newX = taskWidgetPosition.x()+taskWidget->width()/2-this->width()/2;
+        int minX = desktopAvailableGeometry.x();
+        int maxX = desktopAvailableGeometry.width()+desktopAvailableGeometry.x()-this->width();
+        if(newX<minX) newX = minX;
+        else if(newX>maxX) newX = maxX;
 
         int newY = taskWidgetPosition.y()+taskWidget->height();
-        int appHeight = taskWidget->height()+height();
-        const QRect desktopAvailableGeometry = QApplication::desktop()->availableGeometry(proTipsWidgetPosition);
         int maxY = desktopAvailableGeometry.height()+desktopAvailableGeometry.y()-appHeight;
         if(newY > (desktopAvailableGeometry.y()+desktopAvailableGeometry.height())/2)
-           newY = proTipsWidgetPosition.y() - height();
+           newY = taskWidgetPosition.y() - height();
 
-        proTipsWidgetPosition.setY(newY);
-        move(proTipsWidgetPosition);
+        move(newX, newY);
         qDebug() << "Show protips position=" << proTipsWidgetPosition << "maxY=" << maxY << "desktopAvailableGeometry=" << desktopAvailableGeometry;
     }
 }
