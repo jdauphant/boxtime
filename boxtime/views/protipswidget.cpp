@@ -68,7 +68,7 @@ void ProTipsWidget::putback()
            newY = taskWidgetPosition.y() - height();
 
         move(newX, newY);
-        qDebug() << "Show protips position=" << proTipsWidgetPosition << "maxY=" << maxY << "desktopAvailableGeometry=" << desktopAvailableGeometry;
+        qDebug() << "Show protips position=" << newX << "x"<< newY << "maxY=" << maxY << "desktopAvailableGeometry=" << desktopAvailableGeometry;
     }
 }
 
