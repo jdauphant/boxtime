@@ -2,6 +2,7 @@
 #define PROXYCONTROLLER_H
 
 #include <QtCore>
+#include <QtNetwork>
 #include <settingscontroller.h>
 
 namespace settings
@@ -35,6 +36,13 @@ private:
     void installTemplateFromRessource(QString templateName, QString confdir);
     QProcess *proxyProcess;
     bool active;
+    QString getPidFile();
+    QString getConfDir();
+    QString getProgramPath();
+    int getPort();
+    QNetworkProxy getCurrentSystemProxy();
+
+
 };
 
 #endif // PROXYCONTROLLER_H
