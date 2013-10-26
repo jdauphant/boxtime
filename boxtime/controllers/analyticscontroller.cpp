@@ -27,7 +27,7 @@ void AnalyticsController::load()
     connect(TaskController::getInstance(),SIGNAL(started(Task*)),this,SLOT(taskStarted(Task*)));
     connect(TaskController::getInstance(),SIGNAL(ended(Task*)),this,SLOT(taskEnded(Task*)));
     connect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configurationChanged(QString,QVariant)));
-    connect(QApplication::instance(),SIGNAL(lastWindowClosed()),this,SLOT(applicationClose()));
+    connect(qApp,SIGNAL(lastWindowClosed()),this,SLOT(applicationClose()));
 
     QVariantMap properties;
     if(firstLaunch)
@@ -54,7 +54,7 @@ void AnalyticsController::unload()
     disconnect(TaskController::getInstance(),SIGNAL(started(Task*)),this,SLOT(taskStarted(Task*)));
     disconnect(TaskController::getInstance(),SIGNAL(ended(Task*)),this,SLOT(taskEnded(Task*)));
     disconnect(SettingsController::getInstance(),SIGNAL(valueChanged(QString,QVariant)),this,SLOT(configurationChanged(QString,QVariant)));
-    disconnect(QApplication::instance(),SIGNAL(lastWindowClosed()),this,SLOT(applicationClose()));
+    disconnect(qApp,SIGNAL(lastWindowClosed()),this,SLOT(applicationClose()));
 }
 
 void AnalyticsController::sendEvent(QString name, QVariantMap properties)
@@ -117,4 +117,6 @@ void AnalyticsController::applicationClose()
     QEventLoop loop;
     connect(&mixpanel, SIGNAL(sended()), &loop, SLOT(quit()));
     loop.exec();
+
+    qApp->quit(); // it's a bad patch, the QEventLoop apparently block the call to quit()
 }
